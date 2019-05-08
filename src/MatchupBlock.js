@@ -5,10 +5,18 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import 'typeface-roboto';
+import RunComparison from './RunComparison.js'
+import Checkmark from './resources/checkmark.svg'
 
 const styles = {
   card: {
     width: '40%',
+  },
+  card__content: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   bullet: {
     display: 'inline-block',
@@ -27,22 +35,32 @@ const styles = {
     justifyContent: 'space-evenly',
     alignItems: 'center'
   },
+  card__winner: {
+    width: '40%',
+    border: '2px solid #00d064',
+    boxSizing: 'border-box'
+  }
 };
 
 const MatchupBlock = (props) => {
+
   console.log(props,'props')
+  let comparisonResult = RunComparison(props.homeData, props.awayData)
+
   const {classes} = props
   let homeBlock = (
-    <Card className={classes.card}>
-      <CardContent>
-        {props.gameData.teams.home.team.name}
+    <Card className={(comparisonResult === 'HOME') ? (classes.card__winner) : (classes.card)}>
+      <CardContent className={classes.card__content}>
+        {comparisonResult === 'HOME' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        {props.homeData.name}
       </CardContent>
     </Card>
   )
   let awayBlock = (
-    <Card className={classes.card}>
-      <CardContent>
-        {props.gameData.teams.away.team.name}
+    <Card className={(comparisonResult === 'AWAY') ? (classes.card__winner) : (classes.card)}>
+      <CardContent className={classes.card__content}>
+        {comparisonResult === 'AWAY' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        {props.awayData.name}
       </CardContent>
     </Card>
   )
