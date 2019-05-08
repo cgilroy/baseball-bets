@@ -1,0 +1,25 @@
+Metrics to look at
+
+win%
+start pitch era (>25innings)
+runs
+runs allow
+hits
+hits allow
+batting avg
+obp
+slg%
+OPS%
+HR
+stolen bases
+team era
+team whip
+ks/9
+hr allowed
+fld%
+batting avg against
+day/night record
+home rec of home vs away of away
+L10
+
+home to win by 13 categories
