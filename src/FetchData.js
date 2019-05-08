@@ -8,7 +8,7 @@ function FetchData(callback) {
 
   var fetches = []
   const urls = [
-    'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1',
+    'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&hydrate=probablePitcher(note)',
     'https://statsapi.mlb.com/api/v1/teams/stats?season=2019&stats=season&group=pitching&sportIds=1',
     'https://statsapi.mlb.com/api/v1/teams/stats?season=2019&stats=season&group=hitting&sportIds=1',
     'https://statsapi.mlb.com/api/v1/teams/stats?season=2019&stats=season&group=fielding&sportIds=1'
