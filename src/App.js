@@ -44,7 +44,9 @@ function App() {
       <header className="App-header">
 
       </header>
-      {matchupBlocks}
+      <div style={{padding: '15px'}}>
+        {matchupBlocks}
+      </div>
     </div>
   );
 }
