@@ -1,7 +1,6 @@
 import React from 'react'
 import MatchupBlock from './MatchupBlock.js'
 function FetchData(callback) {
-  let scheduleData = ''
   let pitchingData = ''
   let hittingData = ''
   let fieldingData = ''
@@ -22,7 +21,32 @@ function FetchData(callback) {
         return {dataType:'schedule',data: data.dates['0']}
       }
     })
-  )).then(dataObj => callback(dataObj))
+  )).then(dataObj => {
+    let scheduleData = dataObj.find(obj => obj.dataType === "schedule")
+    let pitcherUrls = []
+    scheduleData.data.games.map(game => {
+      if (game.teams.home.probablePitcher && game.teams.away.probablePitcher) {
+        pitcherUrls.push(
+          `https://statsapi.mlb.com/api/v1/people/${game.teams.home.probablePitcher.id}/stats?stats=byDateRange&season=2019&group=pitching`,
+          `https://statsapi.mlb.com/api/v1/people/${game.teams.away.probablePitcher.id}/stats?stats=byDateRange&season=2019&group=pitching`
+        )
+      }
+    })
+    let allPitcherStats = []
+    Promise.all(pitcherUrls.map(url =>
+      fetch(url).then(resp =>
+        resp.json().then(parsed => ({
+          id: resp.url.substring(resp.url.lastIndexOf("people/")+7,resp.url.lastIndexOf("/stats")),
+          stats: parsed.stats['0'].splits['0'].stat
+        })
+      ).then(data => {
+        allPitcherStats.push(data)
+      })
+    )))
+    .catch(error => {console.log(error)});
+    dataObj.push(allPitcherStats);
+    callback(dataObj)
+  })
 }
 
 export default FetchData
