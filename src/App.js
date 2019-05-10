@@ -18,23 +18,28 @@ function App() {
     let pitchingData = allData.find(obj => obj.dataType === "pitching").data
     let hittingData = allData.find(obj => obj.dataType === "hitting").data
     let fieldingData = allData.find(obj => obj.dataType === "fielding").data
+    let startingPitcher = allData.find(obj => obj.dataType === "startingPitcherStats").data
+    let recordData = allData.find(obj => obj.dataType === "records").data
 
     matchupBlocks = schedule.data.games.map(game => {
+
       let homeData = {
         id: game.teams.home.team.id,
         name: game.teams.home.team.name,
-        record: game.teams.home.leagueRecord,
+        records: recordData.find(obj => obj.id === game.teams.home.team.id),
         pitching: pitchingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
         hitting: hittingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
-        fielding: fieldingData.find(obj => obj.team.id === game.teams.home.team.id).stat
+        fielding: fieldingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
+        pitcherStats: startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id).stats
       }
       let awayData = {
         id: game.teams.away.team.id,
         name: game.teams.away.team.name,
-        record: game.teams.away.leagueRecord,
+        records: recordData.find(obj => obj.id === game.teams.home.team.id),
         pitching: pitchingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
         hitting: hittingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
-        fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat
+        fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
+        pitcherStats: startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id).stats
       }
       return <MatchupBlock gameData={game} homeData={homeData} awayData={awayData} />
     })

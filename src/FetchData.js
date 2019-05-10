@@ -35,17 +35,43 @@ function FetchData(callback) {
     let allPitcherStats = []
     Promise.all(pitcherUrls.map(url =>
       fetch(url).then(resp =>
-        resp.json().then(parsed => ({
-          id: resp.url.substring(resp.url.lastIndexOf("people/")+7,resp.url.lastIndexOf("/stats")),
-          stats: parsed.stats['0'].splits['0'].stat
+        resp.json().then(parsed => {
+          return (
+            {
+              id: resp.url.substring(resp.url.lastIndexOf("people/")+7,resp.url.lastIndexOf("/stats")),
+              stats: parsed.stats['0'].splits['0'].stat
+            }
+          )
         })
-      ).then(data => {
-        allPitcherStats.push(data)
+      ).then(data => allPitcherStats.push(data))
+    )).then(() => {
+      dataObj.push({dataType:"startingPitcherStats",data:allPitcherStats});
+      return dataObj
+    }).then(nextData => {
+      fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=103,104').then(resp => resp.json()).then(output => {
+        console.log(output,'output')
+        let splitRecords = []
+        output.records.map(divisions => {
+          divisions.teamRecords.map(teams => {
+            splitRecords.push(
+              {
+                id: teams.team.id,
+                wins: teams.leagueRecord.wins,
+                losses: teams.leagueRecord.losses,
+                totPct: teams.leagueRecord.pct,
+                dayPct: teams.records.splitRecords.find(obj => obj.type === 'day').pct,
+                nightPct: teams.records.splitRecords.find(obj => obj.type === 'night').pct,
+                lastTen: teams.records.splitRecords.find(obj => obj.type === 'lastTen').pct,
+                home: teams.records.splitRecords.find(obj => obj.type === 'home').pct,
+                away: teams.records.splitRecords.find(obj => obj.type === 'away').pct
+              }
+            )
+          })
+        })
+        nextData.push({dataType: 'records',data: splitRecords})
+        callback(nextData)
       })
-    )))
-    .catch(error => {console.log(error)});
-    dataObj.push(allPitcherStats);
-    callback(dataObj)
+    })
   })
 }
 
