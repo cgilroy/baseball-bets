@@ -35,7 +35,7 @@ function App() {
       let awayData = {
         id: game.teams.away.team.id,
         name: game.teams.away.team.name,
-        records: recordData.find(obj => obj.id === game.teams.home.team.id),
+        records: recordData.find(obj => obj.id === game.teams.away.team.id),
         pitching: pitchingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
         hitting: hittingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
         fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
