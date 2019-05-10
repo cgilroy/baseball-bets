@@ -45,7 +45,7 @@ const styles = {
 const MatchupBlock = (props) => {
 
   console.log(props,'props')
-  let comparisonResult = RunComparison(props.homeData, props.awayData)
+  let comparisonResult = RunComparison(props.homeData, props.awayData,props.gameData.dayNite)
 
   const {classes} = props
   let homeBlock = (
