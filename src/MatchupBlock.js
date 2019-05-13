@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Paper from '@material-ui/core/Paper';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Fade from '@material-ui/core/Fade';
 import 'typeface-roboto';
 import RunComparison from './RunComparison.js'
 import SummarySection from './SummarySection.js'
@@ -54,7 +56,7 @@ const styles = {
 
 const MatchupBlock = (props) => {
   const [dropDownActive, setDropDownActive] = useState(false)
-
+  console.log(props,'props')
   let comparisonResult = RunComparison(props.homeData, props.awayData,props.gameData.dayNight)
   console.log(comparisonResult,'comparisonResult')
   const {classes} = props
@@ -78,7 +80,7 @@ const MatchupBlock = (props) => {
     setDropDownActive(!dropDownActive)
   }
   return(
-    <div>
+    <Paper style={{padding:'15px 15px 0 15px',margin:'10px 0',cursor:'default'}}>
       <div className={classes.gameInfo}>
         <span><Moment format="h:mm A">{props.gameData.gameDate}</Moment></span>
         <span style={{paddingLeft:'15px'}}>{props.gameData.venue.name}</span>
@@ -88,15 +90,20 @@ const MatchupBlock = (props) => {
         <Typography>VS</Typography>
         {awayBlock}
       </div>
-      <div className={classes.dropDown}>
-        <span onClick={toggleDropDown} style={{width:'100%'}}>MORE</span>
-        {
-          dropDownActive && (
-            <SummarySection data={comparisonResult.summary} />
-          )
-        }
-      </div>
-    </div>
+      {
+        (comparisonResult.winner !== '') ? (
+          <div className={classes.dropDown}>
+            <SummarySection data={comparisonResult.summary} active={dropDownActive}/>
+            <span onClick={toggleDropDown} style={{width:'100%',padding:'6px 0',cursor:'pointer'}}>
+              <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
+              <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
+              <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
+            </span>
+          </div>
+        ) : ''
+      }
+
+    </Paper>
   )
 }
 
