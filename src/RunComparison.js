@@ -4,47 +4,46 @@ function RunComparison(homeData, awayData, gameTime) {
   let awayCount = 0;
   let homeGP = homeData.records.wins + homeData.records.losses;
   let awayGP = awayData.records.wins + awayData.records.losses;
-  console.log([homeGP,awayGP],'gamesplayed')
   let scoreSummary = []
 
   let homeMetrics = {
-    pct: {displayName:'WIN %', value: homeData.records.totPct},
+    pct: {displayName:'WIN %', value: parseFloat(homeData.records.totPct).toFixed(3)},
     runsForPG: {displayName:'RUNS / GAME', value: parseFloat(homeData.hitting.runs/homeGP).toFixed(2)},
     runsAgainstPG: {displayName:'RUNS ALLOWED / GAME', value: -parseFloat(homeData.pitching.runs/homeGP).toFixed(2)},
     hitsForPG: {displayName:'HITS / GAME', value: parseFloat(homeData.hitting.hits/homeGP).toFixed(2)},
     hitsAgainstPG: {displayName:'HITS ALLOWED / GAME', value: -parseFloat(homeData.pitching.hits/homeGP).toFixed(2)},
-    avg: {displayName:'AVG', value: homeData.hitting.avg},
-    obp: {displayName:'OBP', value: homeData.hitting.obp},
-    slg: {displayName:'SLG', value: homeData.hitting.slg},
-    ops: {displayName:'OPS', value: homeData.hitting.ops},
+    avg: {displayName:'AVG', value: parseFloat(homeData.hitting.avg).toFixed(3)},
+    obp: {displayName:'OBP', value: parseFloat(homeData.hitting.obp).toFixed(3)},
+    slg: {displayName:'SLG', value: parseFloat(homeData.hitting.slg).toFixed(3)},
+    ops: {displayName:'OPS', value: parseFloat(homeData.hitting.ops).toFixed(3)},
     homeRuns: {displayName:'HR', value: homeData.hitting.homeRuns},
     stolenBases: {displayName:'SB', value: homeData.hitting.stolenBases},
-    era: {displayName:'ERA', value: -homeData.pitching.era},
-    whip: {displayName:'WHIP', value: -homeData.pitching.whip},
+    era: {displayName:'ERA', value: -parseFloat(homeData.pitching.era).toFixed(2)},
+    whip: {displayName:'WHIP', value: -parseFloat(homeData.pitching.whip).toFixed(2)},
     kPerNine:{displayName:'K/9', value:  parseFloat(homeData.pitching.strikeOuts*9/homeData.pitching.inningsPitched).toFixed(2)},
     homeRunsAllowed:{displayName:'HR AGAINST', value:  -homeData.pitching.homeRuns},
-    fielding: {displayName:'FLD%', value: homeData.fielding.fielding},
-    avgAgainst: {displayName:'BAA', value: -homeData.pitching.avg}
+    fielding: {displayName:'FLD%', value: parseFloat(homeData.fielding.fielding).toFixed(3)},
+    avgAgainst: {displayName:'BAA', value: -parseFloat(homeData.pitching.avg).toFixed(3)}
   }
 
   let awayMetrics = {
-    pct: {displayName:'WIN %', value: awayData.records.totPct},
+    pct: {displayName:'WIN %', value: parseFloat(awayData.records.totPct).toFixed(3)},
     runsForPG: {displayName:'RUNS / GAME', value: parseFloat(awayData.hitting.runs/awayGP).toFixed(2)},
     runsAgainstPG: {displayName:'RUNS ALLOWED / GAME', value: -parseFloat(awayData.pitching.runs/awayGP).toFixed(2)},
     hitsForPG: {displayName:'HITS / GAME', value: parseFloat(awayData.hitting.hits/awayGP).toFixed(2)},
     hitsAgainstPG: {displayName:'HITS ALLOWED / GAME', value: -parseFloat(awayData.pitching.hits/awayGP).toFixed(2)},
-    avg: {displayName:'AVG', value: awayData.hitting.avg},
-    obp: {displayName:'OBP', value: awayData.hitting.obp},
-    slg: {displayName:'SLG', value: awayData.hitting.slg},
-    ops: {displayName:'OPS', value: awayData.hitting.ops},
+    avg: {displayName:'AVG', value: parseFloat(awayData.hitting.avg).toFixed(3)},
+    obp: {displayName:'OBP', value: parseFloat(awayData.hitting.obp).toFixed(3)},
+    slg: {displayName:'SLG', value: parseFloat(awayData.hitting.slg).toFixed(3)},
+    ops: {displayName:'OPS', value: parseFloat(awayData.hitting.ops).toFixed(3)},
     homeRuns: {displayName:'HR', value: awayData.hitting.homeRuns},
     stolenBases: {displayName:'SB', value: awayData.hitting.stolenBases},
-    era: {displayName:'ERA', value: -awayData.pitching.era},
-    whip: {displayName:'WHIP', value: -awayData.pitching.whip},
+    era: {displayName:'ERA', value: -parseFloat(awayData.pitching.era).toFixed(2)},
+    whip: {displayName:'WHIP', value: -parseFloat(awayData.pitching.whip).toFixed(2)},
     kPerNine:{displayName:'K/9', value:  parseFloat(awayData.pitching.strikeOuts*9/awayData.pitching.inningsPitched).toFixed(2)},
     homeRunsAllowed:{displayName:'HR AGAINST', value:  -awayData.pitching.homeRuns},
-    fielding: {displayName:'FLD%', value: awayData.fielding.fielding},
-    avgAgainst: {displayName:'BAA', value: -awayData.pitching.avg}
+    fielding: {displayName:'FLD%', value: parseFloat(awayData.fielding.fielding).toFixed(3)},
+    avgAgainst: {displayName:'BAA', value: -parseFloat(awayData.pitching.avg).toFixed(3)}
   }
 
   for (var category in homeMetrics) {
@@ -74,11 +73,12 @@ function RunComparison(homeData, awayData, gameTime) {
       // console.log(category+': '+awayMetrics[category]+' beats '+homeMetrics[category],'awaywins')
     }
   }
-  console.log([homeCount,awayCount],'1st score')
-  console.log(scoreSummary,'scoreSummary')
+
 
   //more complex comparisons
+  console.log([homeData,awayData],'pitcherstats')
   if (homeData.pitcherStats !== undefined && awayData.pitcherStats !== undefined) {
+    console.log('inthepitch')
     if (homeData.pitcherStats.inningsPitched > 24 && awayData.pitcherStats.inningsPitched > 24) {
       if (homeData.pitcherStats.era < awayData.pitcherStats.era) {
         homeCount++
@@ -194,6 +194,8 @@ function RunComparison(homeData, awayData, gameTime) {
     )
   }
 
+  console.log(scoreSummary,'scoreSummary')
+
   // (homeMetrics.pct > awayData.record.pct) ? homeCount++ : awayCount++; // win %
   // (homeData.hitting.runs/homeGP > awayData.hitting.runs/awayGP) ? homeCount++ : awayCount++; //runs scored
   // (homeData.pitching.runs/homeGP < awayData.pitching.runs/awayGP) ? homeCount++ : awayCount++; //runs allowed
@@ -213,7 +215,7 @@ function RunComparison(homeData, awayData, gameTime) {
   } else if (awayCount-homeCount > 12) {
     return {winner: 'AWAY', summary: scoreSummary, score: {home: homeCount, away: awayCount}}
   } else {
-    return {winner: '', summary: '', score: {home: '', away: ''}}
+    return {winner: '', summary: scoreSummary, score: {home: homeCount, away: awayCount}}
   }
 }
 
