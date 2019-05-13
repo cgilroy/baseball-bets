@@ -7,9 +7,15 @@ import {useState, useEffect} from 'react'
 
 function App() {
   const [allData, setAllData] = useState()
+  const [loading, setLoading] = useState(true)
+  const doneFetch = (data) => {
+    setAllData(data)
+    console.log('here')
+    setLoading(false)
+  }
 
   useEffect(() => {
-    FetchData(setAllData)
+    FetchData(doneFetch)
   },[])
   console.log(allData,'allData')
   let matchupBlocks
@@ -63,6 +69,9 @@ function App() {
 
       </header>
       <div style={{padding: '15px',maxWidth:'900px', margin:'0 auto'}}>
+        {
+          loading ? matchupBlocks : (<div>LOADING</div>)
+        }
         {matchupBlocks}
       </div>
     </div>
