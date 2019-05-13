@@ -1,11 +1,14 @@
 import React from 'react'
 import MatchupBlock from './MatchupBlock.js'
+
 function FetchData(callback) {
+  var moment = require('moment')
   let pitchingData = ''
   let hittingData = ''
   let fieldingData = ''
-  let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=05/10/2019&hydrate=probablePitcher(note)'
+  let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+moment().format('L')+'&sportId=1&hydrate=probablePitcher(note)'
   // let dateUrl = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&hydrate=probablePitcher(note)'
+  console.log(dateUrl,'dateUrl')
   var fetches = []
   const urls = [
     dateUrl,
@@ -45,6 +48,7 @@ function FetchData(callback) {
           )
         })
       ).then(data => allPitcherStats.push(data))
+      .catch(error => console.log(error))
     )).then(() => {
       dataObj.push({dataType:"startingPitcherStats",data:allPitcherStats});
       return dataObj
