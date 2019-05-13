@@ -36,8 +36,10 @@ function SummarySection(props) {
       )
   }
 
+  output = (<div style={{marginBottom:'15px'}}>{output}</div>)
+
   return (
-    <Collapse in={props.active} style={{width:'100%',maxWidth: '600px'}}>
+    <Collapse in={props.active} style={{width:'100%',maxWidth: '600px'}} unmountOnExit>
         {output}
     </Collapse>
   )

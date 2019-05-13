@@ -72,7 +72,8 @@ const MatchupBlock = (props) => {
   let homeBlock = (
     <Card className={(comparisonResult.winner === 'HOME') ? (classes.card__winner) : (classes.card)}>
       <CardContent className={classes.card__content}>
-        {comparisonResult === 'HOME' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        {comparisonResult.winner === 'HOME' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.homeData.name}
       </CardContent>
     </Card>
@@ -80,7 +81,8 @@ const MatchupBlock = (props) => {
   let awayBlock = (
     <Card className={(comparisonResult.winner === 'AWAY') ? (classes.card__winner) : (classes.card)}>
       <CardContent className={classes.card__content}>
-        {comparisonResult === 'AWAY' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        {comparisonResult.winner === 'AWAY' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.awayData.name}
       </CardContent>
     </Card>
@@ -96,11 +98,27 @@ const MatchupBlock = (props) => {
       </div>
       <div className={classes.matchup}>
         {homeBlock}
+        <div>
+          <div>
+            <span>WINS</span>
+          </div>
+          <div>
+            <span style={{fontWeight:'bolder'}}>{comparisonResult.score.home}</span>
+          </div>
+        </div>
         <Typography>VS</Typography>
+        <div>
+          <div>
+            <span>WINS</span>
+          </div>
+          <div>
+            <span style={{fontWeight:'bolder'}}>{comparisonResult.score.away}</span>
+          </div>
+        </div>
         {awayBlock}
       </div>
       <div className={classes.dropDown}>
-        <CardActions style={{width:'100%',justifyContent:'center'}}>
+        <CardActions style={{width:'100%',justifyContent:'center',paddingTop:'0'}}>
           <IconButton
             className={(dropDownActive) ? classes.expanded : classes.collapsed}
             onClick={toggleDropDown}

@@ -58,7 +58,7 @@ function App() {
     })
   }
   return (
-    <div className="App">
+    <div className="App" style={{backgroundColor:'#f0f0f0'}}>
       <header className="App-header">
 
       </header>
