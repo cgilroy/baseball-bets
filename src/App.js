@@ -22,6 +22,19 @@ function App() {
     let recordData = allData.find(obj => obj.dataType === "records").data
 
     matchupBlocks = schedule.data.games.map(game => {
+      let homePitcher = ''
+      let awayPitcher = ''
+      if (game.teams.home.hasOwnProperty('probablePitcher')) {
+        homePitcher = (startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id) !== undefined) ? (
+          startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id).stats
+        ) : ('');
+      }
+
+      if (game.teams.away.hasOwnProperty('probablePitcher')) {
+        awayPitcher = (startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id) !== undefined) ? (
+          startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id).stats
+        ) : ('');
+      }
 
       let homeData = {
         id: game.teams.home.team.id,
@@ -30,7 +43,7 @@ function App() {
         pitching: pitchingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
         hitting: hittingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
         fielding: fieldingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
-        pitcherStats: startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id).stats
+        pitcherStats: homePitcher
       }
       let awayData = {
         id: game.teams.away.team.id,
@@ -39,7 +52,7 @@ function App() {
         pitching: pitchingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
         hitting: hittingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
         fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
-        pitcherStats: startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id).stats
+        pitcherStats: awayPitcher
       }
       return <MatchupBlock gameData={game} homeData={homeData} awayData={awayData} />
     })
