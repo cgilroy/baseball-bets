@@ -7,10 +7,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Fade from '@material-ui/core/Fade';
+import IconButton from '@material-ui/core/IconButton';
 import 'typeface-roboto';
 import RunComparison from './RunComparison.js'
 import SummarySection from './SummarySection.js'
 import Checkmark from './resources/checkmark.svg'
+import ExpandMoreIcon from './resources/expand-more.svg'
 import Moment from 'react-moment'
 
 const styles = {
@@ -51,6 +53,13 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap'
+  },
+  collapsed: {
+    transition: 'all .15s linear'
+  },
+  expanded: {
+    transition: 'all .15s linear',
+    transform: 'rotate(180deg)'
   }
 };
 
@@ -91,12 +100,17 @@ const MatchupBlock = (props) => {
         {awayBlock}
       </div>
       <div className={classes.dropDown}>
+        <CardActions style={{width:'100%',justifyContent:'center'}}>
+          <IconButton
+            className={(dropDownActive) ? classes.expanded : classes.collapsed}
+            onClick={toggleDropDown}
+            aria-expanded={dropDownActive}
+            aria-label="Show more"
+          >
+            <img src={ExpandMoreIcon} style={{height:'15px'}}/>
+          </IconButton>
+        </CardActions>
         <SummarySection data={comparisonResult.summary} active={dropDownActive}/>
-        <span onClick={toggleDropDown} style={{width:'100%',padding:'6px 0',cursor:'pointer'}}>
-          <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
-          <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
-          <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
-        </span>
       </div>
     </Paper>
   )
