@@ -90,19 +90,14 @@ const MatchupBlock = (props) => {
         <Typography>VS</Typography>
         {awayBlock}
       </div>
-      {
-        (comparisonResult.winner !== '') ? (
-          <div className={classes.dropDown}>
-            <SummarySection data={comparisonResult.summary} active={dropDownActive}/>
-            <span onClick={toggleDropDown} style={{width:'100%',padding:'6px 0',cursor:'pointer'}}>
-              <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
-              <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
-              <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
-            </span>
-          </div>
-        ) : ''
-      }
-
+      <div className={classes.dropDown}>
+        <SummarySection data={comparisonResult.summary} active={dropDownActive}/>
+        <span onClick={toggleDropDown} style={{width:'100%',padding:'6px 0',cursor:'pointer'}}>
+          <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
+          <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
+          <div style={{width: '20px',height: '3px',backgroundColor: 'black',margin: '3px auto'}}></div>
+        </span>
+      </div>
     </Paper>
   )
 }
