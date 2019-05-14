@@ -60,6 +60,9 @@ const styles = {
   expanded: {
     transition: 'all .15s linear',
     transform: 'rotate(180deg)'
+  },
+  winCount: {
+
   }
 };
 
@@ -72,7 +75,7 @@ const MatchupBlock = (props) => {
   let homeBlock = (
     <Card className={(comparisonResult.winner === 'HOME') ? (classes.card__winner) : (classes.card)}>
       <CardContent className={classes.card__content}>
-        {comparisonResult.winner === 'HOME' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
         <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.homeData.name}
       </CardContent>
@@ -81,7 +84,7 @@ const MatchupBlock = (props) => {
   let awayBlock = (
     <Card className={(comparisonResult.winner === 'AWAY') ? (classes.card__winner) : (classes.card)}>
       <CardContent className={classes.card__content}>
-        {comparisonResult.winner === 'AWAY' && <img src={Checkmark} style={{marginRight:'8px'}}/>}
+        {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
         <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.awayData.name}
       </CardContent>
@@ -98,7 +101,7 @@ const MatchupBlock = (props) => {
       </div>
       <div className={classes.matchup}>
         {homeBlock}
-        <div>
+        <div className='win-count'>
           <div>
             <span>WINS</span>
           </div>
@@ -107,7 +110,7 @@ const MatchupBlock = (props) => {
           </div>
         </div>
         <Typography>VS</Typography>
-        <div>
+        <div className='win-count'>
           <div>
             <span>WINS</span>
           </div>
