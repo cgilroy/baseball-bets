@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.a42875a4.chunk.css",
-    "main.js": "/static/js/main.29d49e8b.chunk.js",
-    "main.js.map": "/static/js/main.29d49e8b.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.94155858.chunk.css": "/static/css/2.94155858.chunk.css",
-    "static/js/2.06e76ce0.chunk.js": "/static/js/2.06e76ce0.chunk.js",
-    "static/js/2.06e76ce0.chunk.js.map": "/static/js/2.06e76ce0.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.f14f1661190433269e34c7f35520ad4f.js": "/precache-manifest.f14f1661190433269e34c7f35520ad4f.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.94155858.chunk.css.map": "/static/css/2.94155858.chunk.css.map",
-    "static/css/main.a42875a4.chunk.css.map": "/static/css/main.a42875a4.chunk.css.map",
-    "static/media/checkmark.svg": "/static/media/checkmark.5f5fc624.svg",
-    "static/media/expand-more.svg": "/static/media/expand-more.00a298a5.svg",
-    "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg",
-    "static/media/index.css": "/static/media/roboto-latin-900italic.bc833e72.woff"
+    "main.css": "/baseball-bets/static/css/main.a42875a4.chunk.css",
+    "main.js": "/baseball-bets/static/js/main.98e8c157.chunk.js",
+    "main.js.map": "/baseball-bets/static/js/main.98e8c157.chunk.js.map",
+    "runtime~main.js": "/baseball-bets/static/js/runtime~main.39961c62.js",
+    "runtime~main.js.map": "/baseball-bets/static/js/runtime~main.39961c62.js.map",
+    "static/css/2.334178b1.chunk.css": "/baseball-bets/static/css/2.334178b1.chunk.css",
+    "static/js/2.06e76ce0.chunk.js": "/baseball-bets/static/js/2.06e76ce0.chunk.js",
+    "static/js/2.06e76ce0.chunk.js.map": "/baseball-bets/static/js/2.06e76ce0.chunk.js.map",
+    "index.html": "/baseball-bets/index.html",
+    "precache-manifest.944d5d2cf3774d3e8050ffb9bf6a4cc5.js": "/baseball-bets/precache-manifest.944d5d2cf3774d3e8050ffb9bf6a4cc5.js",
+    "service-worker.js": "/baseball-bets/service-worker.js",
+    "static/css/2.334178b1.chunk.css.map": "/baseball-bets/static/css/2.334178b1.chunk.css.map",
+    "static/css/main.a42875a4.chunk.css.map": "/baseball-bets/static/css/main.a42875a4.chunk.css.map",
+    "static/media/checkmark.svg": "/baseball-bets/static/media/checkmark.5f5fc624.svg",
+    "static/media/expand-more.svg": "/baseball-bets/static/media/expand-more.00a298a5.svg",
+    "static/media/logo.svg": "/baseball-bets/static/media/logo.5d5d9eef.svg",
+    "static/media/index.css": "/baseball-bets/static/media/roboto-latin-900italic.bc833e72.woff"
   }
 }
