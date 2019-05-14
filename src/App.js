@@ -9,9 +9,9 @@ function App() {
   const [allData, setAllData] = useState()
   const [loading, setLoading] = useState(true)
   const doneFetch = (data) => {
-    setAllData(data)
     console.log('here')
     setLoading(false)
+    setAllData(data)
   }
 
   useEffect(() => {
@@ -64,15 +64,18 @@ function App() {
     })
   }
   return (
-    <div className="App" style={{backgroundColor:'#f0f0f0'}}>
+    <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">
 
       </header>
-      <div style={{padding: '15px',maxWidth:'900px', margin:'0 auto'}}>
+      <div style={{display:'flex',flex:'1 1 auto',flexFlow:'column',padding: '15px',maxWidth:'900px', width:'100%', margin:'0 auto',justifyContent:'center'}}>
         {
-          loading ? matchupBlocks : (<div>LOADING</div>)
+          loading ? (
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',height:'100%'}}>
+              <div class="lds-ripple"><div></div><div></div></div>
+            </div>
+          ) : matchupBlocks
         }
-        {matchupBlocks}
       </div>
     </div>
   );

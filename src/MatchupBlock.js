@@ -92,7 +92,7 @@ const MatchupBlock = (props) => {
   }
   return(
     <Paper style={{padding:'15px 15px 0 15px',margin:'10px 0',cursor:'default'}}>
-      <div className={classes.gameInfo}>
+      <div className={classes.gameInfo} style={{marginBottom:'10px'}}>
         <span><Moment format="h:mm A">{props.gameData.gameDate}</Moment></span>
         <span style={{paddingLeft:'15px'}}>{props.gameData.venue.name}</span>
       </div>
