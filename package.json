@@ -2,20 +2,25 @@
   "name": "baseball-bets",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cgilroy.github.io/baseball-bets",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-moment": "^0.9.2",
     "react-scripts": "3.0.0",
+    "react-transition-group": "^4.0.1",
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
