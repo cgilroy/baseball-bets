@@ -1,0 +1,946 @@
+{
+  "stats": [
+    {
+      "type": {
+        "displayName": "season"
+      },
+      "group": {
+        "displayName": "fielding"
+      },
+      "totalSplits": 30,
+      "exemptions": [],
+      "splits": [
+        {
+          "stat": {
+            "assists": 353,
+            "putOuts": 978,
+            "errors": 12,
+            "chances": 1343,
+            "fielding": ".991",
+            "innings": "2934.0",
+            "games": 37,
+            "caughtStealing": 5,
+            "passedBall": 4,
+            "gamesStarted": 333,
+            "doublePlays": 37,
+            "triplePlays": 0,
+            "stolenBases": 14,
+            "wildPitches": 11,
+            "throwingErrors": 8,
+            "stolenBasePercentage": ".737"
+          },
+          "team": {
+            "id": 118,
+            "name": "Kansas City Royals",
+            "link": "/api/v1/teams/118"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 1
+        },
+        {
+          "stat": {
+            "assists": 328,
+            "putOuts": 948,
+            "errors": 13,
+            "chances": 1289,
+            "fielding": ".990",
+            "innings": "2844.0",
+            "games": 35,
+            "caughtStealing": 9,
+            "passedBall": 1,
+            "gamesStarted": 315,
+            "doublePlays": 36,
+            "triplePlays": 0,
+            "stolenBases": 19,
+            "wildPitches": 9,
+            "throwingErrors": 7,
+            "stolenBasePercentage": ".679"
+          },
+          "team": {
+            "id": 139,
+            "name": "Tampa Bay Rays",
+            "link": "/api/v1/teams/139"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 2
+        },
+        {
+          "stat": {
+            "assists": 383,
+            "putOuts": 985,
+            "errors": 14,
+            "chances": 1382,
+            "fielding": ".990",
+            "innings": "2955.0",
+            "games": 36,
+            "caughtStealing": 5,
+            "passedBall": 2,
+            "gamesStarted": 324,
+            "doublePlays": 35,
+            "triplePlays": 0,
+            "stolenBases": 13,
+            "wildPitches": 16,
+            "throwingErrors": 5,
+            "stolenBasePercentage": ".722"
+          },
+          "team": {
+            "id": 115,
+            "name": "Colorado Rockies",
+            "link": "/api/v1/teams/115"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 3
+        },
+        {
+          "stat": {
+            "assists": 339,
+            "putOuts": 1029,
+            "errors": 14,
+            "chances": 1382,
+            "fielding": ".990",
+            "innings": "3087.0",
+            "games": 38,
+            "caughtStealing": 8,
+            "passedBall": 3,
+            "gamesStarted": 342,
+            "doublePlays": 33,
+            "triplePlays": 0,
+            "stolenBases": 20,
+            "wildPitches": 10,
+            "throwingErrors": 6,
+            "stolenBasePercentage": ".714"
+          },
+          "team": {
+            "id": 158,
+            "name": "Milwaukee Brewers",
+            "link": "/api/v1/teams/158"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 3
+        },
+        {
+          "stat": {
+            "assists": 325,
+            "putOuts": 1012,
+            "errors": 14,
+            "chances": 1351,
+            "fielding": ".990",
+            "innings": "3036.0",
+            "games": 38,
+            "caughtStealing": 3,
+            "passedBall": 2,
+            "gamesStarted": 342,
+            "doublePlays": 30,
+            "triplePlays": 0,
+            "stolenBases": 14,
+            "wildPitches": 10,
+            "throwingErrors": 8,
+            "stolenBasePercentage": ".824"
+          },
+          "team": {
+            "id": 119,
+            "name": "Los Angeles Dodgers",
+            "link": "/api/v1/teams/119"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 5
+        },
+        {
+          "stat": {
+            "assists": 297,
+            "putOuts": 942,
+            "errors": 15,
+            "chances": 1254,
+            "fielding": ".988",
+            "innings": "2826.0",
+            "games": 36,
+            "caughtStealing": 5,
+            "passedBall": 0,
+            "gamesStarted": 324,
+            "doublePlays": 17,
+            "triplePlays": 0,
+            "stolenBases": 21,
+            "wildPitches": 8,
+            "throwingErrors": 7,
+            "stolenBasePercentage": ".808"
+          },
+          "team": {
+            "id": 117,
+            "name": "Houston Astros",
+            "link": "/api/v1/teams/117"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 6
+        },
+        {
+          "stat": {
+            "assists": 325,
+            "putOuts": 953,
+            "errors": 16,
+            "chances": 1294,
+            "fielding": ".988",
+            "innings": "2859.0",
+            "games": 36,
+            "caughtStealing": 7,
+            "passedBall": 1,
+            "gamesStarted": 324,
+            "doublePlays": 37,
+            "triplePlays": 0,
+            "stolenBases": 21,
+            "wildPitches": 5,
+            "throwingErrors": 6,
+            "stolenBasePercentage": ".750"
+          },
+          "team": {
+            "id": 113,
+            "name": "Cincinnati Reds",
+            "link": "/api/v1/teams/113"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 7
+        },
+        {
+          "stat": {
+            "assists": 352,
+            "putOuts": 978,
+            "errors": 18,
+            "chances": 1348,
+            "fielding": ".987",
+            "innings": "2934.0",
+            "games": 36,
+            "caughtStealing": 5,
+            "passedBall": 1,
+            "gamesStarted": 324,
+            "doublePlays": 29,
+            "triplePlays": 0,
+            "stolenBases": 9,
+            "wildPitches": 16,
+            "throwingErrors": 6,
+            "stolenBasePercentage": ".643"
+          },
+          "team": {
+            "id": 109,
+            "name": "Arizona Diamondbacks",
+            "link": "/api/v1/teams/109"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 8
+        },
+        {
+          "stat": {
+            "assists": 272,
+            "putOuts": 894,
+            "errors": 16,
+            "chances": 1182,
+            "fielding": ".986",
+            "innings": "2682.0",
+            "games": 34,
+            "caughtStealing": 7,
+            "passedBall": 0,
+            "gamesStarted": 306,
+            "doublePlays": 13,
+            "triplePlays": 0,
+            "stolenBases": 12,
+            "wildPitches": 7,
+            "throwingErrors": 12,
+            "stolenBasePercentage": ".632"
+          },
+          "team": {
+            "id": 114,
+            "name": "Cleveland Indians",
+            "link": "/api/v1/teams/114"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 9
+        },
+        {
+          "stat": {
+            "assists": 289,
+            "putOuts": 886,
+            "errors": 17,
+            "chances": 1192,
+            "fielding": ".986",
+            "innings": "2658.0",
+            "games": 33,
+            "caughtStealing": 6,
+            "passedBall": 2,
+            "gamesStarted": 297,
+            "doublePlays": 37,
+            "triplePlays": 0,
+            "stolenBases": 17,
+            "wildPitches": 17,
+            "throwingErrors": 7,
+            "stolenBasePercentage": ".739"
+          },
+          "team": {
+            "id": 140,
+            "name": "Texas Rangers",
+            "link": "/api/v1/teams/140"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 10
+        },
+        {
+          "stat": {
+            "assists": 276,
+            "putOuts": 897,
+            "errors": 17,
+            "chances": 1190,
+            "fielding": ".986",
+            "innings": "2691.0",
+            "games": 34,
+            "caughtStealing": 4,
+            "passedBall": 4,
+            "gamesStarted": 306,
+            "doublePlays": 22,
+            "triplePlays": 0,
+            "stolenBases": 12,
+            "wildPitches": 15,
+            "throwingErrors": 11,
+            "stolenBasePercentage": ".750"
+          },
+          "team": {
+            "id": 142,
+            "name": "Minnesota Twins",
+            "link": "/api/v1/teams/142"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 11
+        },
+        {
+          "stat": {
+            "assists": 316,
+            "putOuts": 954,
+            "errors": 19,
+            "chances": 1289,
+            "fielding": ".985",
+            "innings": "2862.0",
+            "games": 36,
+            "caughtStealing": 4,
+            "passedBall": 6,
+            "gamesStarted": 324,
+            "doublePlays": 30,
+            "triplePlays": 0,
+            "stolenBases": 15,
+            "wildPitches": 16,
+            "throwingErrors": 10,
+            "stolenBasePercentage": ".789"
+          },
+          "team": {
+            "id": 144,
+            "name": "Atlanta Braves",
+            "link": "/api/v1/teams/144"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 12
+        },
+        {
+          "stat": {
+            "assists": 325,
+            "putOuts": 996,
+            "errors": 20,
+            "chances": 1341,
+            "fielding": ".985",
+            "innings": "2988.0",
+            "games": 37,
+            "caughtStealing": 7,
+            "passedBall": 0,
+            "gamesStarted": 333,
+            "doublePlays": 17,
+            "triplePlays": 0,
+            "stolenBases": 17,
+            "wildPitches": 8,
+            "throwingErrors": 7,
+            "stolenBasePercentage": ".708"
+          },
+          "team": {
+            "id": 135,
+            "name": "San Diego Padres",
+            "link": "/api/v1/teams/135"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 13
+        },
+        {
+          "stat": {
+            "assists": 307,
+            "putOuts": 930,
+            "errors": 19,
+            "chances": 1256,
+            "fielding": ".985",
+            "innings": "2790.0",
+            "games": 35,
+            "caughtStealing": 6,
+            "passedBall": 4,
+            "gamesStarted": 315,
+            "doublePlays": 29,
+            "triplePlays": 0,
+            "stolenBases": 25,
+            "wildPitches": 20,
+            "throwingErrors": 10,
+            "stolenBasePercentage": ".806"
+          },
+          "team": {
+            "id": 108,
+            "name": "Los Angeles Angels",
+            "link": "/api/v1/teams/108"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 14
+        },
+        {
+          "stat": {
+            "assists": 338,
+            "putOuts": 951,
+            "errors": 21,
+            "chances": 1310,
+            "fielding": ".984",
+            "innings": "2853.0",
+            "games": 36,
+            "caughtStealing": 2,
+            "passedBall": 3,
+            "gamesStarted": 324,
+            "doublePlays": 35,
+            "triplePlays": 0,
+            "stolenBases": 4,
+            "wildPitches": 9,
+            "throwingErrors": 7,
+            "stolenBasePercentage": ".667"
+          },
+          "team": {
+            "id": 138,
+            "name": "St. Louis Cardinals",
+            "link": "/api/v1/teams/138"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 15
+        },
+        {
+          "stat": {
+            "assists": 284,
+            "putOuts": 854,
+            "errors": 19,
+            "chances": 1157,
+            "fielding": ".984",
+            "innings": "2562.0",
+            "games": 32,
+            "caughtStealing": 11,
+            "passedBall": 2,
+            "gamesStarted": 288,
+            "doublePlays": 27,
+            "triplePlays": 0,
+            "stolenBases": 21,
+            "wildPitches": 12,
+            "throwingErrors": 7,
+            "stolenBasePercentage": ".656"
+          },
+          "team": {
+            "id": 116,
+            "name": "Detroit Tigers",
+            "link": "/api/v1/teams/116"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 16
+        },
+        {
+          "stat": {
+            "assists": 346,
+            "putOuts": 959,
+            "errors": 22,
+            "chances": 1327,
+            "fielding": ".983",
+            "innings": "2877.0",
+            "games": 35,
+            "caughtStealing": 13,
+            "passedBall": 5,
+            "gamesStarted": 315,
+            "doublePlays": 32,
+            "triplePlays": 0,
+            "stolenBases": 14,
+            "wildPitches": 8,
+            "throwingErrors": 11,
+            "stolenBasePercentage": ".519"
+          },
+          "team": {
+            "id": 143,
+            "name": "Philadelphia Phillies",
+            "link": "/api/v1/teams/143"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 17
+        },
+        {
+          "stat": {
+            "assists": 337,
+            "putOuts": 963,
+            "errors": 22,
+            "chances": 1322,
+            "fielding": ".983",
+            "innings": "2889.0",
+            "games": 36,
+            "caughtStealing": 9,
+            "passedBall": 0,
+            "gamesStarted": 324,
+            "doublePlays": 27,
+            "triplePlays": 0,
+            "stolenBases": 23,
+            "wildPitches": 7,
+            "throwingErrors": 10,
+            "stolenBasePercentage": ".719"
+          },
+          "team": {
+            "id": 137,
+            "name": "San Francisco Giants",
+            "link": "/api/v1/teams/137"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 18
+        },
+        {
+          "stat": {
+            "assists": 303,
+            "putOuts": 994,
+            "errors": 22,
+            "chances": 1319,
+            "fielding": ".983",
+            "innings": "2982.0",
+            "games": 37,
+            "caughtStealing": 4,
+            "passedBall": 2,
+            "gamesStarted": 333,
+            "doublePlays": 22,
+            "triplePlays": 0,
+            "stolenBases": 26,
+            "wildPitches": 16,
+            "throwingErrors": 10,
+            "stolenBasePercentage": ".867"
+          },
+          "team": {
+            "id": 133,
+            "name": "Oakland Athletics",
+            "link": "/api/v1/teams/133"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 19
+        },
+        {
+          "stat": {
+            "assists": 333,
+            "putOuts": 972,
+            "errors": 24,
+            "chances": 1329,
+            "fielding": ".982",
+            "innings": "2916.0",
+            "games": 37,
+            "caughtStealing": 8,
+            "passedBall": 3,
+            "gamesStarted": 333,
+            "doublePlays": 32,
+            "triplePlays": 0,
+            "stolenBases": 16,
+            "wildPitches": 14,
+            "throwingErrors": 9,
+            "stolenBasePercentage": ".667"
+          },
+          "team": {
+            "id": 111,
+            "name": "Boston Red Sox",
+            "link": "/api/v1/teams/111"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 20
+        },
+        {
+          "stat": {
+            "assists": 323,
+            "putOuts": 947,
+            "errors": 24,
+            "chances": 1294,
+            "fielding": ".981",
+            "innings": "2841.0",
+            "games": 36,
+            "caughtStealing": 11,
+            "passedBall": 7,
+            "gamesStarted": 324,
+            "doublePlays": 38,
+            "triplePlays": 0,
+            "stolenBases": 7,
+            "wildPitches": 19,
+            "throwingErrors": 13,
+            "stolenBasePercentage": ".389"
+          },
+          "team": {
+            "id": 110,
+            "name": "Baltimore Orioles",
+            "link": "/api/v1/teams/110"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 21
+        },
+        {
+          "stat": {
+            "assists": 310,
+            "putOuts": 938,
+            "errors": 24,
+            "chances": 1272,
+            "fielding": ".981",
+            "innings": "2814.0",
+            "games": 35,
+            "caughtStealing": 3,
+            "passedBall": 5,
+            "gamesStarted": 315,
+            "doublePlays": 27,
+            "triplePlays": 0,
+            "stolenBases": 9,
+            "wildPitches": 16,
+            "throwingErrors": 15,
+            "stolenBasePercentage": ".750"
+          },
+          "team": {
+            "id": 146,
+            "name": "Miami Marlins",
+            "link": "/api/v1/teams/146"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 22
+        },
+        {
+          "stat": {
+            "assists": 346,
+            "putOuts": 965,
+            "errors": 27,
+            "chances": 1338,
+            "fielding": ".980",
+            "innings": "2895.0",
+            "games": 36,
+            "caughtStealing": 6,
+            "passedBall": 3,
+            "gamesStarted": 324,
+            "doublePlays": 27,
+            "triplePlays": 0,
+            "stolenBases": 13,
+            "wildPitches": 16,
+            "throwingErrors": 10,
+            "stolenBasePercentage": ".684"
+          },
+          "team": {
+            "id": 141,
+            "name": "Toronto Blue Jays",
+            "link": "/api/v1/teams/141"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 23
+        },
+        {
+          "stat": {
+            "assists": 291,
+            "putOuts": 934,
+            "errors": 26,
+            "chances": 1251,
+            "fielding": ".979",
+            "innings": "2802.0",
+            "games": 35,
+            "caughtStealing": 5,
+            "passedBall": 6,
+            "gamesStarted": 315,
+            "doublePlays": 28,
+            "triplePlays": 0,
+            "stolenBases": 28,
+            "wildPitches": 12,
+            "throwingErrors": 14,
+            "stolenBasePercentage": ".848"
+          },
+          "team": {
+            "id": 147,
+            "name": "New York Yankees",
+            "link": "/api/v1/teams/147"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 24
+        },
+        {
+          "stat": {
+            "assists": 306,
+            "putOuts": 870,
+            "errors": 25,
+            "chances": 1201,
+            "fielding": ".979",
+            "innings": "2610.0",
+            "games": 32,
+            "caughtStealing": 6,
+            "passedBall": 6,
+            "gamesStarted": 288,
+            "doublePlays": 29,
+            "triplePlays": 0,
+            "stolenBases": 13,
+            "wildPitches": 8,
+            "throwingErrors": 12,
+            "stolenBasePercentage": ".684"
+          },
+          "team": {
+            "id": 134,
+            "name": "Pittsburgh Pirates",
+            "link": "/api/v1/teams/134"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 25
+        },
+        {
+          "stat": {
+            "assists": 279,
+            "putOuts": 930,
+            "errors": 27,
+            "chances": 1236,
+            "fielding": ".978",
+            "innings": "2790.0",
+            "games": 35,
+            "caughtStealing": 8,
+            "passedBall": 6,
+            "gamesStarted": 315,
+            "doublePlays": 22,
+            "triplePlays": 0,
+            "stolenBases": 19,
+            "wildPitches": 14,
+            "throwingErrors": 10,
+            "stolenBasePercentage": ".704"
+          },
+          "team": {
+            "id": 120,
+            "name": "Washington Nationals",
+            "link": "/api/v1/teams/120"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 26
+        },
+        {
+          "stat": {
+            "assists": 306,
+            "putOuts": 977,
+            "errors": 31,
+            "chances": 1314,
+            "fielding": ".976",
+            "innings": "2931.0",
+            "games": 36,
+            "caughtStealing": 6,
+            "passedBall": 6,
+            "gamesStarted": 324,
+            "doublePlays": 29,
+            "triplePlays": 0,
+            "stolenBases": 30,
+            "wildPitches": 14,
+            "throwingErrors": 14,
+            "stolenBasePercentage": ".833"
+          },
+          "team": {
+            "id": 121,
+            "name": "New York Mets",
+            "link": "/api/v1/teams/121"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 27
+        },
+        {
+          "stat": {
+            "assists": 371,
+            "putOuts": 886,
+            "errors": 31,
+            "chances": 1288,
+            "fielding": ".976",
+            "innings": "2658.0",
+            "games": 33,
+            "caughtStealing": 7,
+            "passedBall": 3,
+            "gamesStarted": 297,
+            "doublePlays": 31,
+            "triplePlays": 0,
+            "stolenBases": 14,
+            "wildPitches": 16,
+            "throwingErrors": 11,
+            "stolenBasePercentage": ".667"
+          },
+          "team": {
+            "id": 112,
+            "name": "Chicago Cubs",
+            "link": "/api/v1/teams/112"
+          },
+          "league": {
+            "id": 104,
+            "name": "NL",
+            "link": "/api/v1/league/104"
+          },
+          "rank": 28
+        },
+        {
+          "stat": {
+            "assists": 297,
+            "putOuts": 888,
+            "errors": 32,
+            "chances": 1217,
+            "fielding": ".974",
+            "innings": "2664.0",
+            "games": 34,
+            "caughtStealing": 6,
+            "passedBall": 3,
+            "gamesStarted": 306,
+            "doublePlays": 30,
+            "triplePlays": 0,
+            "stolenBases": 21,
+            "wildPitches": 17,
+            "throwingErrors": 18,
+            "stolenBasePercentage": ".778"
+          },
+          "team": {
+            "id": 145,
+            "name": "Chicago White Sox",
+            "link": "/api/v1/teams/145"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 29
+        },
+        {
+          "stat": {
+            "assists": 352,
+            "putOuts": 1024,
+            "errors": 41,
+            "chances": 1417,
+            "fielding": ".971",
+            "innings": "3072.0",
+            "games": 38,
+            "caughtStealing": 6,
+            "passedBall": 2,
+            "gamesStarted": 342,
+            "doublePlays": 35,
+            "triplePlays": 0,
+            "stolenBases": 22,
+            "wildPitches": 20,
+            "throwingErrors": 21,
+            "stolenBasePercentage": ".786"
+          },
+          "team": {
+            "id": 136,
+            "name": "Seattle Mariners",
+            "link": "/api/v1/teams/136"
+          },
+          "league": {
+            "id": 103,
+            "name": "AL",
+            "link": "/api/v1/league/103"
+          },
+          "rank": 30
+        }
+      ]
+    }
+  ]
+}

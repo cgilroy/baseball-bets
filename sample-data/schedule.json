@@ -1,0 +1,1044 @@
+{
+  "copyright": "Copyright 2019 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems": 15,
+  "totalEvents": 0,
+  "totalGames": 15,
+  "totalGamesInProgress": 4,
+  "dates": [
+    {
+      "date": "2019-05-08",
+      "totalItems": 15,
+      "totalEvents": 0,
+      "totalGames": 15,
+      "totalGamesInProgress": 4,
+      "games": [
+        {
+          "gamePk": 566197,
+          "link": "/api/v1/game/566197/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T16:35:00Z",
+          "status": {
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
+            "abstractGameCode": "L"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 17,
+                "pct": ".485"
+              },
+              "score": 2,
+              "team": {
+                "id": 140,
+                "name": "Texas Rangers",
+                "link": "/api/v1/teams/140"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 17,
+                "losses": 15,
+                "pct": ".531"
+              },
+              "score": 6,
+              "team": {
+                "id": 134,
+                "name": "Pittsburgh Pirates",
+                "link": "/api/v1/teams/134"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 31,
+            "name": "PNC Park",
+            "link": "/api/v1/venues/31"
+          },
+          "content": {
+            "link": "/api/v1/game/566197/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-566197-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "gamesInSeries": 2,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 566682,
+          "link": "/api/v1/game/566682/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T17:10:00Z",
+          "status": {
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
+            "abstractGameCode": "L"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 20,
+                "losses": 16,
+                "pct": ".556"
+              },
+              "score": 2,
+              "team": {
+                "id": 109,
+                "name": "Arizona Diamondbacks",
+                "link": "/api/v1/teams/109"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 23,
+                "losses": 12,
+                "pct": ".657"
+              },
+              "score": 0,
+              "team": {
+                "id": 139,
+                "name": "Tampa Bay Rays",
+                "link": "/api/v1/teams/139"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 12,
+            "name": "Tropicana Field",
+            "link": "/api/v1/venues/12"
+          },
+          "content": {
+            "link": "/api/v1/game/566682/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-566682-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 567575,
+          "link": "/api/v1/game/567575/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T17:10:00Z",
+          "status": {
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
+            "abstractGameCode": "L"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 14,
+                "losses": 21,
+                "pct": ".400"
+              },
+              "score": 1,
+              "team": {
+                "id": 120,
+                "name": "Washington Nationals",
+                "link": "/api/v1/teams/120"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 22,
+                "losses": 16,
+                "pct": ".579"
+              },
+              "score": 7,
+              "team": {
+                "id": 158,
+                "name": "Milwaukee Brewers",
+                "link": "/api/v1/teams/158"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 32,
+            "name": "Miller Park",
+            "link": "/api/v1/venues/32"
+          },
+          "content": {
+            "link": "/api/v1/game/567575/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-567575-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 566585,
+          "link": "/api/v1/game/566585/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T17:15:00Z",
+          "status": {
+            "abstractGameState": "Live",
+            "codedGameState": "I",
+            "detailedState": "In Progress",
+            "statusCode": "I",
+            "abstractGameCode": "L"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 20,
+                "losses": 15,
+                "pct": ".571"
+              },
+              "score": 5,
+              "team": {
+                "id": 143,
+                "name": "Philadelphia Phillies",
+                "link": "/api/v1/teams/143"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 21,
+                "losses": 15,
+                "pct": ".583"
+              },
+              "score": 0,
+              "team": {
+                "id": 138,
+                "name": "St. Louis Cardinals",
+                "link": "/api/v1/teams/138"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 2889,
+            "name": "Busch Stadium",
+            "link": "/api/v1/venues/2889"
+          },
+          "content": {
+            "link": "/api/v1/game/566585/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-566585-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 566295,
+          "link": "/api/v1/game/566295/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T19:40:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 17,
+                "losses": 19,
+                "pct": ".472"
+              },
+              "score": 0,
+              "team": {
+                "id": 121,
+                "name": "New York Mets",
+                "link": "/api/v1/teams/121"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 20,
+                "losses": 17,
+                "pct": ".541"
+              },
+              "score": 0,
+              "team": {
+                "id": 135,
+                "name": "San Diego Padres",
+                "link": "/api/v1/teams/135"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 2680,
+            "name": "Petco Park",
+            "link": "/api/v1/venues/2680"
+          },
+          "content": {
+            "link": "/api/v1/game/566295/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-566295-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "day",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 565332,
+          "link": "/api/v1/game/565332/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T22:10:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 18,
+                "pct": ".471"
+              },
+              "score": 0,
+              "team": {
+                "id": 145,
+                "name": "Chicago White Sox",
+                "link": "/api/v1/teams/145"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 18,
+                "losses": 16,
+                "pct": ".529"
+              },
+              "score": 0,
+              "team": {
+                "id": 114,
+                "name": "Cleveland Indians",
+                "link": "/api/v1/teams/114"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 5,
+            "name": "Progressive Field",
+            "link": "/api/v1/venues/5"
+          },
+          "content": {
+            "link": "/api/v1/game/565332/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-565332-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 4,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 567476,
+          "link": "/api/v1/game/567476/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T22:35:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 19,
+                "losses": 19,
+                "pct": ".500"
+              },
+              "score": 0,
+              "team": {
+                "id": 136,
+                "name": "Seattle Mariners",
+                "link": "/api/v1/teams/136"
+              },
+              "splitSquad": false,
+              "seriesNumber": 13
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 21,
+                "losses": 14,
+                "pct": ".600"
+              },
+              "score": 0,
+              "team": {
+                "id": 147,
+                "name": "New York Yankees",
+                "link": "/api/v1/teams/147"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 3313,
+            "name": "Yankee Stadium",
+            "link": "/api/v1/venues/3313"
+          },
+          "content": {
+            "link": "/api/v1/game/567476/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-567476-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 4,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 564948,
+          "link": "/api/v1/game/564948/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T23:05:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 18,
+                "losses": 19,
+                "pct": ".486"
+              },
+              "score": 0,
+              "team": {
+                "id": 111,
+                "name": "Boston Red Sox",
+                "link": "/api/v1/teams/111"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 23,
+                "pct": ".361"
+              },
+              "score": 0,
+              "team": {
+                "id": 110,
+                "name": "Baltimore Orioles",
+                "link": "/api/v1/teams/110"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 2,
+            "name": "Oriole Park at Camden Yards",
+            "link": "/api/v1/venues/2"
+          },
+          "content": {
+            "link": "/api/v1/game/564948/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-564948-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 566881,
+          "link": "/api/v1/game/566881/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T23:07:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 22,
+                "losses": 12,
+                "pct": ".647"
+              },
+              "score": 0,
+              "team": {
+                "id": 142,
+                "name": "Minnesota Twins",
+                "link": "/api/v1/teams/142"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 15,
+                "losses": 21,
+                "pct": ".417"
+              },
+              "score": 0,
+              "team": {
+                "id": 141,
+                "name": "Toronto Blue Jays",
+                "link": "/api/v1/teams/141"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 14,
+            "name": "Rogers Centre",
+            "link": "/api/v1/venues/14"
+          },
+          "content": {
+            "link": "/api/v1/game/566881/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-566881-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 565526,
+          "link": "/api/v1/game/565526/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T23:10:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "P",
+            "detailedState": "Pre-Game",
+            "statusCode": "P",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 19,
+                "pct": ".457"
+              },
+              "score": 0,
+              "team": {
+                "id": 108,
+                "name": "Los Angeles Angels",
+                "link": "/api/v1/teams/108"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 15,
+                "losses": 17,
+                "pct": ".469"
+              },
+              "score": 0,
+              "team": {
+                "id": 116,
+                "name": "Detroit Tigers",
+                "link": "/api/v1/teams/116"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 2394,
+            "name": "Comerica Park",
+            "link": "/api/v1/venues/2394"
+          },
+          "content": {
+            "link": "/api/v1/game/565526/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-565526-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 565141,
+          "link": "/api/v1/game/565141/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-08T23:35:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 10,
+                "losses": 25,
+                "pct": ".286"
+              },
+              "team": {
+                "id": 146,
+                "name": "Miami Marlins",
+                "link": "/api/v1/teams/146"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 20,
+                "losses": 13,
+                "pct": ".606"
+              },
+              "team": {
+                "id": 112,
+                "name": "Chicago Cubs",
+                "link": "/api/v1/teams/112"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 17,
+            "name": "Wrigley Field",
+            "link": "/api/v1/venues/17"
+          },
+          "content": {
+            "link": "/api/v1/game/565141/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-565141-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 4,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 565621,
+          "link": "/api/v1/game/565621/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-09T00:10:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 13,
+                "losses": 24,
+                "pct": ".351"
+              },
+              "team": {
+                "id": 118,
+                "name": "Kansas City Royals",
+                "link": "/api/v1/teams/118"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 21,
+                "losses": 15,
+                "pct": ".583"
+              },
+              "team": {
+                "id": 117,
+                "name": "Houston Astros",
+                "link": "/api/v1/teams/117"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 2392,
+            "name": "Minute Maid Park",
+            "link": "/api/v1/venues/2392"
+          },
+          "content": {
+            "link": "/api/v1/game/565621/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-565621-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 565430,
+          "link": "/api/v1/game/565430/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-09T00:40:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 20,
+                "pct": ".444"
+              },
+              "team": {
+                "id": 137,
+                "name": "San Francisco Giants",
+                "link": "/api/v1/teams/137"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 20,
+                "pct": ".444"
+              },
+              "team": {
+                "id": 115,
+                "name": "Colorado Rockies",
+                "link": "/api/v1/teams/115"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 19,
+            "name": "Coors Field",
+            "link": "/api/v1/venues/19"
+          },
+          "content": {
+            "link": "/api/v1/game/565430/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-565430-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 566103,
+          "link": "/api/v1/game/566103/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-09T02:07:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 15,
+                "losses": 21,
+                "pct": ".417"
+              },
+              "team": {
+                "id": 113,
+                "name": "Cincinnati Reds",
+                "link": "/api/v1/teams/113"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 16,
+                "losses": 21,
+                "pct": ".432"
+              },
+              "team": {
+                "id": 133,
+                "name": "Oakland Athletics",
+                "link": "/api/v1/teams/133"
+              },
+              "splitSquad": false,
+              "seriesNumber": 13
+            }
+          },
+          "venue": {
+            "id": 10,
+            "name": "Oakland Coliseum",
+            "link": "/api/v1/venues/10"
+          },
+          "content": {
+            "link": "/api/v1/game/566103/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-566103-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 2,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        },
+        {
+          "gamePk": 565817,
+          "link": "/api/v1/game/565817/feed/live",
+          "gameType": "R",
+          "season": "2019",
+          "gameDate": "2019-05-09T02:10:00Z",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "S",
+            "detailedState": "Scheduled",
+            "statusCode": "S",
+            "abstractGameCode": "P"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "wins": 18,
+                "losses": 18,
+                "pct": ".500"
+              },
+              "team": {
+                "id": 144,
+                "name": "Atlanta Braves",
+                "link": "/api/v1/teams/144"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            },
+            "home": {
+              "leagueRecord": {
+                "wins": 24,
+                "losses": 14,
+                "pct": ".632"
+              },
+              "team": {
+                "id": 119,
+                "name": "Los Angeles Dodgers",
+                "link": "/api/v1/teams/119"
+              },
+              "splitSquad": false,
+              "seriesNumber": 12
+            }
+          },
+          "venue": {
+            "id": 22,
+            "name": "Dodger Stadium",
+            "link": "/api/v1/venues/22"
+          },
+          "content": {
+            "link": "/api/v1/game/565817/content"
+          },
+          "gameNumber": 1,
+          "publicFacing": true,
+          "doubleHeader": "N",
+          "gamedayType": "P",
+          "tiebreaker": "N",
+          "calendarEventID": "14-565817-2019-05-08",
+          "seasonDisplay": "2019",
+          "dayNight": "night",
+          "scheduledInnings": 9,
+          "gamesInSeries": 3,
+          "seriesGameNumber": 3,
+          "seriesDescription": "Regular Season",
+          "recordSource": "S",
+          "ifNecessary": "N",
+          "ifNecessaryDescription": "Normal Game"
+        }
+      ],
+      "events": []
+    }
+  ]
+}
