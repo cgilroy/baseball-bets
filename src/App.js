@@ -60,7 +60,7 @@ function App() {
         fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
         pitcherStats: awayPitcher
       }
-      return <MatchupBlock gameData={game} homeData={homeData} awayData={awayData} />
+      return <MatchupBlock key={game.gamePk} gameData={game} homeData={homeData} awayData={awayData} />
     })
   }
   return (
@@ -72,7 +72,7 @@ function App() {
         {
           loading ? (
             <div style={{display:'flex',alignItems:'center',justifyContent:'center',height:'100%'}}>
-              <div class="lds-ripple"><div></div><div></div></div>
+              <div className="lds-ripple"><div></div><div></div></div>
             </div>
           ) : matchupBlocks
         }
