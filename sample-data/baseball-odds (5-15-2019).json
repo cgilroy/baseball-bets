@@ -1,0 +1,944 @@
+{
+  "success": true,
+  "data": [
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Los Angeles Angels",
+        "Minnesota Twins"
+      ],
+      "commence_time": 1557940200,
+      "home_team": "Minnesota Twins",
+      "sites": [
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              2.2,
+              1.46
+            ]
+          }
+        }
+      ],
+      "sites_count": 1
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Baltimore Orioles",
+        "New York Yankees"
+      ],
+      "commence_time": 1557947100,
+      "home_team": "New York Yankees",
+      "sites": [
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              3.15,
+              1.39
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              3.55,
+              1.35
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              3.55,
+              1.35
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              3.3,
+              1.36
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              3.25,
+              1.38
+            ]
+          }
+        }
+      ],
+      "sites_count": 5
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Arizona Diamondbacks",
+        "Pittsburgh Pirates"
+      ],
+      "commence_time": 1557949200,
+      "home_team": "Arizona Diamondbacks",
+      "sites": [
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              1.64,
+              2.47
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              1.59,
+              2.44
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              1.64,
+              2.47
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              1.64,
+              2.48
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              1.65,
+              2.45
+            ]
+          }
+        }
+      ],
+      "sites_count": 5
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "San Francisco Giants",
+        "Toronto Blue Jays"
+      ],
+      "commence_time": 1557949500,
+      "home_team": "San Francisco Giants",
+      "sites": [
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              1.72,
+              2.34
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              1.69,
+              2.33
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              1.7,
+              2.33
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              1.7,
+              2.33
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              1.67,
+              2.3
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              1.69,
+              2.34
+            ]
+          }
+        }
+      ],
+      "sites_count": 6
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Chicago Cubs",
+        "Cincinnati Reds"
+      ],
+      "commence_time": 1557960000,
+      "home_team": "Cincinnati Reds",
+      "sites": [
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              2.18,
+              1.78
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              2.18,
+              1.78
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              2.08,
+              1.78
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              2.2,
+              1.79
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              2.14,
+              1.81
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              2.14,
+              1.81
+            ]
+          }
+        }
+      ],
+      "sites_count": 6
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "New York Mets",
+        "Washington Nationals"
+      ],
+      "commence_time": 1557961500,
+      "home_team": "Washington Nationals",
+      "sites": [
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              2.4,
+              1.63
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              2.44,
+              1.65
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              2.44,
+              1.65
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              2.48,
+              1.64
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              2.46,
+              1.64
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              2.45,
+              1.63
+            ]
+          }
+        }
+      ],
+      "sites_count": 6
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Milwaukee Brewers",
+        "Philadelphia Phillies"
+      ],
+      "commence_time": 1557961500,
+      "home_team": "Philadelphia Phillies",
+      "sites": [
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              1.95,
+              1.87
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              2.01,
+              1.9
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              2.01,
+              1.9
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              2.04,
+              1.93
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              1.98,
+              1.93
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              2.02,
+              1.89
+            ]
+          }
+        }
+      ],
+      "sites_count": 6
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Boston Red Sox",
+        "Colorado Rockies"
+      ],
+      "commence_time": 1557961800,
+      "home_team": "Boston Red Sox",
+      "sites": [
+        {
+          "site_key": "mybookieag",
+          "site_nice": "MyBookie.ag",
+          "last_update": 1557942151,
+          "odds": {
+            "h2h": [
+              1.61,
+              2.3
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              1.65,
+              2.33
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              1.68,
+              2.38
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              1.68,
+              2.38
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              1.69,
+              2.4
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              1.69,
+              2.34
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              1.69,
+              2.33
+            ]
+          }
+        }
+      ],
+      "sites_count": 7
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Miami Marlins",
+        "Tampa Bay Rays"
+      ],
+      "commence_time": 1557961800,
+      "home_team": "Miami Marlins",
+      "sites": [
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              2.64,
+              1.57
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              2.66,
+              1.57
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              2.66,
+              1.57
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              2.6,
+              1.54
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              2.6,
+              1.56
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              2.63,
+              1.56
+            ]
+          }
+        }
+      ],
+      "sites_count": 6
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Detroit Tigers",
+        "Houston Astros"
+      ],
+      "commence_time": 1557961800,
+      "home_team": "Detroit Tigers",
+      "sites": [
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              4.2,
+              1.29
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              3.75,
+              1.29
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              4,
+              1.29
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              4,
+              1.29
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              3.8,
+              1.28
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              3.7,
+              1.29
+            ]
+          }
+        }
+      ],
+      "sites_count": 6
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Atlanta Braves",
+        "St. Louis Cardinals"
+      ],
+      "commence_time": 1557962400,
+      "home_team": "Atlanta Braves",
+      "sites": [
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              1.74,
+              2.15
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              1.75,
+              2.23
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              1.75,
+              2.23
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              1.79,
+              2.2
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              1.77,
+              2.2
+            ]
+          }
+        }
+      ],
+      "sites_count": 5
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Kansas City Royals",
+        "Texas Rangers"
+      ],
+      "commence_time": 1557965700,
+      "home_team": "Kansas City Royals",
+      "sites": [
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              2.19,
+              1.72
+            ]
+          }
+        },
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              2.23,
+              1.75
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              2.23,
+              1.75
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              2.24,
+              1.77
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              2.2,
+              1.77
+            ]
+          }
+        },
+        {
+          "site_key": "intertops",
+          "site_nice": "Intertops",
+          "last_update": 1557942141,
+          "odds": {
+            "h2h": [
+              2.2,
+              1.77
+            ]
+          }
+        }
+      ],
+      "sites_count": 6
+    },
+    {
+      "sport_key": "baseball_mlb",
+      "sport_nice": "MLB",
+      "teams": [
+        "Los Angeles Dodgers",
+        "San Diego Padres"
+      ],
+      "commence_time": 1557972600,
+      "home_team": "Los Angeles Dodgers",
+      "sites": [
+        {
+          "site_key": "betonlineag",
+          "site_nice": "BetOnline.ag",
+          "last_update": 1557942176,
+          "odds": {
+            "h2h": [
+              1.67,
+              2.39
+            ]
+          }
+        },
+        {
+          "site_key": "lowvig",
+          "site_nice": "LowVig.ag",
+          "last_update": 1557942167,
+          "odds": {
+            "h2h": [
+              1.67,
+              2.39
+            ]
+          }
+        },
+        {
+          "site_key": "bovada",
+          "site_nice": "Bovada",
+          "last_update": 1557942157,
+          "odds": {
+            "h2h": [
+              1.67,
+              2.3
+            ]
+          }
+        },
+        {
+          "site_key": "betfair",
+          "site_nice": "Betfair",
+          "last_update": 1557942153,
+          "odds": {
+            "h2h": [
+              1.68,
+              2.38
+            ]
+          }
+        },
+        {
+          "site_key": "gtbets",
+          "site_nice": "GTbets",
+          "last_update": 1557942162,
+          "odds": {
+            "h2h": [
+              1.68,
+              2.38
+            ]
+          }
+        }
+      ],
+      "sites_count": 5
+    }
+  ]
+}
