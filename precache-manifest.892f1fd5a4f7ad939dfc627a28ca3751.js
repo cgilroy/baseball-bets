@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cab72bce6ab4b00bcde96c018fc41f0b",
+    "revision": "6b8081666a90a0cb3b29eee928f9e71a",
     "url": "/baseball-bets/index.html"
   },
   {
@@ -8,32 +8,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baseball-bets/static/css/2.334178b1.chunk.css"
   },
   {
-    "revision": "8f47537aa87d16040501",
-    "url": "/baseball-bets/static/css/main.a42875a4.chunk.css"
+    "revision": "43bc5373f4f244a6736e",
+    "url": "/baseball-bets/static/css/main.a5ba0379.chunk.css"
   },
   {
     "revision": "2945fed6f4d74703fd4a",
     "url": "/baseball-bets/static/js/2.06e76ce0.chunk.js"
   },
   {
-    "revision": "8f47537aa87d16040501",
-    "url": "/baseball-bets/static/js/main.98e8c157.chunk.js"
+    "revision": "43bc5373f4f244a6736e",
+    "url": "/baseball-bets/static/js/main.026f9c3f.chunk.js"
   },
   {
     "revision": "bc6f78e7d64a6d6fe324",
     "url": "/baseball-bets/static/js/runtime~main.39961c62.js"
   },
   {
-    "revision": "5f5fc6248bf9b2b1e3390cab10731f88",
-    "url": "/baseball-bets/static/media/checkmark.5f5fc624.svg"
+    "revision": "93d046215b5e9798382c729d49722823",
+    "url": "/baseball-bets/static/media/checkmark.93d04621.svg"
   },
   {
-    "revision": "00a298a5bbaeb9c3fc4942d9aafc8aab",
-    "url": "/baseball-bets/static/media/expand-more.00a298a5.svg"
+    "revision": "9478fa831faddda10906a46f3a368634",
+    "url": "/baseball-bets/static/media/expand-more.9478fa83.svg"
   },
   {
-    "revision": "5d5d9eefa31e5e13a6610d9fa7a283bb",
-    "url": "/baseball-bets/static/media/logo.5d5d9eef.svg"
+    "revision": "ee7cd8ed2dcec943251eb2763684fc6f",
+    "url": "/baseball-bets/static/media/logo.ee7cd8ed.svg"
   },
   {
     "revision": "987b84570ea69ee660455b8d5e91f5f1",
