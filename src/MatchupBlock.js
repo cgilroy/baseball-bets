@@ -61,8 +61,9 @@ const styles = {
     transition: 'all .15s linear',
     transform: 'rotate(180deg)'
   },
-  winCount: {
-
+  centerScore: {
+    display: 'flex',
+    alignItems: 'center'
   }
 };
 
@@ -101,23 +102,7 @@ const MatchupBlock = (props) => {
       </div>
       <div className={classes.matchup}>
         {homeBlock}
-        <div className='win-count'>
-          <div>
-            <span>WINS</span>
-          </div>
-          <div>
-            <span style={{fontWeight:'bolder'}}>{comparisonResult.score.home}</span>
-          </div>
-        </div>
-        <Typography>VS</Typography>
-        <div className='win-count'>
-          <div>
-            <span>WINS</span>
-          </div>
-          <div>
-            <span style={{fontWeight:'bolder'}}>{comparisonResult.score.away}</span>
-          </div>
-        </div>
+        <CenterScore gameData={props.gameData} comparisonResult={comparisonResult} />
         {awayBlock}
       </div>
       <div className={classes.dropDown}>
@@ -134,6 +119,30 @@ const MatchupBlock = (props) => {
         <SummarySection data={comparisonResult.summary} active={dropDownActive}/>
       </div>
     </Paper>
+  )
+}
+
+const CenterScore = (props) => {
+  return (
+    <div style={{display:'flex',alignItems:'center'}}>
+      <div className='win-count'>
+        <div>
+          <span>WINS</span>
+        </div>
+        <div>
+          <span style={{fontWeight:'bolder'}}>{props.comparisonResult.score.home}</span>
+        </div>
+      </div>
+      <Typography>VS</Typography>
+      <div className='win-count'>
+        <div>
+          <span>WINS</span>
+        </div>
+        <div>
+          <span style={{fontWeight:'bolder'}}>{props.comparisonResult.score.away}</span>
+        </div>
+      </div>
+    </div>
   )
 }
 
