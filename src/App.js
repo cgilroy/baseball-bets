@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import FetchData from './FetchData.js'
 import MatchupBlock from './MatchupBlock.js'
+import useInterval from './useInterval.js'
 import {useState, useEffect} from 'react'
 
 function App() {
@@ -14,10 +15,10 @@ function App() {
     setAllData(data)
   }
 
-  useEffect(() => {
-    FetchData(doneFetch)
-  },[])
-  console.log(allData,'allData')
+  useInterval(() => {
+    FetchData(doneFetch);
+  }, 15000);
+
   let matchupBlocks
   if (allData !== undefined) {
     let schedule = allData.find(obj => obj.dataType === "schedule")
