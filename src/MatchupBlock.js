@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Paper from '@material-ui/core/Paper';
@@ -13,7 +13,9 @@ import RunComparison from './RunComparison.js'
 import SummarySection from './SummarySection.js'
 import Checkmark from './resources/checkmark.svg'
 import ExpandMoreIcon from './resources/expand-more.svg'
+import LiveIcon from './resources/live-icon.svg'
 import Moment from 'react-moment'
+import useInterval from './useInterval.js'
 
 const styles = {
   card: {
@@ -46,9 +48,6 @@ const styles = {
     border: '2px solid #00d064',
     boxSizing: 'border-box'
   },
-  gameInfo: {
-    textAlign:'left',
-  },
   dropDown: {
     display: 'flex',
     justifyContent: 'center',
@@ -67,11 +66,29 @@ const styles = {
   }
 };
 
+const FetchLiveData = (gamePk,callback) => {
+  let gameUrl = 'http://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
+  fetch(gameUrl).then(resp => resp.json()).then(data => {
+    console.log(data,'FetchLiveData');
+    let inningData = data.liveData.linescore.inningHalf + ' ' + data.liveData.linescore.currentInningOrdinal
+    callback(inningData)
+  })
+}
+
 const MatchupBlock = (props) => {
   const [dropDownActive, setDropDownActive] = useState(false)
-  console.log(props,'props')
+  const [inningData, setInningData] = useState()
+  const gameState = props.gameData.status.abstractGameCode
+  // console.log(props,'props')
   let comparisonResult = RunComparison(props.homeData, props.awayData,props.gameData.dayNight)
-  console.log(comparisonResult,'comparisonResult')
+  // console.log(comparisonResult,'comparisonResult')
+  const doneFetch = (data) => {
+    setInningData(data)
+  }
+  const gameUrl = props.gameData.gamePk
+
+  if (gameState === 'L') FetchLiveData(gameUrl,doneFetch);
+
   const {classes} = props
   let homeBlock = (
     <Card className={(comparisonResult.winner === 'HOME') ? (classes.card__winner) : (classes.card)}>
@@ -96,13 +113,10 @@ const MatchupBlock = (props) => {
   }
   return(
     <Paper style={{padding:'15px 15px 0 15px',margin:'10px 0',cursor:'default'}}>
-      <div className={classes.gameInfo} style={{marginBottom:'10px'}}>
-        <span><Moment format="h:mm A">{props.gameData.gameDate}</Moment></span>
-        <span style={{paddingLeft:'15px'}}>{props.gameData.venue.name}</span>
-      </div>
+      <TimeData gameState={gameState} inningData={inningData} gameDate={props.gameData.gameDate} location={props.gameData.venue.name} />
       <div className={classes.matchup}>
         {homeBlock}
-        <CenterScore gameData={props.gameData} comparisonResult={comparisonResult} />
+        <CenterScore gameState={gameState} gameData={props.gameData} comparisonResult={comparisonResult} />
         {awayBlock}
       </div>
       <div className={classes.dropDown}>
@@ -122,9 +136,56 @@ const MatchupBlock = (props) => {
   )
 }
 
-const CenterScore = (props) => {
+const TimeData = (props) => {
+  let markup = ''
+  switch (props.gameState) {
+    case 'F':
+      markup = <span>FINAL</span>
+      break;
+    case 'L':
+      markup = (
+        <React.Fragment>
+          <img src={LiveIcon} style={{paddingRight:'4px'}}/>
+          <span style={{color:'#259b24'}}>{props.inningData}</span>
+        </React.Fragment>
+      )
+      break;
+    case 'P':
+      markup = (
+        <React.Fragment>
+          <span><Moment format="h:mm A">{props.gameDate}</Moment></span>
+          <span style={{paddingLeft:'15px'}}>{props.location}</span>
+        </React.Fragment>
+      )
+      break;
+    default:
+
+  }
   return (
-    <div style={{display:'flex',alignItems:'center'}}>
+    <div style={{display:'flex',alignItems:'center',marginBottom:'10px',textAlign:'left'}}>
+      {markup}
+    </div>
+  )
+}
+
+const CenterScore = (props) => {
+
+  const markup = (props.gameState === "L" || props.gameState === "F") ? (
+    <React.Fragment>
+      <div className='win-count'>
+        <div>
+          <span style={{fontWeight:'bolder'}}>{props.gameData.teams.home.score}</span>
+        </div>
+      </div>
+      <Typography>-</Typography>
+      <div className='win-count'>
+        <div>
+          <span style={{fontWeight:'bolder'}}>{props.gameData.teams.away.score}</span>
+        </div>
+      </div>
+    </React.Fragment>
+  ) : (
+    <React.Fragment>
       <div className='win-count'>
         <div>
           <span>WINS</span>
@@ -142,6 +203,12 @@ const CenterScore = (props) => {
           <span style={{fontWeight:'bolder'}}>{props.comparisonResult.score.away}</span>
         </div>
       </div>
+    </React.Fragment>
+  )
+
+  return (
+    <div style={{display:'flex',alignItems:'center'}}>
+      {markup}
     </div>
   )
 }
