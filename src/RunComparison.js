@@ -76,9 +76,8 @@ function RunComparison(homeData, awayData, gameTime) {
 
 
   //more complex comparisons
-  console.log([homeData,awayData],'pitcherstats')
+  // console.log([homeData,awayData],'pitcherstats')
   if (homeData.pitcherStats !== undefined && awayData.pitcherStats !== undefined) {
-    console.log('inthepitch')
     if (parseFloat(homeData.pitcherStats.inningsPitched) > 24 && parseFloat(awayData.pitcherStats.inningsPitched) > 24) {
       if (parseFloat(homeData.pitcherStats.era) < parseFloat(awayData.pitcherStats.era)) {
         homeCount++
@@ -194,7 +193,7 @@ function RunComparison(homeData, awayData, gameTime) {
     )
   }
 
-  console.log(scoreSummary,'scoreSummary')
+  // console.log(scoreSummary,'scoreSummary')
 
   // (homeMetrics.pct > awayData.record.pct) ? homeCount++ : awayCount++; // win %
   // (homeData.hitting.runs/homeGP > awayData.hitting.runs/awayGP) ? homeCount++ : awayCount++; //runs scored
@@ -208,7 +207,7 @@ function RunComparison(homeData, awayData, gameTime) {
   // (homeData.hitting.homeRuns > awayData.hitting.homeRuns) ? homeCount++ : awayCount++; // on base %
   // console.log([homeData.hitting.runs/homeGP,awayData.hitting.runs/awayGP],'pitching')
   //
-  console.log([homeCount,awayCount],'score')
+  // console.log([homeCount,awayCount],'score')
 
   if (homeCount-awayCount > 12) {
     return {winner: 'HOME', summary:scoreSummary, score: {home: homeCount, away: awayCount}}

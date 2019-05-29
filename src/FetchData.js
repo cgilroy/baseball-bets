@@ -4,13 +4,13 @@ import testLive from './sample-data/schedule.json'
 
 function FetchData(callback) {
   var moment = require('moment')
-  var testingLiveData = true
+  var testingLiveData = false
   let pitchingData = ''
   let hittingData = ''
   let fieldingData = ''
   let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+moment().format('L')+'&sportId=1&hydrate=probablePitcher(note)'
   // let dateUrl = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&hydrate=probablePitcher(note)'
-  console.log(dateUrl,'dateUrl')
+  // console.log(dateUrl,'dateUrl')
   var fetches = []
   const urls = [
     dateUrl,
@@ -60,7 +60,7 @@ function FetchData(callback) {
       return dataObj
     }).then(nextData => {
       fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=103,104').then(resp => resp.json()).then(output => {
-        console.log(output,'output')
+        // console.log(output,'output')
         let splitRecords = []
         output.records.map(divisions => {
           divisions.teamRecords.map(teams => {
@@ -79,7 +79,7 @@ function FetchData(callback) {
             )
           })
         })
-        console.log(splitRecords,'splitRecords')
+        // console.log(splitRecords,'splitRecords')
         nextData.push({dataType: 'records',data: splitRecords})
         callback(nextData)
       })
