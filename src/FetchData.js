@@ -1,8 +1,10 @@
 import React from 'react'
 import MatchupBlock from './MatchupBlock.js'
+import testLive from './sample-data/schedule.json'
 
 function FetchData(callback) {
   var moment = require('moment')
+  var testingLiveData = true
   let pitchingData = ''
   let hittingData = ''
   let fieldingData = ''
@@ -22,7 +24,11 @@ function FetchData(callback) {
       if (data.stats !== undefined) {
         return {dataType: data.stats['0'].group.displayName,data:data.stats['0'].splits}
       } else if (data.dates !== undefined) {
-        return {dataType:'schedule',data: data.dates['0']}
+        if (testingLiveData) {
+          return {dataType:'schedule',data: testLive.dates['0']}
+        } else {
+          return {dataType:'schedule',data: data.dates['0']}
+        }
       }
     })
   )).then(dataObj => {
