@@ -15,6 +15,8 @@ function App() {
     setAllData(data)
   }
 
+  // FetchData(doneFetch)
+
   useInterval(() => {
     FetchData(doneFetch);
   }, 15000);
