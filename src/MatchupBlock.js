@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import css from './MatchupBlock.css'
 import Card from '@material-ui/core/Card';
 import Paper from '@material-ui/core/Paper';
 import CardActions from '@material-ui/core/CardActions';
@@ -17,60 +17,11 @@ import LiveIcon from './resources/live-icon.svg'
 import Moment from 'react-moment'
 import useInterval from './useInterval.js'
 
-const styles = {
-  card: {
-    width: '40%',
-  },
-  card__content: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-  matchup: {
-    display: 'flex',
-    marginBottom: 10,
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  card__winner: {
-    width: '40%',
-    border: '2px solid #00d064',
-    boxSizing: 'border-box'
-  },
-  dropDown: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap'
-  },
-  collapsed: {
-    transition: 'all .15s linear'
-  },
-  expanded: {
-    transition: 'all .15s linear',
-    transform: 'rotate(180deg)'
-  },
-  centerScore: {
-    display: 'flex',
-    alignItems: 'center'
-  }
-};
-
 const FetchLiveData = (gamePk,callback) => {
   let gameUrl = 'http://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
   fetch(gameUrl).then(resp => resp.json()).then(data => {
     console.log(data,'FetchLiveData');
-    let inningData = data.liveData.linescore.inningHalf + ' ' + data.liveData.linescore.currentInningOrdinal
+    let inningData = data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal
     callback(inningData)
   })
 }
@@ -78,7 +29,7 @@ const FetchLiveData = (gamePk,callback) => {
 const MatchupBlock = (props) => {
   const [dropDownActive, setDropDownActive] = useState(false)
   const [inningData, setInningData] = useState()
-  const gameState = props.gameData.status.abstractGameCode
+  const gameState = props.gameData.status.codedGameState
   // console.log(props,'props')
   let comparisonResult = RunComparison(props.homeData, props.awayData,props.gameData.dayNight)
   // console.log(comparisonResult,'comparisonResult')
@@ -87,12 +38,11 @@ const MatchupBlock = (props) => {
   }
   const gameUrl = props.gameData.gamePk
 
-  if (gameState === 'L') FetchLiveData(gameUrl,doneFetch);
+  if (gameState === 'I') FetchLiveData(gameUrl,doneFetch);
 
-  const {classes} = props
   let homeBlock = (
-    <Card className={(comparisonResult.winner === 'HOME') ? (classes.card__winner) : (classes.card)}>
-      <CardContent className={classes.card__content}>
+    <Card className={(comparisonResult.winner === 'HOME') ? ('card__winner') : ('card')}>
+      <CardContent className='card__content'>
         {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
         <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.homeData.name}
@@ -100,8 +50,8 @@ const MatchupBlock = (props) => {
     </Card>
   )
   let awayBlock = (
-    <Card className={(comparisonResult.winner === 'AWAY') ? (classes.card__winner) : (classes.card)}>
-      <CardContent className={classes.card__content}>
+    <Card className={(comparisonResult.winner === 'AWAY') ? ('card__winner') : ('card')}>
+      <CardContent className='card__content'>
         {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
         <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.awayData.name}
@@ -114,15 +64,15 @@ const MatchupBlock = (props) => {
   return(
     <Paper style={{padding:'15px 15px 0 15px',margin:'10px 0',cursor:'default'}}>
       <TimeData gameState={gameState} inningData={inningData} gameDate={props.gameData.gameDate} location={props.gameData.venue.name} />
-      <div className={classes.matchup}>
+      <div className='matchup'>
         {homeBlock}
         <CenterScore gameState={gameState} gameData={props.gameData} comparisonResult={comparisonResult} />
         {awayBlock}
       </div>
-      <div className={classes.dropDown}>
+      <div className='dropDown'>
         <CardActions style={{width:'100%',justifyContent:'center',paddingTop:'0'}}>
           <IconButton
-            className={(dropDownActive) ? classes.expanded : classes.collapsed}
+            className={(dropDownActive) ? 'expanded' : 'collapsed'}
             onClick={toggleDropDown}
             aria-expanded={dropDownActive}
             aria-label="Show more"
@@ -142,24 +92,21 @@ const TimeData = (props) => {
     case 'F':
       markup = <span>FINAL</span>
       break;
-    case 'L':
+    case 'I':
       markup = (
         <React.Fragment>
           <img src={LiveIcon} style={{paddingRight:'4px'}}/>
           <span style={{color:'#259b24'}}>{props.inningData}</span>
         </React.Fragment>
-      )
+      );
       break;
-    case 'P':
+    default:
       markup = (
         <React.Fragment>
           <span><Moment format="h:mm A">{props.gameDate}</Moment></span>
           <span style={{paddingLeft:'15px'}}>{props.location}</span>
         </React.Fragment>
-      )
-      break;
-    default:
-
+      );
   }
   return (
     <div style={{display:'flex',alignItems:'center',marginBottom:'10px',textAlign:'left'}}>
@@ -170,7 +117,7 @@ const TimeData = (props) => {
 
 const CenterScore = (props) => {
 
-  const markup = (props.gameState === "L" || props.gameState === "F") ? (
+  const markup = (props.gameState === "I" || props.gameState === "F") ? (
     <React.Fragment>
       <div className='win-count'>
         <div>
@@ -213,4 +160,4 @@ const CenterScore = (props) => {
   )
 }
 
-export default withStyles(styles)(MatchupBlock)
+export default MatchupBlock

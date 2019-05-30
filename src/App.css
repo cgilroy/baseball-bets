@@ -62,16 +62,3 @@
     opacity: 0;
   }
 }
-
-@media only screen and (max-width:600px) {
-  .win-count {
-    display: none;
-  }
-  .checkmarkIcon {
-    display: none;
-  }
-}
-
-.win-count {
-  padding: 0 8px;
-}

@@ -1,0 +1,59 @@
+/* CSS for MatchupBlock.js */
+.card {
+  width: 40%
+}
+.card__content {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.bullet {
+  display: inline-block;
+  margin: 0 2px;
+  transform: scale(0.8);
+}
+.title {
+  font-size: 14;
+}
+.pos {
+  margin-bottom: 12;
+}
+.matchup {
+  display: flex;
+  margin-bottom: 10;
+  justify-content: space-between;
+  align-items: center
+}
+.win-count {
+  padding: 0 8px;
+}
+.card__winner {
+  width: 40%;
+  border: 2px solid #00d064;
+  boxSizing: border-box
+}
+.dropDown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap
+}
+.collapsed {
+  transition: all .15s linear
+}
+.expanded {
+  transition: all .15s linear;
+  transform: rotate(180deg)
+}
+.centerScore {
+  display: flex;
+  align-items: center
+}
+
+@media only screen and (max-width:600px) {
+  .win-count {
+    display: none;
+  }
+  .checkmarkIcon {
+    display: none;
+  }
+}
