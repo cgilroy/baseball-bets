@@ -22,7 +22,6 @@ function App() {
     FetchData(doneFetch);
   }, 15000);
 
-  let matchupBlocks
   if (allData !== undefined) {
     let schedule = allData.find(obj => obj.dataType === "schedule")
     let pitchingData = allData.find(obj => obj.dataType === "pitching").data
@@ -30,8 +29,11 @@ function App() {
     let fieldingData = allData.find(obj => obj.dataType === "fielding").data
     let startingPitcher = allData.find(obj => obj.dataType === "startingPitcherStats").data
     let recordData = allData.find(obj => obj.dataType === "records").data
+    var liveGames = []
+    var scheduledGames = []
+    var finalGames = []
 
-    matchupBlocks = schedule.data.games.map(game => {
+    schedule.data.games.map(game => {
       let homePitcher = ''
       let awayPitcher = ''
       if (game.teams.home.hasOwnProperty('probablePitcher')) {
@@ -64,9 +66,36 @@ function App() {
         fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
         pitcherStats: awayPitcher
       }
-      return <MatchupBlock key={game.gamePk} gameData={game} homeData={homeData} awayData={awayData} />
+      let gameState = game.status.codedGameState
+      let outputBlock = <MatchupBlock key={game.gamePk} gameData={game} homeData={homeData} awayData={awayData} />
+
+      if (gameState === "F" || gameState === "O") {
+        finalGames.push(outputBlock)
+      } else if (gameState === "I") {
+        liveGames.push(outputBlock)
+      } else {
+        scheduledGames.push(outputBlock)
+      }
     })
   }
+
+  let matchupBlocks = (
+    <React.Fragment>
+      <div className="gamesSection">
+        <h3 className="gamesSection__header">Live</h3>
+        {liveGames}
+      </div>
+      <div className="gamesSection">
+        <h3 className="gamesSection__header">Upcoming</h3>
+        {scheduledGames}
+      </div>
+      <div className="gamesSection">
+        <h3 className="gamesSection__header">Completed</h3>
+        {finalGames}
+      </div>
+    </React.Fragment>
+  )
+  console.log(finalGames)
   return (
     <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">

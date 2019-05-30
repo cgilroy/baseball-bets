@@ -1,4 +1,7 @@
 /* CSS for MatchupBlock.js */
+.gamesSection__header {
+  margin: 5px 0;
+}
 .card {
   width: 49%
 }
