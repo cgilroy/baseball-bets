@@ -81,18 +81,30 @@ function App() {
 
   let matchupBlocks = (
     <React.Fragment>
-      <div className="gamesSection">
-        <h3 className="gamesSection__header">Live</h3>
-        {liveGames}
-      </div>
-      <div className="gamesSection">
-        <h3 className="gamesSection__header">Upcoming</h3>
-        {scheduledGames}
-      </div>
-      <div className="gamesSection">
-        <h3 className="gamesSection__header">Completed</h3>
-        {finalGames}
-      </div>
+      {
+        liveGames && (
+          <div className="gamesSection">
+            <h3 className="gamesSection__header">Live</h3>
+            {liveGames}
+          </div>
+        )
+      }
+      {
+        scheduledGames && (
+          <div className="gamesSection">
+            <h3 className="gamesSection__header">Upcoming</h3>
+            {scheduledGames}
+          </div>
+        )
+      }
+      {
+        finalGames && (
+          <div className="gamesSection">
+            <h3 className="gamesSection__header">Completed</h3>
+            {finalGames}
+          </div>
+        )
+      }
     </React.Fragment>
   )
   console.log(finalGames)
