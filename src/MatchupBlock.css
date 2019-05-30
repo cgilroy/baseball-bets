@@ -1,11 +1,11 @@
 /* CSS for MatchupBlock.js */
 .card {
-  width: 40%
+  width: 49%
 }
 .card__content {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 .bullet {
   display: inline-block;
@@ -13,14 +13,13 @@
   transform: scale(0.8);
 }
 .title {
-  font-size: 14;
+  font-size: 14px;
 }
 .pos {
-  margin-bottom: 12;
+  margin-bottom: 12px;
 }
 .matchup {
   display: flex;
-  margin-bottom: 10;
   justify-content: space-between;
   align-items: center
 }
@@ -28,9 +27,8 @@
   padding: 0 8px;
 }
 .card__winner {
-  width: 40%;
   border: 2px solid #00d064;
-  boxSizing: border-box
+  box-sizing: border-box
 }
 .dropDown {
   display: flex;
@@ -46,12 +44,64 @@
 }
 .centerScore {
   display: flex;
-  align-items: center
+  align-items: center;
+  width: 150px;
+  justify-content: space-around;
+}
+.liveIcon {
+  padding-right: 4px;
+  animation: liveLoop 0.4s ease-in-out alternate infinite;
+}
+.liveIndicator {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+.liveIndicator__bar {
+  height: 100%;
+  width: 40px;
+  position: absolute;
+  background: green;
+  animation: loopBar 4s 1s infinite alternate ease-in-out
+}
+
+@keyframes loopBar {
+  0% {
+    left: -40px
+  }
+  60% {
+    left: -40px
+  }
+  100% {
+    left: 100%;
+  }
+
+}
+
+@keyframes liveLoop {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+
 }
 
 @media only screen and (max-width:600px) {
-  .win-count {
-    display: none;
+  .matchup {
+    flex-wrap: wrap;
+  }
+  .card {
+    height: 75px;
+    align-items: center;
+    display: flex
+  }
+  .centerScore {
+    width: 100%;
+    order: 3;
+    margin-top: 10px;
   }
   .checkmarkIcon {
     display: none;

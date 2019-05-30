@@ -41,8 +41,8 @@ const MatchupBlock = (props) => {
   if (gameState === 'I') FetchLiveData(gameUrl,doneFetch);
 
   let homeBlock = (
-    <Card className={(comparisonResult.winner === 'HOME') ? ('card__winner') : ('card')}>
-      <CardContent className='card__content'>
+    <Card className={(comparisonResult.winner === 'HOME') ? ('card card__winner') : ('card')}>
+      <CardContent className='card__content' style={{paddingBottom:'16px'}}>
         {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
         <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.homeData.name}
@@ -50,8 +50,8 @@ const MatchupBlock = (props) => {
     </Card>
   )
   let awayBlock = (
-    <Card className={(comparisonResult.winner === 'AWAY') ? ('card__winner') : ('card')}>
-      <CardContent className='card__content'>
+    <Card className={(comparisonResult.winner === 'AWAY') ? ('card card__winner') : ('card')}>
+      <CardContent className='card__content' style={{paddingBottom:'16px'}}>
         {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
         <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
         {props.awayData.name}
@@ -92,11 +92,18 @@ const TimeData = (props) => {
     case 'F':
       markup = <span>FINAL</span>
       break;
+    case 'O':
+      markup = <span>FINAL</span>
+      break;
     case 'I':
       markup = (
         <React.Fragment>
-          <img src={LiveIcon} style={{paddingRight:'4px'}}/>
-          <span style={{color:'#259b24'}}>{props.inningData}</span>
+          <div>
+            <span style={{color:'#259b24'}}>{props.inningData}</span>
+            <div className="liveIndicator">
+              <div className="liveIndicator__bar"></div>
+            </div>
+          </div>
         </React.Fragment>
       );
       break;
@@ -117,17 +124,17 @@ const TimeData = (props) => {
 
 const CenterScore = (props) => {
 
-  const markup = (props.gameState === "I" || props.gameState === "F") ? (
+  const markup = (props.gameState === "I" || props.gameState === "F" || props.gameState === "O") ? (
     <React.Fragment>
       <div className='win-count'>
         <div>
-          <span style={{fontWeight:'bolder'}}>{props.gameData.teams.home.score}</span>
+          <span style={{fontWeight:'bolder',fontSize:'24px'}}>{props.gameData.teams.home.score}</span>
         </div>
       </div>
-      <Typography>-</Typography>
+      <Typography style={{fontWeight:'bolder'}}>-</Typography>
       <div className='win-count'>
         <div>
-          <span style={{fontWeight:'bolder'}}>{props.gameData.teams.away.score}</span>
+          <span style={{fontWeight:'bolder',fontSize:'24px'}}>{props.gameData.teams.away.score}</span>
         </div>
       </div>
     </React.Fragment>
@@ -154,7 +161,7 @@ const CenterScore = (props) => {
   )
 
   return (
-    <div style={{display:'flex',alignItems:'center'}}>
+    <div className='centerScore'>
       {markup}
     </div>
   )
