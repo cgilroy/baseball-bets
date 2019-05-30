@@ -40,24 +40,50 @@ const MatchupBlock = (props) => {
 
   if (gameState === 'I') FetchLiveData(gameUrl,doneFetch);
 
-  let homeBlock = (
-    <Card className={(comparisonResult.winner === 'HOME') ? ('card card__winner') : ('card')}>
-      <CardContent className='card__content' style={{paddingBottom:'16px'}}>
-        {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
-        <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
-        {props.homeData.name}
-      </CardContent>
-    </Card>
-  )
-  let awayBlock = (
-    <Card className={(comparisonResult.winner === 'AWAY') ? ('card card__winner') : ('card')}>
-      <CardContent className='card__content' style={{paddingBottom:'16px'}}>
-        {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
-        <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} style={{height:'25px',paddingRight:'8px'}}/>
-        {props.awayData.name}
-      </CardContent>
-    </Card>
-  )
+  let homeBlock
+  let awayBlock
+  let homeScore = props.gameData.teams.home.score
+  let awayScore = props.gameData.teams.away.score
+  if (gameState === 'F' || gameState === 'O') {
+    homeBlock = (
+      <Card className={(comparisonResult.winner === 'HOME') ? ('card card__winner') : ('card')}>
+        <CardContent className={(awayScore < homeScore) ? ('card__content card__content--game-winner') : ('card__content card__content--game-loser')} style={{paddingBottom:'16px'}}>
+          {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
+          <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} className='team-logo' />
+          {props.homeData.name}
+        </CardContent>
+      </Card>
+    )
+    awayBlock = (
+      <Card className={(comparisonResult.winner === 'AWAY') ? ('card card__winner') : ('card')}>
+        <CardContent className={(awayScore > homeScore) ? ('card__content card__content--game-winner') : ('card__content card__content--game-loser')} style={{paddingBottom:'16px'}}>
+          {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
+          <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} className='team-logo' />
+          {props.awayData.name}
+        </CardContent>
+      </Card>
+    )
+  } else {
+    homeBlock = (
+      <Card className={(comparisonResult.winner === 'HOME') ? ('card card__winner') : ('card')}>
+        <CardContent className='card__content' style={{paddingBottom:'16px'}}>
+          {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
+          <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} className='team-logo' />
+          {props.homeData.name}
+        </CardContent>
+      </Card>
+    )
+    awayBlock = (
+      <Card className={(comparisonResult.winner === 'AWAY') ? ('card card__winner') : ('card')}>
+        <CardContent className='card__content' style={{paddingBottom:'16px'}}>
+          {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
+          <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} className='team-logo' />
+          {props.awayData.name}
+        </CardContent>
+      </Card>
+    )
+  }
+
   const toggleDropDown = () => {
     setDropDownActive(!dropDownActive)
   }
