@@ -22,6 +22,10 @@ function App() {
     FetchData(doneFetch);
   }, 15000);
 
+  var liveGames = []
+  var scheduledGames = []
+  var finalGames = []
+
   if (allData !== undefined) {
     let schedule = allData.find(obj => obj.dataType === "schedule")
     let pitchingData = allData.find(obj => obj.dataType === "pitching").data
@@ -29,9 +33,6 @@ function App() {
     let fieldingData = allData.find(obj => obj.dataType === "fielding").data
     let startingPitcher = allData.find(obj => obj.dataType === "startingPitcherStats").data
     let recordData = allData.find(obj => obj.dataType === "records").data
-    var liveGames = []
-    var scheduledGames = []
-    var finalGames = []
 
     schedule.data.games.map(game => {
       let homePitcher = ''
@@ -78,11 +79,12 @@ function App() {
       }
     })
   }
+  console.log([liveGames,scheduledGames,finalGames])
 
   let matchupBlocks = (
     <React.Fragment>
       {
-        liveGames && (
+        liveGames.length !== 0  && (
           <div className="gamesSection">
             <h3 className="gamesSection__header">Live</h3>
             {liveGames}
@@ -90,7 +92,7 @@ function App() {
         )
       }
       {
-        scheduledGames && (
+        scheduledGames.length !== 0 && (
           <div className="gamesSection">
             <h3 className="gamesSection__header">Upcoming</h3>
             {scheduledGames}
@@ -98,7 +100,7 @@ function App() {
         )
       }
       {
-        finalGames && (
+        finalGames.length !== 0 && (
           <div className="gamesSection">
             <h3 className="gamesSection__header">Completed</h3>
             {finalGames}
@@ -107,7 +109,7 @@ function App() {
       }
     </React.Fragment>
   )
-  console.log(finalGames)
+  console.log(allData,'allData')
   return (
     <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">
