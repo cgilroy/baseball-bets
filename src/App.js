@@ -10,8 +10,7 @@ function App() {
   const [allData, setAllData] = useState()
   const [loading, setLoading] = useState(true)
   const doneFetch = (data) => {
-    console.log('here')
-    setLoading(false)
+    if (loading) setLoading(false);
     setAllData(data)
   }
 
@@ -79,7 +78,7 @@ function App() {
       }
     })
   }
-  console.log([liveGames,scheduledGames,finalGames])
+  // console.log([liveGames,scheduledGames,finalGames])
 
   let matchupBlocks = (
     <React.Fragment>
@@ -109,7 +108,7 @@ function App() {
       }
     </React.Fragment>
   )
-  console.log(allData,'allData')
+
   return (
     <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">
