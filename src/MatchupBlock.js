@@ -44,7 +44,14 @@ const MatchupBlock = (props) => {
   let awayBlock
   let homeScore = props.gameData.teams.home.score
   let awayScore = props.gameData.teams.away.score
-  if (gameState === 'F' || gameState === 'O') {
+
+  let winningGame = homeScore > awayScore ? 'HOME' : awayScore > homeScore ? 'AWAY' : ''
+  if (comparisonResult.winner !== '') {
+    let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
+    props.addBetObject({type: gameState, state: betState})
+  }
+
+  if (gameState === 'F' || gameState === 'O' || gameState === "D") {
     homeBlock = (
       <Card className={(comparisonResult.winner === 'HOME') ? ('card card__winner') : ('card')}>
         <CardContent className={(awayScore < homeScore) ? ('card__content card__content--game-winner') : ('card__content card__content--game-loser')} style={{paddingBottom:'16px'}}>
@@ -116,10 +123,11 @@ const TimeData = (props) => {
   let markup = ''
   switch (props.gameState) {
     case 'F':
-      markup = <span>FINAL</span>
-      break;
     case 'O':
       markup = <span>FINAL</span>
+      break;
+    case 'D':
+      markup = <span>DELAYED</span>
       break;
     case 'I':
       markup = (

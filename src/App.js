@@ -3,12 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 import FetchData from './FetchData.js'
 import MatchupBlock from './MatchupBlock.js'
+import BettingSummary from './BettingSummary.js'
 import useInterval from './useInterval.js'
 import {useState, useEffect} from 'react'
 
 function App() {
   const [allData, setAllData] = useState()
   const [loading, setLoading] = useState(true)
+  const [betObjects, setBetObjects] = useState([])
+
   const doneFetch = (data) => {
     if (loading) setLoading(false);
     setAllData(data)
@@ -16,9 +19,11 @@ function App() {
 
   useEffect(() => {
     FetchData(doneFetch)
+    setBetObjects(betObjects)
   },[])
   useInterval(() => {
     FetchData(doneFetch);
+    setBetObjects(betObjects)
   }, 15000);
 
   var liveGames = []
@@ -32,7 +37,8 @@ function App() {
     let fieldingData = allData.find(obj => obj.dataType === "fielding").data
     let startingPitcher = allData.find(obj => obj.dataType === "startingPitcherStats").data
     let recordData = allData.find(obj => obj.dataType === "records").data
-
+    let betObjectsTemp = []
+    const addBetObject = (obj) => betObjectsTemp.push(obj)
     schedule.data.games.map(game => {
       let homePitcher = ''
       let awayPitcher = ''
@@ -67,9 +73,9 @@ function App() {
         pitcherStats: awayPitcher
       }
       let gameState = game.status.codedGameState
-      let outputBlock = <MatchupBlock key={game.gamePk} gameData={game} homeData={homeData} awayData={awayData} />
+      let outputBlock = <MatchupBlock key={game.gamePk} addBetObject={addBetObject} gameData={game} homeData={homeData} awayData={awayData} />
 
-      if (gameState === "F" || gameState === "O") {
+      if (gameState === "F" || gameState === "O" || gameState === "D") {
         finalGames.push(outputBlock)
       } else if (gameState === "I") {
         liveGames.push(outputBlock)
@@ -78,8 +84,9 @@ function App() {
       }
     })
   }
-  // console.log([liveGames,scheduledGames,finalGames])
-
+  console.log([liveGames,scheduledGames,finalGames])
+  console.log(betObjects,'bets')
+  var betSummary = <BettingSummary betData={betObjects} />
   let matchupBlocks = (
     <React.Fragment>
       {
@@ -113,6 +120,7 @@ function App() {
     <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">
         <h1>baseball-bets</h1>
+        {betSummary}
       </header>
       <div style={{display:'flex',flex:'1 1 auto',flexFlow:'column',padding: '15px',maxWidth:'900px', width:'100%', margin:'0 auto',justifyContent:'center'}}>
         {
