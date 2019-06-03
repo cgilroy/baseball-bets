@@ -67,7 +67,7 @@ function BasicDatePicker(props) {
           label="Select date"
           value={selectedDate}
           onChange={dateChange}
-          disableFuture
+          disablePast
           autoOk
         />
       </MuiPickersUtilsProvider>

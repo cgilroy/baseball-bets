@@ -39,6 +39,9 @@
   border: 2px solid #00d064;
   box-sizing: border-box
 }
+.card__content--game-winner {
+  font-weight: bold;
+}
 .card__content--game-loser {
   color: grey
 }
