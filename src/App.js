@@ -11,25 +11,34 @@ function App() {
   const [allData, setAllData] = useState()
   const [loading, setLoading] = useState(true)
   const [betObjects, setBetObjects] = useState([])
+  var moment = require('moment')
+  const [scheduleDate, setScheduleDate] = useState(new Date)
 
   const doneFetch = (data) => {
+    console.log('donefetch')
     if (loading) setLoading(false);
     setAllData(data)
   }
 
+  const handleDateChange = (date) => {
+    console.log('schedChange',date)
+    setScheduleDate(date)
+    FetchData(moment(date).format('L'),doneFetch)
+  }
+
   useEffect(() => {
-    FetchData(doneFetch)
+    FetchData(moment(scheduleDate).format('L'),doneFetch)
   },[])
 
   useInterval(() => {
-    FetchData(doneFetch);
+    FetchData(moment(scheduleDate).format('L'),doneFetch);
   }, 15000);
 
   var liveGames = []
   var scheduledGames = []
   var finalGames = []
   let betObjectsTemp = []
-  var betSummary = <BettingSummary betData={betObjects} />
+  var betSummary = <BettingSummary handleDateChange={handleDateChange} betData={betObjects} />
 
   if (allData !== undefined) {
     let schedule = allData.find(obj => obj.dataType === "schedule")
@@ -116,7 +125,8 @@ function App() {
       }
     </React.Fragment>
   )
-
+  console.log(betObjects,'betObjects')
+  console.log(betObjectsTemp,'betObjectsTemp')
   return (
     <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">

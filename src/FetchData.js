@@ -2,14 +2,15 @@ import React from 'react'
 import MatchupBlock from './MatchupBlock.js'
 import testLive from './sample-data/schedule.json'
 
-function FetchData(callback) {
+function FetchData(date,callback) {
+  console.log(date,'date')
   var moment = require('moment')
   var testingLiveData = false
   let pitchingData = ''
   let hittingData = ''
   let fieldingData = ''
-  let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+moment().format('L')+'&sportId=1&hydrate=probablePitcher(note)'
-  // let dateUrl = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&hydrate=probablePitcher(note)'
+  let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+date+'&sportId=1&hydrate=probablePitcher(note)'
+  // let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date=05/28/2019&sportId=1&hydrate=probablePitcher(note)'
   // console.log(dateUrl,'dateUrl')
   var fetches = []
   const urls = [
