@@ -18,17 +18,21 @@ function App() {
   }
 
   useEffect(() => {
+    console.log('useEffect')
     FetchData(doneFetch)
-    setBetObjects(betObjects)
   },[])
+  // useEffect(() => {
+  //   setBetObjects(betObjectsTemp)
+  // },[betObjectsTemp])
   useInterval(() => {
     FetchData(doneFetch);
-    setBetObjects(betObjects)
+    // setBetObjects(betObjectsTemp)
   }, 15000);
 
   var liveGames = []
   var scheduledGames = []
   var finalGames = []
+  let betObjectsTemp = []
 
   if (allData !== undefined) {
     let schedule = allData.find(obj => obj.dataType === "schedule")
@@ -37,8 +41,9 @@ function App() {
     let fieldingData = allData.find(obj => obj.dataType === "fielding").data
     let startingPitcher = allData.find(obj => obj.dataType === "startingPitcherStats").data
     let recordData = allData.find(obj => obj.dataType === "records").data
-    let betObjectsTemp = []
-    const addBetObject = (obj) => betObjectsTemp.push(obj)
+    const addBetObject = (obj) => {
+      betObjectsTemp.push(obj)
+    }
     schedule.data.games.map(game => {
       let homePitcher = ''
       let awayPitcher = ''
@@ -85,7 +90,7 @@ function App() {
     })
   }
   console.log([liveGames,scheduledGames,finalGames])
-  console.log(betObjects,'bets')
+  console.log(betObjectsTemp,'bets')
   var betSummary = <BettingSummary betData={betObjects} />
   let matchupBlocks = (
     <React.Fragment>

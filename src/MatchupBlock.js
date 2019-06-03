@@ -20,7 +20,7 @@ import useInterval from './useInterval.js'
 const FetchLiveData = (gamePk,callback) => {
   let gameUrl = 'http://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
   fetch(gameUrl).then(resp => resp.json()).then(data => {
-    console.log(data,'FetchLiveData');
+    // console.log(data,'FetchLiveData');
     let inningData = data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal
     callback(inningData)
   })
@@ -35,6 +35,11 @@ const MatchupBlock = (props) => {
   // console.log(comparisonResult,'comparisonResult')
   const doneFetch = (data) => {
     setInningData(data)
+    if (comparisonResult.winner !== '') {
+      console.log('addBetObject')
+      let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
+      props.addBetObject({type: gameState, state: betState})
+    }
   }
   const gameUrl = props.gameData.gamePk
 
@@ -46,10 +51,9 @@ const MatchupBlock = (props) => {
   let awayScore = props.gameData.teams.away.score
 
   let winningGame = homeScore > awayScore ? 'HOME' : awayScore > homeScore ? 'AWAY' : ''
-  if (comparisonResult.winner !== '') {
-    let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
-    props.addBetObject({type: gameState, state: betState})
-  }
+
+
+
 
   if (gameState === 'F' || gameState === 'O' || gameState === "D") {
     homeBlock = (

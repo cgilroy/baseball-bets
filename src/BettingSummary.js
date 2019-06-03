@@ -31,7 +31,7 @@ function BettingSummary(props) {
     })
   }
 
-  return <div>YEAH</div>
+  return <div>{props.betData.length}</div>
 }
 
 export default BettingSummary
