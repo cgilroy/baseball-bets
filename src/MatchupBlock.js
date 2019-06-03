@@ -33,27 +33,26 @@ const MatchupBlock = (props) => {
   // console.log(props,'props')
   let comparisonResult = RunComparison(props.homeData, props.awayData,props.gameData.dayNight)
   // console.log(comparisonResult,'comparisonResult')
-  const doneFetch = (data) => {
-    setInningData(data)
-    if (comparisonResult.winner !== '') {
-      console.log('addBetObject')
-      let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
-      props.addBetObject({type: gameState, state: betState})
-    }
-  }
-  const gameUrl = props.gameData.gamePk
-
-  if (gameState === 'I') FetchLiveData(gameUrl,doneFetch);
-
   let homeBlock
   let awayBlock
   let homeScore = props.gameData.teams.home.score
   let awayScore = props.gameData.teams.away.score
 
-  let winningGame = homeScore > awayScore ? 'HOME' : awayScore > homeScore ? 'AWAY' : ''
+  const doneFetch = (data) => {
+    setInningData(data)
+  }
 
+  const gameUrl = props.gameData.gamePk
+  if (gameState === 'I') FetchLiveData(gameUrl,doneFetch);
 
-
+  useEffect(() => {
+    if (comparisonResult.winner !== '') {
+      console.log('addBetObject')
+      let winningGame = homeScore > awayScore ? 'HOME' : awayScore > homeScore ? 'AWAY' : ''
+      let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
+      props.addBetObject({type: gameState, state: betState})
+    }
+  },[])
 
   if (gameState === 'F' || gameState === 'O' || gameState === "D") {
     homeBlock = (

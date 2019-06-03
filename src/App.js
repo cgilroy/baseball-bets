@@ -18,21 +18,18 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('useEffect')
     FetchData(doneFetch)
   },[])
-  // useEffect(() => {
-  //   setBetObjects(betObjectsTemp)
-  // },[betObjectsTemp])
+
   useInterval(() => {
     FetchData(doneFetch);
-    // setBetObjects(betObjectsTemp)
   }, 15000);
 
   var liveGames = []
   var scheduledGames = []
   var finalGames = []
   let betObjectsTemp = []
+  var betSummary = <BettingSummary betData={betObjects} />
 
   if (allData !== undefined) {
     let schedule = allData.find(obj => obj.dataType === "schedule")
@@ -43,6 +40,7 @@ function App() {
     let recordData = allData.find(obj => obj.dataType === "records").data
     const addBetObject = (obj) => {
       betObjectsTemp.push(obj)
+      setBetObjects(betObjectsTemp)
     }
     schedule.data.games.map(game => {
       let homePitcher = ''
@@ -89,9 +87,7 @@ function App() {
       }
     })
   }
-  console.log([liveGames,scheduledGames,finalGames])
-  console.log(betObjectsTemp,'bets')
-  var betSummary = <BettingSummary betData={betObjects} />
+
   let matchupBlocks = (
     <React.Fragment>
       {
