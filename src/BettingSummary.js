@@ -1,5 +1,4 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
 import BasicDatePicker from './BasicDatePicker.js'
 
 function BettingSummary(props) {
@@ -30,6 +29,9 @@ function BettingSummary(props) {
           case 'TIE':
             category = 'Tied';
             break;
+          default:
+            category = 'Tied'
+            break;
         }
       } else if (obj.type === 'F' || obj.type === 'O') {
         category = (obj.state === 'WIN') ? 'Won' : 'Lost'
@@ -52,7 +54,6 @@ function BettingSummary(props) {
   }
   // betRows.push(<tr><td>{props.betData.length}</td><td>Total Bets</td></tr>)
 
-  let defaultDate = moment().format('YYYY-MM-DD')
   let bettingResult = ''
   if (betCounts.hasOwnProperty('Lost')) {
     bettingResult = 'LOST :('

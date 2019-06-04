@@ -1,18 +1,11 @@
-import React from 'react'
-import MatchupBlock from './MatchupBlock.js'
 import testLive from './sample-data/schedule.json'
 
 function FetchData(date,callback) {
-  console.log(date,'date')
-  var moment = require('moment')
+  // console.log(date,'date')
   var testingLiveData = false
-  let pitchingData = ''
-  let hittingData = ''
-  let fieldingData = ''
   let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+date+'&sportId=1&hydrate=probablePitcher(note)'
   // let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date=05/28/2019&sportId=1&hydrate=probablePitcher(note)'
   // console.log(dateUrl,'dateUrl')
-  var fetches = []
   const urls = [
     dateUrl,
     'https://statsapi.mlb.com/api/v1/teams/stats?season=2019&stats=season&group=pitching&sportIds=1',

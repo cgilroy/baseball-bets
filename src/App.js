@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import github from './resources/github.svg'
 import './App.css';
 import FetchData from './FetchData.js'
@@ -13,16 +12,16 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [betObjects, setBetObjects] = useState([])
   var moment = require('moment')
-  const [scheduleDate, setScheduleDate] = useState(new Date)
+  const [scheduleDate, setScheduleDate] = useState(new Date())
 
   const doneFetch = (data) => {
-    console.log('donefetch')
+    // console.log('donefetch')
     if (loading) setLoading(false);
     setAllData(data)
   }
 
   const handleDateChange = (date) => {
-    console.log('schedChange',date)
+    // console.log('schedChange',date)
     setScheduleDate(date)
     FetchData(moment(date).format('L'),doneFetch)
   }
@@ -95,6 +94,7 @@ function App() {
       } else {
         scheduledGames.push(outputBlock)
       }
+      return
     })
   }
 
@@ -126,8 +126,8 @@ function App() {
       }
     </React.Fragment>
   )
-  console.log(betObjects,'betObjects')
-  console.log(betObjectsTemp,'betObjectsTemp')
+  // console.log(betObjects,'betObjects')
+  // console.log(betObjectsTemp,'betObjectsTemp')
   return (
     <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">

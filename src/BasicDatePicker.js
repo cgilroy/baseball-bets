@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { DatePicker,  MuiPickersUtilsProvider } from "@material-ui/pickers";
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core'
 import DateFnsUtils from "@date-io/moment";
@@ -57,7 +57,7 @@ function BasicDatePicker(props) {
 
   const dateChange = (val) => {
     handleDateChange(val)
-    console.log(val,'selectedDate')
+    // console.log(val,'selectedDate')
     props.handleDateChange(val)
   }
 

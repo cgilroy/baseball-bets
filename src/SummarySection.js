@@ -1,5 +1,4 @@
 import React from 'react'
-import Paper from '@material-ui/core/Paper';
 import Fade from '@material-ui/core/Fade'
 import Collapse from '@material-ui/core/Collapse'
 

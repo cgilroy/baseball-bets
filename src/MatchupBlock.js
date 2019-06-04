@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import css from './MatchupBlock.css'
+import './MatchupBlock.css'
 import Card from '@material-ui/core/Card';
 import Paper from '@material-ui/core/Paper';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Fade from '@material-ui/core/Fade';
 import IconButton from '@material-ui/core/IconButton';
 import 'typeface-roboto';
 import RunComparison from './RunComparison.js'
@@ -14,9 +12,7 @@ import SummarySection from './SummarySection.js'
 import Checkmark from './resources/checkmark.svg'
 import Xmark from './resources/x-mark.svg'
 import ExpandMoreIcon from './resources/expand-more.svg'
-import LiveIcon from './resources/live-icon.svg'
 import Moment from 'react-moment'
-import useInterval from './useInterval.js'
 
 const FetchLiveData = (gamePk,callback) => {
   let gameUrl = 'http://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
@@ -48,7 +44,7 @@ const MatchupBlock = (props) => {
 
   useEffect(() => {
     if (comparisonResult.winner !== '') {
-      console.log('addBetObject')
+      // console.log('addBetObject')
       let winningGame = homeScore > awayScore ? 'HOME' : awayScore > homeScore ? 'AWAY' : ''
       let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
       props.addBetObject({type: gameState, state: betState})
