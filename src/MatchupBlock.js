@@ -12,6 +12,7 @@ import 'typeface-roboto';
 import RunComparison from './RunComparison.js'
 import SummarySection from './SummarySection.js'
 import Checkmark from './resources/checkmark.svg'
+import Xmark from './resources/x-mark.svg'
 import ExpandMoreIcon from './resources/expand-more.svg'
 import LiveIcon from './resources/live-icon.svg'
 import Moment from 'react-moment'
@@ -54,11 +55,17 @@ const MatchupBlock = (props) => {
     }
   },[])
 
-  if (gameState === 'F' || gameState === 'O' || gameState === "D") {
+  if (gameState === 'F' || gameState === 'O') {
     homeBlock = (
       <Card className={(comparisonResult.winner === 'HOME') ? ('card card__winner') : ('card')}>
         <CardContent className={(awayScore < homeScore) ? ('card__content card__content--game-winner') : ('card__content card__content--game-loser')} style={{paddingBottom:'16px'}}>
-          {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
+          {
+            (comparisonResult.winner === 'HOME' && awayScore < homeScore) ? (
+              <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>
+            ) : (comparisonResult.winner === 'HOME' && awayScore > homeScore) ? (
+              <img className='checkmarkIcon' src={Xmark} style={{marginRight:'8px'}}/>
+            ) : ''
+          }
           <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} className='team-logo' />
           {props.homeData.name}
         </CardContent>
@@ -67,7 +74,13 @@ const MatchupBlock = (props) => {
     awayBlock = (
       <Card className={(comparisonResult.winner === 'AWAY') ? ('card card__winner') : ('card')}>
         <CardContent className={(awayScore > homeScore) ? ('card__content card__content--game-winner') : ('card__content card__content--game-loser')} style={{paddingBottom:'16px'}}>
-          {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
+          {
+            (comparisonResult.winner === 'AWAY' && awayScore > homeScore) ? (
+              <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>
+            ) : (comparisonResult.winner === 'AWAY' && awayScore < homeScore) ? (
+              <img className='checkmarkIcon' src={Xmark} style={{marginRight:'8px'}}/>
+            ) : ''
+          }
           <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} className='team-logo' />
           {props.awayData.name}
         </CardContent>
@@ -77,7 +90,6 @@ const MatchupBlock = (props) => {
     homeBlock = (
       <Card className={(comparisonResult.winner === 'HOME') ? ('card card__winner') : ('card')}>
         <CardContent className='card__content' style={{paddingBottom:'16px'}}>
-          {comparisonResult.winner === 'HOME' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
           <img src={`https://www.mlbstatic.com/team-logos/${props.homeData.id}.svg`} className='team-logo' />
           {props.homeData.name}
         </CardContent>
@@ -86,7 +98,6 @@ const MatchupBlock = (props) => {
     awayBlock = (
       <Card className={(comparisonResult.winner === 'AWAY') ? ('card card__winner') : ('card')}>
         <CardContent className='card__content' style={{paddingBottom:'16px'}}>
-          {comparisonResult.winner === 'AWAY' && <img className='checkmarkIcon' src={Checkmark} style={{marginRight:'8px'}}/>}
           <img src={`https://www.mlbstatic.com/team-logos/${props.awayData.id}.svg`} className='team-logo' />
           {props.awayData.name}
         </CardContent>
