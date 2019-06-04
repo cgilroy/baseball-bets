@@ -8,7 +8,14 @@ function BettingSummary(props) {
   let betCounts = {}
   if (props.betData.length !== 0) {
     // console.log(props.betData,'i am in')
-
+    let testObj = [
+      {type:'I',state:'WIN'},
+      {type:'P',state:'TIE'},
+      {type:'I',state:'LOSE'},
+      {type:'F',state:'WIN'},
+      {type:'F',state:'LOSE'},
+      {type:'D',state:'LOSE'},
+    ]
     props.betData.map(obj => {
       let category
       if (obj.type === "I") {
@@ -40,22 +47,32 @@ function BettingSummary(props) {
   for (var category in betCounts) {
     if (betCounts.hasOwnProperty(category)) {
       // console.log(category,'category')
-      betRows.push(<tr><td>{category}</td><td>{betCounts[category]}</td></tr>)
+      betRows.push(<tr><td>{betCounts[category]}</td><td>{category}</td></tr>)
     }
   }
+  // betRows.push(<tr><td>{props.betData.length}</td><td>Total Bets</td></tr>)
 
   let defaultDate = moment().format('YYYY-MM-DD')
+  let bettingResult
+  if (betCounts.hasOwnProperty('Lost')) {
+    bettingResult = 'LOST :('
+  } else if (betCounts.hasOwnProperty('Winning') || betCounts.hasOwnProperty('Losing')|| betCounts.hasOwnProperty('Tied') || betCounts.hasOwnProperty('Not Started')) {
+    bettingResult = "TBD"
+  } else {
+    bettingResult = "WON :)"
+  }
 
   return (
     <div className="betting-summary">
       <div className="betting-summary__date">
-        <div>
           <BasicDatePicker handleDateChange={props.handleDateChange} />
-        </div>
+          <div className="betting-summary__result">{bettingResult}</div>
       </div>
-      <table>
-        {betRows}
-      </table>
+      <div className="betting-summary__values">
+        <table>
+          {betRows}
+        </table>
+      </div>
     </div>
   )
 }

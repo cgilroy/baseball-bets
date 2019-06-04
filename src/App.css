@@ -23,6 +23,23 @@
   color: #282c34;
   padding: 8px;
   border-radius: 5px;
+  margin: 10px 0;
+}
+.betting-summary__date {
+  display: flex;
+  flex-wrap: wrap;
+  width: 180px;
+}
+.betting-summary__result {
+  width: 100%;
+  font-size: 35px;
+}
+.betting-summary__values {
+  padding-left: 6px;
+  font-size: 16px
+}
+.betting-summary__values table tr:last-child {
+  border-top: 1px solid #262626
 }
 .App-link {
   color: #61dafb;
@@ -67,5 +84,17 @@
     width: 58px;
     height: 58px;
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 700px)  {
+  .App-header {
+    flex-direction: column;
+  }
+  .App-header h1 {
+    margin: 0;
+  }
+  .betting-summary {
+
   }
 }
