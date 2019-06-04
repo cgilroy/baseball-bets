@@ -22,6 +22,21 @@
   max-width: 900px;
 }
 
+.App-header__content h1 {
+  margin-bottom: 0;
+}
+
+.project-tag {
+  font-size: 18px;
+  font-weight: normal;
+  display: flex;
+}
+.project-tag img {
+  height: 24px;
+  padding-left: 6px;
+  transition: height 0.2s linear;
+}
+
 .betting-summary {
   display: flex;
   background: #fff;

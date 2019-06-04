@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import github from './resources/github.svg'
 import './App.css';
 import FetchData from './FetchData.js'
 import MatchupBlock from './MatchupBlock.js'
@@ -131,7 +132,15 @@ function App() {
     <div className="App" style={{backgroundColor:'#f0f0f0',minHeight:'100vh',display:'flex',flexFlow:'column'}}>
       <header className="App-header">
         <div className="App-header__content">
-          <h1>baseball-bets</h1>
+          <div>
+            <h1>baseball-bets</h1>
+            <div className="project-tag">
+              <span>Check out the project</span>
+              <a href="http://github.com/cgilroy/baseball-bets">
+                <img src={github} />
+              </a>
+            </div>
+          </div>
           {betSummary}
         </div>
       </header>
