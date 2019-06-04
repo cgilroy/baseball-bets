@@ -7,14 +7,19 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  /* height: 100px; */
   display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  background-color: #282c34;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 900px;
 }
 
 .betting-summary {
@@ -36,7 +41,11 @@
 }
 .betting-summary__values {
   padding-left: 6px;
-  font-size: 16px
+  margin-left: 6px;
+  font-size: 16px;
+  text-align: left;
+  border-left: 1px solid lightgrey;
+  min-width: 108px;
 }
 .betting-summary__values table tr:last-child {
   border-top: 1px solid #262626
@@ -88,13 +97,17 @@
 }
 
 @media only screen and (max-width: 700px)  {
-  .App-header {
+  .App-header__content {
     flex-direction: column;
+    margin: 0 10px;
   }
   .App-header h1 {
     margin: 0;
   }
-  .betting-summary {
+}
 
+@media only screen and (max-width: 420px) {
+  .betting-summary {
+    width: 95%;
   }
 }
