@@ -47,18 +47,18 @@ function BettingSummary(props) {
   for (var category in betCounts) {
     if (betCounts.hasOwnProperty(category)) {
       // console.log(category,'category')
-      betRows.push(<tr><td>{betCounts[category]}</td><td>{category}</td></tr>)
+      betRows.push(<tr key={category}><td>{betCounts[category]}</td><td>{category}</td></tr>)
     }
   }
   // betRows.push(<tr><td>{props.betData.length}</td><td>Total Bets</td></tr>)
 
   let defaultDate = moment().format('YYYY-MM-DD')
-  let bettingResult
+  let bettingResult = ''
   if (betCounts.hasOwnProperty('Lost')) {
     bettingResult = 'LOST :('
   } else if (betCounts.hasOwnProperty('Winning') || betCounts.hasOwnProperty('Losing')|| betCounts.hasOwnProperty('Tied') || betCounts.hasOwnProperty('Not Started')) {
     bettingResult = "TBD"
-  } else {
+  } else if (betCounts.hasOwnProperty('Won')){
     bettingResult = "WON :)"
   }
 
@@ -72,7 +72,9 @@ function BettingSummary(props) {
       <div className="betting-summary__values">
         <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>Bets</span>
         <table>
-          {betRows}
+          <tbody>
+            {betRows}
+          </tbody>
         </table>
       </div>
     </div>
