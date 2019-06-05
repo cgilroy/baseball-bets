@@ -60,7 +60,7 @@
   font-size: 16px;
   text-align: left;
   border-left: 1px solid lightgrey;
-  min-width: 108px;
+  min-width: 112px;
 }
 .betting-summary__values table tr:last-child {
   border-top: 1px solid #262626
