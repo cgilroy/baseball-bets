@@ -15,7 +15,7 @@ import ExpandMoreIcon from './resources/expand-more.svg'
 import Moment from 'react-moment'
 
 const FetchLiveData = (gamePk,callback) => {
-  let gameUrl = 'http://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
+  let gameUrl = 'https://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
   fetch(gameUrl).then(resp => resp.json()).then(data => {
     // console.log(data,'FetchLiveData');
     let inningData = data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal
