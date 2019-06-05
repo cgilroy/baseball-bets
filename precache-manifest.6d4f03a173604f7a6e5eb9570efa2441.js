@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "03693d0c797b502ba88d129f92cf3eb5",
+    "revision": "f385cd509de0cc922e911aaf70185a1c",
     "url": "/baseball-bets/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baseball-bets/static/css/2.334178b1.chunk.css"
   },
   {
-    "revision": "6eac6af7e314c14ce8c1",
+    "revision": "01aa01c1820d358568f7",
     "url": "/baseball-bets/static/css/main.35a99153.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/baseball-bets/static/js/2.62be0b5f.chunk.js"
   },
   {
-    "revision": "6eac6af7e314c14ce8c1",
-    "url": "/baseball-bets/static/js/main.5799ef47.chunk.js"
+    "revision": "01aa01c1820d358568f7",
+    "url": "/baseball-bets/static/js/main.81a9c010.chunk.js"
   },
   {
     "revision": "bc6f78e7d64a6d6fe324",
