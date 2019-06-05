@@ -1,39 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6b8081666a90a0cb3b29eee928f9e71a",
+    "revision": "03693d0c797b502ba88d129f92cf3eb5",
     "url": "/baseball-bets/index.html"
   },
   {
-    "revision": "2945fed6f4d74703fd4a",
+    "revision": "bb77c8b17f576b339a72",
     "url": "/baseball-bets/static/css/2.334178b1.chunk.css"
   },
   {
-    "revision": "43bc5373f4f244a6736e",
-    "url": "/baseball-bets/static/css/main.a5ba0379.chunk.css"
+    "revision": "6eac6af7e314c14ce8c1",
+    "url": "/baseball-bets/static/css/main.35a99153.chunk.css"
   },
   {
-    "revision": "2945fed6f4d74703fd4a",
-    "url": "/baseball-bets/static/js/2.06e76ce0.chunk.js"
+    "revision": "bb77c8b17f576b339a72",
+    "url": "/baseball-bets/static/js/2.62be0b5f.chunk.js"
   },
   {
-    "revision": "43bc5373f4f244a6736e",
-    "url": "/baseball-bets/static/js/main.026f9c3f.chunk.js"
+    "revision": "6eac6af7e314c14ce8c1",
+    "url": "/baseball-bets/static/js/main.5799ef47.chunk.js"
   },
   {
     "revision": "bc6f78e7d64a6d6fe324",
     "url": "/baseball-bets/static/js/runtime~main.39961c62.js"
   },
   {
-    "revision": "93d046215b5e9798382c729d49722823",
-    "url": "/baseball-bets/static/media/checkmark.93d04621.svg"
+    "revision": "5f5fc6248bf9b2b1e3390cab10731f88",
+    "url": "/baseball-bets/static/media/checkmark.5f5fc624.svg"
   },
   {
-    "revision": "9478fa831faddda10906a46f3a368634",
-    "url": "/baseball-bets/static/media/expand-more.9478fa83.svg"
+    "revision": "00a298a5bbaeb9c3fc4942d9aafc8aab",
+    "url": "/baseball-bets/static/media/expand-more.00a298a5.svg"
   },
   {
-    "revision": "ee7cd8ed2dcec943251eb2763684fc6f",
-    "url": "/baseball-bets/static/media/logo.ee7cd8ed.svg"
+    "revision": "8a50b4118c7943690e2ec18bb6448788",
+    "url": "/baseball-bets/static/media/github.8a50b411.svg"
   },
   {
     "revision": "987b84570ea69ee660455b8d5e91f5f1",
@@ -130,5 +130,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "bc833e725c137257c2c42a789845d82f",
     "url": "/baseball-bets/static/media/roboto-latin-900italic.bc833e72.woff"
+  },
+  {
+    "revision": "0bec71c1085703daa2fa6aebec3decc7",
+    "url": "/baseball-bets/static/media/x-mark.0bec71c1.svg"
   }
 ]);
