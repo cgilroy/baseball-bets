@@ -49,7 +49,7 @@ const MatchupBlock = (props) => {
       let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
       props.addBetObject({type: gameState, state: betState})
     }
-  },[])
+  },[props.gameData])
 
   if (gameState === 'F' || gameState === 'O') {
     homeBlock = (

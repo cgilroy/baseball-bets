@@ -71,7 +71,7 @@ function BettingSummary(props) {
           <div className="betting-summary__result">{bettingResult}</div>
       </div>
       <div className="betting-summary__values">
-        <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>Bets</span>
+        <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>{props.betData.length} Bets</span>
         <table>
           <tbody>
             {betRows}
