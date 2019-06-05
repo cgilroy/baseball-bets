@@ -7,16 +7,64 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  height: 100px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  background-color: #282c34;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.App-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 900px;
+}
+
+.App-header__content h1 {
+  margin-bottom: 0;
+}
+
+.project-tag {
+  font-size: 18px;
+  font-weight: normal;
+  display: flex;
+}
+.project-tag img {
+  height: 24px;
+  padding-left: 6px;
+  transition: height 0.2s linear;
+}
+
+.betting-summary {
+  display: flex;
+  background: #fff;
+  color: #282c34;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.betting-summary__date {
+  display: flex;
+  flex-wrap: wrap;
+  width: 180px;
+}
+.betting-summary__result {
+  width: 100%;
+  font-size: 35px;
+}
+.betting-summary__values {
+  padding-left: 6px;
+  margin-left: 6px;
+  font-size: 16px;
+  text-align: left;
+  border-left: 1px solid lightgrey;
+  min-width: 112px;
+}
+.betting-summary__values table tr:last-child {
+  border-top: 1px solid #262626
+}
 .App-link {
   color: #61dafb;
 }
@@ -63,15 +111,18 @@
   }
 }
 
-@media only screen and (max-width:600px) {
-  .win-count {
-    display: none;
+@media only screen and (max-width: 700px)  {
+  .App-header__content {
+    flex-direction: column;
+    margin: 0 10px;
   }
-  .checkmarkIcon {
-    display: none;
+  .App-header h1 {
+    margin: 0;
   }
 }
 
-.win-count {
-
+@media only screen and (max-width: 420px) {
+  .betting-summary {
+    width: 95%;
+  }
 }

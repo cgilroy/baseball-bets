@@ -47,7 +47,7 @@ function RunComparison(homeData, awayData, gameTime) {
   }
 
   for (var category in homeMetrics) {
-    if (homeMetrics[category].value > awayMetrics[category].value) {
+    if (parseFloat(homeMetrics[category].value) > parseFloat(awayMetrics[category].value)) {
       homeCount++
       scoreSummary.push(
         {
@@ -59,8 +59,8 @@ function RunComparison(homeData, awayData, gameTime) {
           }
         }
       )
-      // console.log(category+': '+homeMetrics[category]+' beats '+awayMetrics[category],'homewins')
-    } else if (homeMetrics[category].value < awayMetrics[category].value) {
+      // console.log(category+': '+homeMetrics[category].value+' beats '+awayMetrics[category].value,'homewins')
+    } else if (parseFloat(homeMetrics[category].value) < parseFloat(awayMetrics[category].value)) {
       awayCount++
       scoreSummary.push(
         {stat: {
@@ -70,17 +70,16 @@ function RunComparison(homeData, awayData, gameTime) {
           winner: 'away'
         }}
       )
-      // console.log(category+': '+awayMetrics[category]+' beats '+homeMetrics[category],'awaywins')
+      // console.log(category+': '+awayMetrics[category].value+' beats '+homeMetrics[category].value,'awaywins')
     }
   }
 
 
   //more complex comparisons
-  console.log([homeData,awayData],'pitcherstats')
+  // console.log([homeData,awayData],'pitcherstats')
   if (homeData.pitcherStats !== undefined && awayData.pitcherStats !== undefined) {
-    console.log('inthepitch')
-    if (homeData.pitcherStats.inningsPitched > 24 && awayData.pitcherStats.inningsPitched > 24) {
-      if (homeData.pitcherStats.era < awayData.pitcherStats.era) {
+    if (parseFloat(homeData.pitcherStats.inningsPitched) > 24 && parseFloat(awayData.pitcherStats.inningsPitched) > 24) {
+      if (parseFloat(homeData.pitcherStats.era) < parseFloat(awayData.pitcherStats.era)) {
         homeCount++
         scoreSummary.push(
           {stat: {
@@ -90,7 +89,7 @@ function RunComparison(homeData, awayData, gameTime) {
             winner: 'home'
           }}
         )
-      } else if (homeData.pitcherStats.era > awayData.pitcherStats.era) {
+      } else if (parseFloat(homeData.pitcherStats.era) > parseFloat(awayData.pitcherStats.era)) {
         awayCount++
         scoreSummary.push(
           {stat: {
@@ -105,7 +104,7 @@ function RunComparison(homeData, awayData, gameTime) {
   }
 
   if (gameTime === 'day') {
-    if (homeData.records.dayPct > awayData.records.dayPct) {
+    if (parseFloat(homeData.records.dayPct) > parseFloat(awayData.records.dayPct)) {
       homeCount++
       scoreSummary.push(
         {stat: {
@@ -115,7 +114,7 @@ function RunComparison(homeData, awayData, gameTime) {
           winner: 'home'
         }}
       )
-    } else if (homeData.records.dayPct < awayData.records.dayPct) {
+    } else if (parseFloat(homeData.records.dayPct) < parseFloat(awayData.records.dayPct)) {
       awayCount++
       scoreSummary.push(
         {stat: {
@@ -127,7 +126,7 @@ function RunComparison(homeData, awayData, gameTime) {
       )
     }
   } else {
-    if (homeData.records.nightPct > awayData.records.nightPct) {
+    if (parseFloat(homeData.records.nightPct) > parseFloat(awayData.records.nightPct)) {
       homeCount++
       scoreSummary.push(
         {stat: {
@@ -137,7 +136,7 @@ function RunComparison(homeData, awayData, gameTime) {
           winner: 'home'
         }}
       )
-    } else if (homeData.records.nightPct < awayData.records.nightPct) {
+    } else if (parseFloat(homeData.records.nightPct) < parseFloat(awayData.records.nightPct)) {
       awayCount++
       scoreSummary.push(
         {stat: {
@@ -150,7 +149,7 @@ function RunComparison(homeData, awayData, gameTime) {
     }
   }
 
-  if (homeData.records.lastTen > awayData.records.lastTen) {
+  if (parseFloat(homeData.records.lastTen) > parseFloat(awayData.records.lastTen)) {
     homeCount++
     scoreSummary.push(
       {stat: {
@@ -160,7 +159,7 @@ function RunComparison(homeData, awayData, gameTime) {
         winner: 'home'
       }}
     )
-  } else if (homeData.records.lastTen < awayData.records.lastTen) {
+  } else if (parseFloat(homeData.records.lastTen) < parseFloat(awayData.records.lastTen)) {
     awayCount++
     scoreSummary.push(
       {stat: {
@@ -172,7 +171,7 @@ function RunComparison(homeData, awayData, gameTime) {
     )
   }
 
-  if (homeData.records.home > awayData.records.away) {
+  if (parseFloat(homeData.records.home) > parseFloat(awayData.records.away)) {
     homeCount++
     scoreSummary.push(
       {stat: {
@@ -182,7 +181,7 @@ function RunComparison(homeData, awayData, gameTime) {
         winner: 'home'
       }}
     )
-  } else if (homeData.records.home < awayData.records.away) {
+  } else if (parseFloat(homeData.records.home) < parseFloat(awayData.records.away)) {
     awayCount++
     scoreSummary.push(
       {stat: {
@@ -194,7 +193,7 @@ function RunComparison(homeData, awayData, gameTime) {
     )
   }
 
-  console.log(scoreSummary,'scoreSummary')
+  // console.log(scoreSummary,'scoreSummary')
 
   // (homeMetrics.pct > awayData.record.pct) ? homeCount++ : awayCount++; // win %
   // (homeData.hitting.runs/homeGP > awayData.hitting.runs/awayGP) ? homeCount++ : awayCount++; //runs scored
@@ -208,7 +207,7 @@ function RunComparison(homeData, awayData, gameTime) {
   // (homeData.hitting.homeRuns > awayData.hitting.homeRuns) ? homeCount++ : awayCount++; // on base %
   // console.log([homeData.hitting.runs/homeGP,awayData.hitting.runs/awayGP],'pitching')
   //
-  console.log([homeCount,awayCount],'score')
+  // console.log([homeCount,awayCount],'score')
 
   if (homeCount-awayCount > 12) {
     return {winner: 'HOME', summary:scoreSummary, score: {home: homeCount, away: awayCount}}

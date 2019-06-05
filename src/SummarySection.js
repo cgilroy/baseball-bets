@@ -1,11 +1,11 @@
 import React from 'react'
-import Paper from '@material-ui/core/Paper';
 import Fade from '@material-ui/core/Fade'
 import Collapse from '@material-ui/core/Collapse'
 
 function SummarySection(props) {
 
   let output = []
+  let i = 0
   for (var category in props.data) {
 
       let statTotal = parseFloat(props.data[category].stat.home) + parseFloat(props.data[category].stat.away)
@@ -20,7 +20,7 @@ function SummarySection(props) {
       ) : {backgroundColor:'#ccc',width:awayPercent,height:'3px'};
 
       output.push(
-        <Fade in={props.active}>
+        <Fade key={i} in={props.active}>
           <div style={{marginTop:'6px'}}>
             <div style={{display:'flex',justifyContent:'center'}}>
               <span style={{width:'100%'}}>{props.data[category].stat.home}</span>
@@ -34,6 +34,7 @@ function SummarySection(props) {
           </div>
         </Fade>
       )
+      i++
   }
 
   output = (<div style={{marginBottom:'15px'}}>{output}</div>)

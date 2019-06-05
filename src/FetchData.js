@@ -1,15 +1,11 @@
-import React from 'react'
-import MatchupBlock from './MatchupBlock.js'
+import testLive from './sample-data/schedule.json'
 
-function FetchData(callback) {
-  var moment = require('moment')
-  let pitchingData = ''
-  let hittingData = ''
-  let fieldingData = ''
-  let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+moment().format('L')+'&sportId=1&hydrate=probablePitcher(note)'
-  // let dateUrl = 'http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&hydrate=probablePitcher(note)'
-  console.log(dateUrl,'dateUrl')
-  var fetches = []
+function FetchData(date,callback) {
+  // console.log(date,'date')
+  var testingLiveData = false
+  let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+date+'&sportId=1&hydrate=probablePitcher(note)'
+  // let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date=05/28/2019&sportId=1&hydrate=probablePitcher(note)'
+  // console.log(dateUrl,'dateUrl')
   const urls = [
     dateUrl,
     'https://statsapi.mlb.com/api/v1/teams/stats?season=2019&stats=season&group=pitching&sportIds=1',
@@ -22,7 +18,11 @@ function FetchData(callback) {
       if (data.stats !== undefined) {
         return {dataType: data.stats['0'].group.displayName,data:data.stats['0'].splits}
       } else if (data.dates !== undefined) {
-        return {dataType:'schedule',data: data.dates['0']}
+        if (testingLiveData) {
+          return {dataType:'schedule',data: testLive.dates['0']}
+        } else {
+          return {dataType:'schedule',data: data.dates['0']}
+        }
       }
     })
   )).then(dataObj => {
@@ -54,7 +54,7 @@ function FetchData(callback) {
       return dataObj
     }).then(nextData => {
       fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=103,104').then(resp => resp.json()).then(output => {
-        console.log(output,'output')
+        // console.log(output,'output')
         let splitRecords = []
         output.records.map(divisions => {
           divisions.teamRecords.map(teams => {
@@ -73,7 +73,7 @@ function FetchData(callback) {
             )
           })
         })
-        console.log(splitRecords,'splitRecords')
+        // console.log(splitRecords,'splitRecords')
         nextData.push({dataType: 'records',data: splitRecords})
         callback(nextData)
       })

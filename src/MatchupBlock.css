@@ -1,0 +1,127 @@
+/* CSS for MatchupBlock.js */
+.gamesSection__header {
+  margin: 5px 0;
+}
+.card {
+  width: 49%
+}
+.card__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.bullet {
+  display: inline-block;
+  margin: 0 2px;
+  transform: scale(0.8);
+}
+.title {
+  font-size: 14px;
+}
+.pos {
+  margin-bottom: 12px;
+}
+.matchup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+.team-logo {
+  height: 25px;
+  padding-right: 8px;
+}
+.win-count {
+  padding: 0 8px;
+}
+.card__winner {
+  border: 2px solid #00d064;
+  box-sizing: border-box
+}
+.card__content--game-winner {
+  font-weight: bold;
+}
+.card__content--game-loser {
+  color: grey
+}
+.card__content--game-loser .team-logo {
+    filter: grayscale(100%);
+}
+.dropDown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap
+}
+.collapsed {
+  transition: all .15s linear
+}
+.expanded {
+  transition: all .15s linear;
+  transform: rotate(180deg)
+}
+.centerScore {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  justify-content: space-around;
+}
+.liveIcon {
+  padding-right: 4px;
+  animation: liveLoop 0.4s ease-in-out alternate infinite;
+}
+.liveIndicator {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+.liveIndicator__bar {
+  height: 100%;
+  width: 40px;
+  position: absolute;
+  background: green;
+  animation: loopBar 4s 1s infinite alternate ease-in-out
+}
+
+@keyframes loopBar {
+  0% {
+    left: -40px
+  }
+  60% {
+    left: -40px
+  }
+  100% {
+    left: 100%;
+  }
+
+}
+
+@keyframes liveLoop {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+
+}
+
+@media only screen and (max-width:600px) {
+  .matchup {
+    flex-wrap: wrap;
+  }
+  .card {
+    height: 75px;
+    align-items: center;
+    display: flex
+  }
+  .centerScore {
+    width: 100%;
+    order: 3;
+    margin-top: 10px;
+  }
+  .checkmarkIcon {
+    display: none;
+  }
+}
