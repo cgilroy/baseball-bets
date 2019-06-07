@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="App"
+  style={
+    Object {
+      "backgroundColor": "#f0f0f0",
+      "display": "flex",
+      "flexFlow": "column",
+      "minHeight": "100vh",
+    }
+  }
+>
+  <header
+    className="App-header"
+  >
+    <h1>
+      baseball-bets
+    </h1>
+  </header>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flex": "1 1 auto",
+        "flexFlow": "column",
+        "justifyContent": "center",
+        "margin": "0 auto",
+        "maxWidth": "900px",
+        "padding": "15px",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100%",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <div
+        className="lds-ripple"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;

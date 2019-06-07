@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
-import Enzyme from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16';
+import MatchupBlock from '../MatchupBlock'
 import { shallow } from 'enzyme';
-Enzyme.configure({ adapter: new Adapter() });
+import renderer from 'react-test-renderer';
+import matchupData from '../sample-data/matchup-block-data.json'
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -16,4 +16,18 @@ describe('App', () => {
   it('App renders without crashing', () => {
     shallow(<App />)
   })
+})
+
+it('renders correctly', () => {
+  const AppComponent = renderer.create(
+    shallow(
+      <MatchupBlock
+        key={matchupData.gameData.gamePk}
+        gameData={matchupData.gameData}
+        homeData={matchupData.homeData}
+        awayData={matchupData.awayData}
+        />
+    )
+  ).toJSON();
+  expect(AppComponent).toMatchSnapshot();
 })
