@@ -6,6 +6,7 @@ import MatchupBlock from './MatchupBlock.js'
 import BettingSummary from './BettingSummary.js'
 import useInterval from './useInterval.js'
 import {useState, useEffect} from 'react'
+import leagueLogo from './resources/league-logo.svg'
 
 function App() {
   const [allData, setAllData] = useState()
@@ -22,6 +23,7 @@ function App() {
 
   const handleDateChange = (date) => {
     // console.log('schedChange',date)
+    setBetObjects([])
     setScheduleDate(date)
     FetchData(moment(date).format('L'),doneFetch)
   }
@@ -98,7 +100,7 @@ function App() {
     })
   }
 
-  let matchupBlocks = (
+  let matchupBlocks = (liveGames.length !== 0 || scheduledGames.length !== 0 || finalGames.length !== 0) ? (
     <React.Fragment>
       {
         liveGames.length !== 0  && (
@@ -125,6 +127,11 @@ function App() {
         )
       }
     </React.Fragment>
+  ) : (
+    <div className="noGamesSection">
+      <img src={leagueLogo} />
+      <h2>No Games Scheduled</h2>
+    </div>
   )
   // console.log(betObjects,'betObjects')
   // console.log(betObjectsTemp,'betObjectsTemp')

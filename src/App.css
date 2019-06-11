@@ -36,7 +36,16 @@
   padding-left: 6px;
   transition: height 0.2s linear;
 }
-
+.noGamesSection {
+  padding: 10px;
+}
+.noGamesSection img {
+  width: 100%;
+  max-width: 300px;
+}
+.noGamesSection h2 {
+  font-weight: normal;
+}
 .betting-summary {
   display: flex;
   background: #fff;
