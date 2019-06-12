@@ -7,14 +7,6 @@ function BettingSummary(props) {
   let betCounts = {}
   if (props.betData.length !== 0) {
     // console.log(props.betData,'i am in')
-    let testObj = [
-      {type:'I',state:'WIN'},
-      {type:'P',state:'TIE'},
-      {type:'I',state:'LOSE'},
-      {type:'F',state:'WIN'},
-      {type:'F',state:'LOSE'},
-      {type:'D',state:'LOSE'},
-    ]
     props.betData.map(obj => {
       let category
       if (obj.type === "I") {
@@ -73,7 +65,7 @@ function BettingSummary(props) {
       <div className="betting-summary__values">
         <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>{props.betData.length} Bets</span>
         <table>
-          <tbody>
+          <tbody key='lol'>
             {betRows}
           </tbody>
         </table>
