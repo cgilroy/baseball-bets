@@ -53,12 +53,13 @@ import DateFnsUtils from "@date-io/moment";
 // })
 
 function BasicDatePicker(props) {
-  const [selectedDate, handleDateChange] = useState(new Date());
+  var moment = require('moment')
+  const [selectedDate, handleDateChange] = useState(moment());
 
   const dateChange = (val) => {
     handleDateChange(val)
-    // console.log(val,'selectedDate')
-    props.handleDateChange(val)
+    // console.log([val,selectedDate],'val,selectedDate')
+    if (moment(val).format('L') !== moment(selectedDate).format('L')) props.handleDateChange(val)
   }
 
   return (
