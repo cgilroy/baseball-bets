@@ -1,13 +1,40 @@
 import React from 'react'
 import BasicDatePicker from './BasicDatePicker.js'
 
-function BettingSummary(props) {
+export function BettingSummary(props) {
   // console.log(props.betData,'props')
   var moment = require('moment')
+  // betRows.push(<tr><td>{props.betData.length}</td><td>Total Bets</td></tr>)
+  let betCounts = makeBetCountObject(props.betData)
+  let bettingResult = ''
+  if (betCounts.hasOwnProperty('Lost')) {
+    bettingResult = 'LOST :('
+  } else if (betCounts.hasOwnProperty('Winning') || betCounts.hasOwnProperty('Losing')|| betCounts.hasOwnProperty('Tied') || betCounts.hasOwnProperty('Not Started')) {
+    bettingResult = "TBD"
+  } else if (betCounts.hasOwnProperty('Won')){
+    bettingResult = "WON :)"
+  }
+
+  return (
+    <div className="betting-summary">
+      <div className="betting-summary__date">
+          <BasicDatePicker handleDateChange={props.handleDateChange} />
+          <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>Result</span>
+          <div className="betting-summary__result">{bettingResult}</div>
+      </div>
+      <div className="betting-summary__values">
+        <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>{props.betData.length} Bets</span>
+        {makeBetTable(betCounts)}
+      </div>
+    </div>
+  )
+}
+
+export const makeBetCountObject = (betData) => {
   let betCounts = {}
-  if (props.betData.length !== 0) {
+  if (betData.length !== 0) {
     // console.log(props.betData,'i am in')
-    props.betData.map(obj => {
+    betData.map(obj => {
       let category
       if (obj.type === "I") {
         //live game
@@ -37,41 +64,22 @@ function BettingSummary(props) {
       betCounts[category]++;
     })
   }
-  let betRows = []
-  for (var category in betCounts) {
-    if (betCounts.hasOwnProperty(category)) {
-      // console.log(category,'category')
-      betRows.push(<tr key={category}><td>{betCounts[category]}</td><td>{category}</td></tr>)
-    }
-  }
-  // betRows.push(<tr><td>{props.betData.length}</td><td>Total Bets</td></tr>)
-
-  let bettingResult = ''
-  if (betCounts.hasOwnProperty('Lost')) {
-    bettingResult = 'LOST :('
-  } else if (betCounts.hasOwnProperty('Winning') || betCounts.hasOwnProperty('Losing')|| betCounts.hasOwnProperty('Tied') || betCounts.hasOwnProperty('Not Started')) {
-    bettingResult = "TBD"
-  } else if (betCounts.hasOwnProperty('Won')){
-    bettingResult = "WON :)"
-  }
-
-  return (
-    <div className="betting-summary">
-      <div className="betting-summary__date">
-          <BasicDatePicker handleDateChange={props.handleDateChange} />
-          <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>Result</span>
-          <div className="betting-summary__result">{bettingResult}</div>
-      </div>
-      <div className="betting-summary__values">
-        <span style={{color:'rgba(0, 0, 0, 0.54)',fontSize:'1rem'}}>{props.betData.length} Bets</span>
-        <table>
-          <tbody key='lol'>
-            {betRows}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  )
+  return betCounts
 }
 
-export default BettingSummary
+export const makeBetTable = (betData) => {
+  let betRows = []
+  for (var category in betData) {
+    if (betData.hasOwnProperty(category)) {
+      // console.log(category,'category')
+      betRows.push(<tr key={category}><td>{betData[category]}</td><td>{category}</td></tr>)
+    }
+  }
+  return (
+    <table>
+      <tbody key='lol'>
+        {betRows}
+      </tbody>
+    </table>
+  )
+}

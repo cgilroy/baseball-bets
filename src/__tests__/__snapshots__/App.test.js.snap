@@ -1,116 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BettingSummary test input returns correct output 1`] = `
-<div
-  className="betting-summary"
->
-  <div
-    className="betting-summary__date"
-  >
-    <div
-      className="MuiFormControl-root MuiTextField-root"
-      format="MMMM Do"
-      onClick={[Function]}
-    >
-      <label
-        className="MuiFormLabel-root MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
-        data-shrink={true}
-      >
-        Select date
-      </label>
-      <div
-        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
-        onClick={[Function]}
-      >
-        <input
-          aria-invalid={false}
-          className="MuiInputBase-input MuiInput-input"
-          disabled={false}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          readOnly={true}
-          required={false}
-          type="text"
-          value="June 12th"
-        />
-      </div>
-      
-    </div>
-    <span
-      style={
-        Object {
-          "color": "rgba(0, 0, 0, 0.54)",
-          "fontSize": "1rem",
-        }
-      }
-    >
-      Result
-    </span>
-    <div
-      className="betting-summary__result"
-    >
-      LOST :(
-    </div>
-  </div>
-  <div
-    className="betting-summary__values"
-  >
-    <span
-      style={
-        Object {
-          "color": "rgba(0, 0, 0, 0.54)",
-          "fontSize": "1rem",
-        }
-      }
-    >
-      6
-       Bets
-    </span>
-    <table>
-      <tbody>
-        <tr>
-          <td>
-            1
-          </td>
-          <td>
-            Winning
-          </td>
-        </tr>
-        <tr>
-          <td>
-            2
-          </td>
-          <td>
-            Not Started
-          </td>
-        </tr>
-        <tr>
-          <td>
-            1
-          </td>
-          <td>
-            Losing
-          </td>
-        </tr>
-        <tr>
-          <td>
-            1
-          </td>
-          <td>
-            Won
-          </td>
-        </tr>
-        <tr>
-          <td>
-            1
-          </td>
-          <td>
-            Lost
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+exports[`BettingSummary table renders correct data 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Winning
+      </td>
+    </tr>
+    <tr>
+      <td>
+        2
+      </td>
+      <td>
+        Not Started
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Losing
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Won
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Lost
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;

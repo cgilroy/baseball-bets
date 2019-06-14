@@ -3,7 +3,7 @@ import github from './resources/github.svg'
 import './App.css';
 import FetchData from './FetchData.js'
 import MatchupBlock from './MatchupBlock.js'
-import BettingSummary from './BettingSummary.js'
+import { BettingSummary } from './BettingSummary.js'
 import useInterval from './useInterval.js'
 import {useState, useEffect} from 'react'
 import leagueLogo from './resources/league-logo.svg'
@@ -22,7 +22,7 @@ function App() {
   }
 
   const handleDateChange = (date) => {
-    // console.log('schedChange',date)
+    console.log('schedChange',date)
     setBetObjects([])
     setScheduleDate(date)
     FetchData(moment(date).format('L'),doneFetch)

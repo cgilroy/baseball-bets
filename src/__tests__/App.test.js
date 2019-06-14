@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import App from '../App';
 import MatchupBlock from '../MatchupBlock'
 import RunComparison from '../RunComparison'
-import BettingSummary from '../BettingSummary'
-import { shallow } from 'enzyme';
+import { BettingSummary, makeBetTable, makeBetCountObject } from '../BettingSummary'
+import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import matchupData from '../sample-data/matchup-block-data.json'
 
@@ -42,9 +42,9 @@ describe('RunComparison', () => {
 })
 
 describe('BettingSummary', () => {
-  it('test input returns correct output', () => {
+  it('table renders correct data', () => {
     let testProps = {
-      betData:
+      betData: 
         [
           {type:'I',state:'WIN'},
           {type:'P',state:'TIE'},
@@ -54,11 +54,9 @@ describe('BettingSummary', () => {
           {type:'D',state:'LOSE'},
         ]
     }
-    const bettingComponent = renderer.create(
-      shallow(
-        <BettingSummary betData={testProps.betData} />
-      )
-    ).toJSON();
-    expect(bettingComponent).toMatchSnapshot();
+    const y = makeBetTable(makeBetCountObject(testProps.betData))
+    const x = renderer.create(y).toJSON()
+
+    expect(x).toMatchSnapshot();
   })
 })
