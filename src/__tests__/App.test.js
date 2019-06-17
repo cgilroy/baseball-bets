@@ -42,21 +42,44 @@ describe('RunComparison', () => {
 })
 
 describe('BettingSummary', () => {
+  let testProps = {
+    betDataOne: 
+      [
+        {type:'I',state:'WIN'},
+        {type:'P',state:'TIE'},
+        {type:'I',state:'LOSE'},
+        {type:'F',state:'WIN'},
+        {type:'F',state:'LOSE'},
+        {type:'D',state:'LOSE'},
+      ],
+      betDataTwo: 
+      [
+        {type:'F',state:'WIN'},
+        {type:'F',state:'WIN'},
+        {type:'F',state:'WIN'}
+      ],
+      betDataThree: 
+      [
+        {type:'I',state:'WIN'},
+        {type:'P',state:'TIE'},
+        {type:'I',state:'LOSE'}
+      ]
+  }
   it('table renders correct data', () => {
-    let testProps = {
-      betData: 
-        [
-          {type:'I',state:'WIN'},
-          {type:'P',state:'TIE'},
-          {type:'I',state:'LOSE'},
-          {type:'F',state:'WIN'},
-          {type:'F',state:'LOSE'},
-          {type:'D',state:'LOSE'},
-        ]
-    }
-    const y = makeBetTable(makeBetCountObject(testProps.betData))
-    const x = renderer.create(y).toJSON()
-
-    expect(x).toMatchSnapshot();
+    const tableOne = renderer.create(makeBetTable(makeBetCountObject(testProps.betDataOne))).toJSON()
+    const tableTwo = renderer.create(makeBetTable(makeBetCountObject(testProps.betDataTwo))).toJSON()
+    const tableThree = renderer.create(makeBetTable(makeBetCountObject(testProps.betDataThree))).toJSON()
+    expect(tableOne).toMatchSnapshot();
+    expect(tableTwo).toMatchSnapshot();
+    expect(tableThree).toMatchSnapshot();
+  })
+  it('determines the correct betting result', () => {
+    const wrapperOne = renderer.create(<BettingSummary betData={testProps.betDataOne} />)
+    const wrapperTwo = renderer.create(<BettingSummary betData={testProps.betDataTwo} />)
+    const wrapperThree = renderer.create(<BettingSummary betData={testProps.betDataThree} />)
+    const resultOne = wrapperOne.root.findByProps({className:'betting-summary__result'}).children
+    const resultTwo = wrapperTwo.root.findByProps({className:'betting-summary__result'}).children
+    const resultThree = wrapperThree.root.findByProps({className:'betting-summary__result'}).children
+    expect([...resultOne,...resultTwo,...resultThree]).toEqual(['LOST :(','WON :)','TBD'])
   })
 })

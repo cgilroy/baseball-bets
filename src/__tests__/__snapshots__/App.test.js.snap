@@ -46,3 +46,49 @@ exports[`BettingSummary table renders correct data 1`] = `
   </tbody>
 </table>
 `;
+
+exports[`BettingSummary table renders correct data 2`] = `
+<table>
+  <tbody>
+    <tr>
+      <td>
+        3
+      </td>
+      <td>
+        Won
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`BettingSummary table renders correct data 3`] = `
+<table>
+  <tbody>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Winning
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Not Started
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Losing
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
