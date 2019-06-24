@@ -7,6 +7,7 @@ import { BettingSummary, makeBetTable, makeBetCountObject } from '../BettingSumm
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import matchupData from '../sample-data/matchup-block-data.json'
+import { jsxEmptyExpression } from '@babel/types';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -74,6 +75,9 @@ describe('BettingSummary', () => {
     expect(tableThree).toMatchSnapshot();
   })
   it('determines the correct betting result', () => {
+    jest.mock('../BettingSummary')
+    // const test = renderer.create(<BettingSummary />)
+    // console.log(test)
     const wrapperOne = renderer.create(<BettingSummary betData={testProps.betDataOne} />)
     const wrapperTwo = renderer.create(<BettingSummary betData={testProps.betDataTwo} />)
     const wrapperThree = renderer.create(<BettingSummary betData={testProps.betDataThree} />)

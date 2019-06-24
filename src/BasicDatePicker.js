@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { DatePicker,  MuiPickersUtilsProvider } from "@material-ui/pickers";
-import {createMuiTheme, MuiThemeProvider} from '@material-ui/core'
+import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
 import DateFnsUtils from "@date-io/moment";
 
 // const customTheme = createMuiTheme({
@@ -53,27 +53,27 @@ import DateFnsUtils from "@date-io/moment";
 // })
 
 function BasicDatePicker(props) {
-  var moment = require('moment')
+  var moment = require("moment");
   const [selectedDate, handleDateChange] = useState(moment());
 
-  const dateChange = (val) => {
-    handleDateChange(val)
+  const dateChange = val => {
+    handleDateChange(val);
     // console.log([val,selectedDate],'val,selectedDate')
-    if (moment(val).format('L') !== moment(selectedDate).format('L')) props.handleDateChange(val)
-  }
+    if (moment(val).format("L") !== moment(selectedDate).format("L"))
+      props.handleDateChange(val);
+  };
 
   return (
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <DatePicker
-          label="Select date"
-          value={selectedDate}
-          onChange={dateChange}
-          disablePast
-          autoOk
-        />
-      </MuiPickersUtilsProvider>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <DatePicker
+        label="Select date"
+        value={selectedDate}
+        onChange={dateChange}
+        disablePast
+        autoOk
+      />
+    </MuiPickersUtilsProvider>
   );
 }
-
 
 export default BasicDatePicker;
