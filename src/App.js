@@ -17,8 +17,38 @@ function App() {
 
   const doneFetch = (data) => {
     // console.log('donefetch')
+    updateDB(data)
     if (loading) setLoading(false);
     setAllData(data)
+  }
+
+  const updateDB = (data) => {
+      // let newTransactions = transactions.slice()
+      // let promiseArray = []
+      // for (let i of data) {
+      //   newTransactions.push(i)
+      //   promiseArray.push(fetch(`/api/transaction/`, {
+      //       method: 'POST',
+      //       headers: {
+      //         'Accept': 'application/json',
+      //         'Content-Type': 'application/json'
+      //       },
+      //       body: JSON.stringify(i)
+      //     }))
+      // }
+      // Promise.all(promiseArray).then(() => {
+      //   setTransactions(newTransactions)
+      // })
+      let schedule = data.find(obj => obj.dataType === "schedule")
+      schedule["date"] =  moment().format('L')
+      fetch(`/api/games/`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(schedule)
+      })
   }
 
   const handleDateChange = (date) => {
