@@ -16,6 +16,7 @@
     "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "mongodb": "^3.2.7",
+    "node-fetch": "^2.6.0",
     "nodemon": "^1.19.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -32,6 +33,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "updateDB": "\"nodemon server/server\" \"node src/testWorker.js\"",
     "dev": "concurrently --kill-others-on-fail \"nodemon server/server\" \"npm start\""
   },
   "eslintConfig": {
