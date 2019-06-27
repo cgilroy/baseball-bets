@@ -193,22 +193,6 @@ function RunComparison(homeData, awayData, gameTime) {
     )
   }
 
-  // console.log(scoreSummary,'scoreSummary')
-
-  // (homeMetrics.pct > awayData.record.pct) ? homeCount++ : awayCount++; // win %
-  // (homeData.hitting.runs/homeGP > awayData.hitting.runs/awayGP) ? homeCount++ : awayCount++; //runs scored
-  // (homeData.pitching.runs/homeGP < awayData.pitching.runs/awayGP) ? homeCount++ : awayCount++; //runs allowed
-  // (homeData.hitting.hits/homeGP > awayData.hitting.hits/awayGP) ? homeCount++ : awayCount++; //runs scored
-  // (homeData.pitching.hits/homeGP < awayData.pitching.hits/awayGP) ? homeCount++ : awayCount++; //runs allowed
-  // (homeData.hitting.avg > awayData.hitting.avg) ? homeCount++ : awayCount++; // batting avg
-  // (homeData.hitting.obp > awayData.hitting.obp) ? homeCount++ : awayCount++; // on base %
-  // (homeData.hitting.slg > awayData.hitting.slg) ? homeCount++ : awayCount++; // on base %
-  // (homeData.hitting.ops > awayData.hitting.ops) ? homeCount++ : awayCount++; // on base %
-  // (homeData.hitting.homeRuns > awayData.hitting.homeRuns) ? homeCount++ : awayCount++; // on base %
-  // console.log([homeData.hitting.runs/homeGP,awayData.hitting.runs/awayGP],'pitching')
-  //
-  // console.log([homeCount,awayCount],'score')
-
   if (homeCount-awayCount > 12) {
     return {winner: 'HOME', summary:scoreSummary, score: {home: homeCount, away: awayCount}}
   } else if (awayCount-homeCount > 12) {
