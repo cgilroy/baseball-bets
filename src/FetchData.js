@@ -1,6 +1,10 @@
 import testLive from './sample-data/schedule.json'
 
-function FetchData(date,callback) {
+export function FetchStoredData(date,callback) {
+  fetch('/api/games').then(result => result.json()).then(data => callback(data[0].gamesData))
+}
+
+export function FetchNewData(date,callback) {
   // console.log(date,'date')
   var testingLiveData = false
   let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date='+date+'&sportId=1&hydrate=probablePitcher(note)'
@@ -85,5 +89,3 @@ function FetchData(date,callback) {
     }
   })
 }
-
-export default FetchData

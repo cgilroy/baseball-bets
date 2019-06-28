@@ -1,7 +1,7 @@
 import React from 'react';
 import github from './resources/github.svg'
 import './App.css';
-import FetchData from './FetchData.js'
+import { FetchStoredData } from './FetchData.js'
 import MatchupBlock from './MatchupBlock.js'
 import { BettingSummary } from './BettingSummary.js'
 import useInterval from './useInterval.js'
@@ -25,15 +25,15 @@ function App() {
     console.log('schedChange',date)
     setBetObjects([])
     setScheduleDate(date)
-    FetchData(moment(date).format('L'),doneFetch)
+    FetchStoredData(moment(date).format('L'),doneFetch)
   }
 
   useEffect(() => {
-    FetchData(moment(scheduleDate).format('L'),doneFetch)
+    FetchStoredData(moment(scheduleDate).format('L'),doneFetch)
   },[])
 
   useInterval(() => {
-    FetchData(moment(scheduleDate).format('L'),doneFetch);
+    FetchStoredData(moment(scheduleDate).format('L'),doneFetch);
   }, 15000);
 
   var liveGames = []
