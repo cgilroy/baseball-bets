@@ -14,12 +14,12 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
     database = client.db(DATABASE_NAME);
     collection = database.collection("gamesData");
 
-    fetchFunction.fetchTeamData(moment().format('L'),(data)=>  {
+    fetchFunction.fetchTeamData(moment().format('YYYY-MM-DD'),(data)=>  {
         // console.log(data)
         if (data.length !== 0) {
           let dayData = {
             gamesData: data,
-            date: moment().format('L')
+            date: moment().format('YYYY-MM-DD')
           }
 
           try {

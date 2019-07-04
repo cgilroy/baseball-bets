@@ -1,7 +1,11 @@
 import testLive from './sample-data/schedule.json'
 
 export function FetchStoredData(date,callback) {
-  fetch('/api/games').then(result => result.json()).then(data => callback(data[0].gamesData))
+  console.log('fetchdate',date)
+  fetch(`/api/games/${date}`).then(result => result.json()).then(data => {
+    // console.log('fetcheddata',data[0].gamesData)
+    callback(data[0].gamesData)
+  })
 }
 
 export function FetchNewData(date,callback) {

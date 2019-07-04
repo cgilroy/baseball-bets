@@ -32,6 +32,16 @@ server.listen(port, () => {
           });
         });
 
+        server.get("/api/games/:date", (request, response) => {
+          // console.log(request.params.date,'date')
+          collection.find({ date: request.params.date }).toArray((error, result) => {
+            if (error) {
+              return response.status(500).send(error);
+            }
+            response.send(result);
+          });
+        });
+
         // server.delete("/api/transaction/:id", (request, response) => {
         //   collection.remove({ "id": request.params.id }, (error, result) => {
         //       if(error) {
