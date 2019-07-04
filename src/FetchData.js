@@ -1,10 +1,22 @@
 import testLive from './sample-data/schedule.json'
 
 export function FetchStoredData(date,callback) {
-  console.log('fetchdate',date)
-  fetch(`/api/games/${date}`).then(result => result.json()).then(data => {
-    // console.log('fetcheddata',data[0].gamesData)
-    callback(data[0].gamesData)
+  let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date=' + date + '&sportId=1&hydrate=probablePitcher(note)'
+  // console.log('fetchdate',date)
+  
+  Promise.all(
+    [fetch(dateUrl).then(resp => resp.json()).then(data => { 
+      return {dataType: 'schedule', data: data.dates['0'] }
+    }),
+    fetch(`/api/games/${date}`).then(result => result.json()).then(data => {
+      // console.log('fetcheddata',data[0].gamesData)
+      return data[0].gamesData.filter(obj => (obj.dataType !== 'schedule'))
+    })]
+  ).then(outputObj => {
+    
+    let mergedOutput = outputObj[1].concat(outputObj[0])
+    // console.log('test', mergedOutput)
+    callback(mergedOutput)
   })
 }
 
