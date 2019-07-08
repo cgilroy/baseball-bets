@@ -5,9 +5,7 @@ export function FetchStoredData(date,callback) {
   // console.log('fetchdate',date)
   
   Promise.all(
-    [fetch(dateUrl).then(resp => resp.json()).then(data => { 
-      return {dataType: 'schedule', data: data.dates['0'] }
-    }),
+    [FetchLiveData(dateUrl),
     fetch(`/api/games/${date}`).then(result => result.json()).then(data => {
       // console.log('fetcheddata',data[0].gamesData)
       return data[0].gamesData.filter(obj => (obj.dataType !== 'schedule'))
@@ -18,6 +16,72 @@ export function FetchStoredData(date,callback) {
     // console.log('test', mergedOutput)
     callback(mergedOutput)
   })
+}
+
+function FetchLiveData(dateUrl) {
+  // console.log(date,'date')
+  var testingLiveData = false
+  // let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date=' + date + '&sportId=1&hydrate=probablePitcher(note)'
+  // let dateUrl = 'https://statsapi.mlb.com/api/v1/schedule?date=12/28/2019&sportId=1&hydrate=probablePitcher(note)'
+  // console.log(dateUrl,'dateUrl')
+
+  // Promise.all(urls.map(url =>
+  //   fetch(url).then(resp => resp.json()).then(data => {
+  //     if (data.stats !== undefined) {
+  //       return { dataType: data.stats['0'].group.displayName, data: data.stats['0'].splits }
+  //     } else if (data.dates !== undefined) {
+  //       if (testingLiveData) {
+  //         return { dataType: 'schedule', data: testLive.dates['0'] }
+  //       } else {
+  //         return { dataType: 'schedule', data: data.dates['0'] }
+  //       }
+  //     }
+  //   })
+  // )).then(dataObj => {
+  //   let scheduleData = dataObj.find(obj => obj.dataType === "schedule")
+  //   if (scheduleData.data !== undefined) {
+    fetch(dateUrl).then(resp => resp.json()).then(data => {
+      let schedData
+      if (data.dates !== undefined) {
+        schedData = { dataType: 'schedule', data: data.dates['0'] }
+      }
+      return schedData
+    }).then(dataObj => {
+      if (dataObj !== undefined) {
+        let pitcherUrls = []
+        dataObj.data.games.map(game => {
+          if (game.teams.home.probablePitcher && game.teams.away.probablePitcher) {
+            pitcherUrls.push(
+              `https://statsapi.mlb.com/api/v1/people/${game.teams.home.probablePitcher.id}/stats?stats=byDateRange&season=2019&group=pitching`,
+              `https://statsapi.mlb.com/api/v1/people/${game.teams.away.probablePitcher.id}/stats?stats=byDateRange&season=2019&group=pitching`
+            )
+          }
+        })
+        let allPitcherStats = []
+        Promise.all(pitcherUrls.map(url =>
+          fetch(url).then(resp =>
+            resp.json().then(parsed => {
+              return (
+                {
+                  id: resp.url.substring(resp.url.lastIndexOf("people/") + 7, resp.url.lastIndexOf("/stats")),
+                  stats: parsed.stats['0'].splits['0'].stat
+                }
+              )
+            })
+          ).then(data => allPitcherStats.push(data))
+            .catch(error => console.log(error))
+        )).then(() => {
+          console.log(dataObj, 'testingobj')
+          dataObj.push({ dataType: "startingPitcherStats", data: allPitcherStats });
+         
+          return dataObj
+        })
+      } else {
+        // no games scheduled, return nothing
+        // callback()
+        console.log('else')
+      }
+    })
 }
 
 export function FetchNewData(date,callback) {

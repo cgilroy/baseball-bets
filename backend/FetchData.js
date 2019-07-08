@@ -76,7 +76,7 @@ function FetchTeamData(date,callback) {
             })
             // console.log(nextData,'nextData')
             nextData.push({dataType: 'records',data: splitRecords})
-            callback(nextData.filter(obj => obj.dataType !== 'schedule'))
+            callback(nextData.filter(obj => (obj.dataType !== 'schedule' && obj.dataType !== 'startingPitcherStats')))
           })
         })
       } else {
