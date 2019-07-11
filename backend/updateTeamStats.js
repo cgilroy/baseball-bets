@@ -11,23 +11,24 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
     if(error) {
         throw error;
     }
+    let currentDate = moment().format('YYYY-MM-DD')
     database = client.db(DATABASE_NAME);
     collection = database.collection("gamesData");
 
-    fetchFunction.fetchTeamData(moment().format('YYYY-MM-DD'),(data)=>  {
+    fetchFunction.fetchTeamData(currentDate,(data)=>  {
         // console.log(data)
         if (data.length !== 0) {
           let dayData = {
             gamesData: data,
-            date: moment().format('YYYY-MM-DD')
+            date: currentDate
           }
 
           try {
-              collection.findOneAndUpdate(
-                  { date: dayData.date },
-                  { $set: dayData },
-                  { upsert: true }
-                  );
+            collection.findOneAndUpdate(
+                { date: dayData.date },
+                { $set: dayData },
+                { upsert: true }
+                ).then(result => console.log("Updated Team Stats"))
           } catch(e) {
               console.log(e)
           }
