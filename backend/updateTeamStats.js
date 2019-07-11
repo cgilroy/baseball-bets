@@ -19,7 +19,7 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
         // console.log(data)
         if (data.length !== 0) {
           let dayData = {
-            gamesData: data,
+            allData: { "teamStats": data },
             date: currentDate
           }
 

@@ -43,17 +43,17 @@ function App() {
   var betSummary = <BettingSummary handleDateChange={handleDateChange} betData={betObjects} />
 
   if (allData !== undefined) {
-    let schedule = allData.find(obj => obj.dataType === "schedule")
-    let pitchingData = allData.find(obj => obj.dataType === "pitching").data
-    let hittingData = allData.find(obj => obj.dataType === "hitting").data
-    let fieldingData = allData.find(obj => obj.dataType === "fielding").data
-    let startingPitcher = allData.find(obj => obj.dataType === "startingPitcherStats").data
-    let recordData = allData.find(obj => obj.dataType === "records").data
+    let schedule = allData.scheduleData
+    let startingPitcher = allData.pitcherData.data
+    let hittingData = allData.teamStats.find(obj => obj.dataType === "hitting").data
+    let fieldingData = allData.teamStats.find(obj => obj.dataType === "fielding").data
+    let pitchingData = allData.teamStats.find(obj => obj.dataType === "pitching").data
+    let recordData = allData.teamStats.find(obj => obj.dataType === "records").data
     const addBetObject = (obj) => {
       betObjectsTemp.push(obj)
       setBetObjects(betObjectsTemp)
     }
-    schedule.data.games.map(game => {
+    schedule.games.map(game => {
       let homePitcher = ''
       let awayPitcher = ''
       if (game.teams.home.hasOwnProperty('probablePitcher')) {

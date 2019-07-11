@@ -18,13 +18,13 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
     .then(result => {
         // console.log(result,'result')
         if (result.length !== 0) {
-            fetchFunction.fetchStartingPitcherStats(currentDate,result[0],(data)=>  {
+            fetchFunction.fetchStartingPitcherStats(currentDate,result[0].allData,(data)=>  {
                 // console.log('pitcheroutput',data)
                 if (data.length !== 0) {
                   try {
                     collection.findOneAndUpdate(
                         { date: currentDate },
-                        { $set: { "pitcherData": { "data": data, "lastUpdate": moment().format('lll') } } },
+                        { $set: { "allData.pitcherData": { "data": data, "lastUpdate": moment().format('lll') } } },
                         { upsert: true }
                         ).then(result => console.log("Updated Pitchers"))
                   } catch(e) {
