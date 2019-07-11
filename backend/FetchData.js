@@ -71,7 +71,7 @@ function FetchTeamData(date,callback) {
         scheduleData.games.map(game => {
           // only fetch new pitcher data if game is not underway
           // we want to store historical pre-game pitcher data in database
-          if (game.status.codedGameState === 'S' && game.teams.home.probablePitcher && game.teams.away.probablePitcher) {
+          if ((game.status.codedGameState === 'S' || game.status.codedGameState === 'P') && game.teams.home.probablePitcher && game.teams.away.probablePitcher) {
             pitcherUrls.push(
               `https://statsapi.mlb.com/api/v1/people/${game.teams.home.probablePitcher.id}/stats?stats=byDateRange&season=2019&group=pitching`,
               `https://statsapi.mlb.com/api/v1/people/${game.teams.away.probablePitcher.id}/stats?stats=byDateRange&season=2019&group=pitching`
