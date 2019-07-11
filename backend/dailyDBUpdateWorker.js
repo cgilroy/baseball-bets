@@ -23,7 +23,11 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
           }
 
           try {
-              collection.insertOne(dayData);
+              collection.findOneAndUpdate(
+                  { date: dayData.date },
+                  { $set: dayData },
+                  { upsert: true }
+                  );
           } catch(e) {
               console.log(e)
           }
