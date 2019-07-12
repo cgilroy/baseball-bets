@@ -5,6 +5,7 @@ const MongoClient = require("mongodb").MongoClient;
 require('dotenv').config()
 // const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 4000;
+const path = require('path');
 
 const CONNECTION_URL = process.env.CONNECTION_URL
 const DATABASE_NAME = "betsDB";
@@ -14,6 +15,12 @@ server.use(BodyParser.json());
 server.use(BodyParser.urlencoded({ extended: true }));
 
 var database, collection;
+
+server.use(Express.static(path.join(__dirname, '/build')));
+
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/build/index.html'));
+});
 
 server.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
@@ -75,16 +82,7 @@ server.listen(port, () => {
         // Handle React routing, return all requests to React app
 
 
-        if (process.env.NODE_ENV === 'production') {
-            // Exprees will serve up production assets
-            server.use(Express.static('build'));
-            
-            // Express serve up index.html file if it doesn't recognize route
-            const path = require('path');
-            server.get('*', (req, res) => {
-                res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-            });
-        }
+      
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
         //         if(error) {
