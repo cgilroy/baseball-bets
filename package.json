@@ -28,13 +28,13 @@
   },
   "scripts": {
     "start": "node server/server.js",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "updateDB": "\"nodemon server/server\" \"node src/testWorker.js\"",
-    "dev": "concurrently --kill-others-on-fail \"nodemon server/server\" \"npm start\"",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "dev": "concurrently --kill-others-on-fail \"nodemon server/server\" \"npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"
