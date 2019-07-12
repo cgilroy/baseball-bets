@@ -8,11 +8,16 @@ export function FetchStoredData(date,callback) {
   Promise.all(
     [FetchLiveData(dateUrl),
     fetch(`/api/games/${date}`).then(result => result.json()).then(data => {
-      // console.log('fetcheddata',data[0].gamesData)
-      return data[0].allData
+      // console.log('fetcheddata',data)
+      if (data.length !== 0) {
+        return data[0].allData
+      } else {
+        // no data available
+        return []
+      }
     })]
   ).then(outputObj => {
-    // let teamStats = 
+    // console.log(outputObj,'outputObj')
     outputObj[1]["scheduleData"] = outputObj[0]
     // console.log('test', outputObj[1])
     callback(outputObj[1])
