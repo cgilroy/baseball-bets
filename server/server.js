@@ -71,16 +71,17 @@ server.listen(port, () => {
                 response.send(result.result);
             });
         });
-
-        if (process.env.NODE_ENV === 'production') {
-          // Serve any static files
-          server.use(express.static(path.join(__dirname, '/build')));
+        server.use(Express.static(path.join(__dirname, '/build')));
             
-          // Handle React routing, return all requests to React app
-          server.get('*', function(req, res) {
-            res.sendFile(path.join(__dirname, '/build', 'index.html'));
-          });
-        }
+        // Handle React routing, return all requests to React app
+        server.get('*', function(req, res) {
+          res.sendFile(path.join(__dirname, '/build', 'index.html'));
+        });
+
+        // if (process.env.NODE_ENV === 'production') {
+        //   // Serve any static files
+          
+        // }
 
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
