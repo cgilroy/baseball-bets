@@ -71,9 +71,16 @@ server.listen(port, () => {
                 response.send(result.result);
             });
         });
-        server.get('*', (req, res) => {
-          res.sendFile(path.join(__dirname+'/client/build/index.html'));
-        });
+
+        if (process.env.NODE_ENV === 'production') {
+          // Serve any static files
+          server.use(express.static(path.join(__dirname, 'client/build')));
+            
+          // Handle React routing, return all requests to React app
+          server.get('*', function(req, res) {
+            res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+          });
+        }
 
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
