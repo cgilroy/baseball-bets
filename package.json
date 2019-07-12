@@ -27,14 +27,14 @@
     "typeface-roboto": "0.0.54"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "updateDB": "\"nodemon server/server\" \"node src/testWorker.js\"",
-    "dev": "concurrently --kill-others-on-fail \"nodemon server/server\" \"npm start\""
+    "dev": "concurrently --kill-others-on-fail \"nodemon server\" \"npm start\""
   },
   "eslintConfig": {
     "extends": "react-app"
