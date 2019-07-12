@@ -75,11 +75,16 @@ server.listen(port, () => {
         // Handle React routing, return all requests to React app
 
 
-        // if (process.env.NODE_ENV === 'production') {
-        //   // Serve any static files
-          
-        // }
-
+        if (process.env.NODE_ENV === 'production') {
+            // Exprees will serve up production assets
+            server.use(express.static('build'));
+            
+            // Express serve up index.html file if it doesn't recognize route
+            const path = require('path');
+            server.get('*', (req, res) => {
+                res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+            });
+        }
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
         //         if(error) {
