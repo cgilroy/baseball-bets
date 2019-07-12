@@ -28,7 +28,7 @@ const MatchupBlock = (props) => {
   const [inningData, setInningData] = useState()
   const gameState = props.gameData.status.codedGameState
   // console.log(props,'props')
-  let comparisonResult = RunComparison(props.homeData, props.awayData,props.gameData.dayNight)
+  let comparisonResult = props.hasData ? RunComparison(props.homeData, props.awayData,props.gameData.dayNight) : '';
   // console.log(comparisonResult,'comparisonResult')
   let homeBlock
   let awayBlock
@@ -105,26 +105,28 @@ const MatchupBlock = (props) => {
     setDropDownActive(!dropDownActive)
   }
   return(
-    <Paper style={{padding:'15px 15px 0 15px',margin:'10px 0',cursor:'default'}}>
+    <Paper style={{padding:'15px',margin:'10px 0',cursor:'default'}}>
       <TimeData gameState={gameState} inningData={inningData} gameDate={props.gameData.gameDate} location={props.gameData.venue.name} />
       <div className='matchup'>
         {homeBlock}
         <CenterScore gameState={gameState} gameData={props.gameData} comparisonResult={comparisonResult} />
         {awayBlock}
       </div>
-      <div className='dropDown'>
-        <CardActions style={{width:'100%',justifyContent:'center',paddingTop:'0'}}>
-          <IconButton
-            className={(dropDownActive) ? 'expanded' : 'collapsed'}
-            onClick={toggleDropDown}
-            aria-expanded={dropDownActive}
-            aria-label="Show more"
-          >
-            <img src={ExpandMoreIcon} style={{height:'15px'}}/>
-          </IconButton>
-        </CardActions>
-        <SummarySection data={comparisonResult.summary} active={dropDownActive}/>
-      </div>
+      { props.hasData && (
+        <div className='dropDown'>
+          <CardActions style={{width:'100%',justifyContent:'center',padding:'0'}}>
+            <IconButton
+              className={(dropDownActive) ? 'expanded' : 'collapsed'}
+              onClick={toggleDropDown}
+              aria-expanded={dropDownActive}
+              aria-label="Show more"
+            >
+              <img src={ExpandMoreIcon} style={{height:'15px'}}/>
+            </IconButton>
+          </CardActions>
+          <SummarySection data={comparisonResult.summary} active={dropDownActive}/>
+        </div>
+      )}
     </Paper>
   )
 }
@@ -168,7 +170,7 @@ const TimeData = (props) => {
 
 const CenterScore = (props) => {
 
-  const markup = (props.gameState === "I" || props.gameState === "F" || props.gameState === "O") ? (
+  const markup = (props.gameState === "I" || props.gameState === "F" || props.gameState === "O" || props.comparisonResult === '') ? (
     <React.Fragment>
       <div className='win-count'>
         <div>

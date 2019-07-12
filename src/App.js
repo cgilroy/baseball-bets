@@ -1,11 +1,12 @@
 import React from 'react';
 import github from './resources/github.svg'
 import './App.css';
-import FetchData from './FetchData.js'
+import { FetchStoredData } from './FetchData.js'
 import MatchupBlock from './MatchupBlock.js'
-import BettingSummary from './BettingSummary.js'
+import { BettingSummary } from './BettingSummary.js'
 import useInterval from './useInterval.js'
 import {useState, useEffect} from 'react'
+import leagueLogo from './resources/league-logo.svg'
 
 function App() {
   const [allData, setAllData] = useState()
@@ -15,90 +16,118 @@ function App() {
   const [scheduleDate, setScheduleDate] = useState(new Date())
 
   const doneFetch = (data) => {
-    // console.log('donefetch')
+    // console.log(data,'donefetch')
     if (loading) setLoading(false);
     setAllData(data)
   }
 
   const handleDateChange = (date) => {
-    // console.log('schedChange',date)
+    console.log('schedChange',date)
+    setBetObjects([])
     setScheduleDate(date)
-    FetchData(moment(date).format('L'),doneFetch)
+    FetchStoredData(moment(date).format('YYYY-MM-DD'),doneFetch)
   }
 
   useEffect(() => {
-    FetchData(moment(scheduleDate).format('L'),doneFetch)
+    FetchStoredData(moment(scheduleDate).format('YYYY-MM-DD'),doneFetch)
   },[])
 
   useInterval(() => {
-    FetchData(moment(scheduleDate).format('L'),doneFetch);
+    FetchStoredData(moment(scheduleDate).format('YYYY-MM-DD'),doneFetch);
   }, 15000);
-
+  console.log(allData)
   var liveGames = []
   var scheduledGames = []
   var finalGames = []
   let betObjectsTemp = []
   var betSummary = <BettingSummary handleDateChange={handleDateChange} betData={betObjects} />
 
-  if (allData !== undefined) {
-    let schedule = allData.find(obj => obj.dataType === "schedule")
-    let pitchingData = allData.find(obj => obj.dataType === "pitching").data
-    let hittingData = allData.find(obj => obj.dataType === "hitting").data
-    let fieldingData = allData.find(obj => obj.dataType === "fielding").data
-    let startingPitcher = allData.find(obj => obj.dataType === "startingPitcherStats").data
-    let recordData = allData.find(obj => obj.dataType === "records").data
-    const addBetObject = (obj) => {
-      betObjectsTemp.push(obj)
-      setBetObjects(betObjectsTemp)
+  if (allData !== undefined && allData.hasOwnProperty('scheduleData')) {
+    let schedule = allData.scheduleData
+    if (schedule !== undefined) {
+      let startingPitcher = []
+      let hittingData = []
+      let fieldingData = []
+      let pitchingData = []
+      let recordData = []
+      if (allData.hasOwnProperty("teamStats")) {
+        // if stored data is available
+        startingPitcher = allData.pitcherData.data
+        hittingData = allData.teamStats.find(obj => obj.dataType === "hitting").data
+        fieldingData = allData.teamStats.find(obj => obj.dataType === "fielding").data
+        pitchingData = allData.teamStats.find(obj => obj.dataType === "pitching").data
+        recordData = allData.teamStats.find(obj => obj.dataType === "records").data
+      }
+
+      const addBetObject = (obj) => {
+        betObjectsTemp.push(obj)
+        setBetObjects(betObjectsTemp)
+      }
+      schedule.games.map(game => {
+        let homePitcher = ''
+        let awayPitcher = ''
+        let homeData
+        let awayData
+        let outputBlock
+        if (allData.hasOwnProperty("teamStats")) {
+          if (game.teams.home.hasOwnProperty('probablePitcher')) {
+            homePitcher = (startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id) !== undefined) ? (
+              startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id).stats
+            ) : ('');
+          }
+    
+          if (game.teams.away.hasOwnProperty('probablePitcher')) {
+            awayPitcher = (startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id) !== undefined) ? (
+              startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id).stats
+            ) : ('');
+          }
+    
+          homeData = {
+            id: game.teams.home.team.id,
+            name: game.teams.home.team.name,
+            records: recordData.find(obj => obj.id === game.teams.home.team.id),
+            pitching: pitchingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
+            hitting: hittingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
+            fielding: fieldingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
+            pitcherStats: homePitcher
+          }
+          awayData = {
+            id: game.teams.away.team.id,
+            name: game.teams.away.team.name,
+            records: recordData.find(obj => obj.id === game.teams.away.team.id),
+            pitching: pitchingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
+            hitting: hittingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
+            fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
+            pitcherStats: awayPitcher
+          }
+          outputBlock = <MatchupBlock key={game.gamePk} addBetObject={addBetObject} gameData={game} homeData={homeData} awayData={awayData} hasData={true}/>
+        } else {
+          homeData = {
+            id: game.teams.home.team.id,
+            name: game.teams.home.team.name
+          }
+          awayData = {
+            id: game.teams.away.team.id,
+            name: game.teams.away.team.name
+          }
+          outputBlock = <MatchupBlock key={game.gamePk} addBetObject={addBetObject} gameData={game} homeData={homeData} awayData={awayData} hasData={false} />
+        }
+        
+        let gameState = game.status.codedGameState
+
+        if (gameState === "F" || gameState === "O" || gameState === "D") {
+          finalGames.push(outputBlock)
+        } else if (gameState === "I") {
+          liveGames.push(outputBlock)
+        } else {
+          scheduledGames.push(outputBlock)
+        }
+        return
+      })
     }
-    schedule.data.games.map(game => {
-      let homePitcher = ''
-      let awayPitcher = ''
-      if (game.teams.home.hasOwnProperty('probablePitcher')) {
-        homePitcher = (startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id) !== undefined) ? (
-          startingPitcher.find(obj => obj.id == game.teams.home.probablePitcher.id).stats
-        ) : ('');
-      }
-
-      if (game.teams.away.hasOwnProperty('probablePitcher')) {
-        awayPitcher = (startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id) !== undefined) ? (
-          startingPitcher.find(obj => obj.id == game.teams.away.probablePitcher.id).stats
-        ) : ('');
-      }
-
-      let homeData = {
-        id: game.teams.home.team.id,
-        name: game.teams.home.team.name,
-        records: recordData.find(obj => obj.id === game.teams.home.team.id),
-        pitching: pitchingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
-        hitting: hittingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
-        fielding: fieldingData.find(obj => obj.team.id === game.teams.home.team.id).stat,
-        pitcherStats: homePitcher
-      }
-      let awayData = {
-        id: game.teams.away.team.id,
-        name: game.teams.away.team.name,
-        records: recordData.find(obj => obj.id === game.teams.away.team.id),
-        pitching: pitchingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
-        hitting: hittingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
-        fielding: fieldingData.find(obj => obj.team.id === game.teams.away.team.id).stat,
-        pitcherStats: awayPitcher
-      }
-      let gameState = game.status.codedGameState
-      let outputBlock = <MatchupBlock key={game.gamePk} addBetObject={addBetObject} gameData={game} homeData={homeData} awayData={awayData} />
-
-      if (gameState === "F" || gameState === "O" || gameState === "D") {
-        finalGames.push(outputBlock)
-      } else if (gameState === "I") {
-        liveGames.push(outputBlock)
-      } else {
-        scheduledGames.push(outputBlock)
-      }
-      return
-    })
   }
 
-  let matchupBlocks = (
+  let matchupBlocks = (liveGames.length !== 0 || scheduledGames.length !== 0 || finalGames.length !== 0) ? (
     <React.Fragment>
       {
         liveGames.length !== 0  && (
@@ -125,6 +154,11 @@ function App() {
         )
       }
     </React.Fragment>
+  ) : (
+    <div className="noGamesSection">
+      <img src={leagueLogo} />
+      <h2>No Games Scheduled</h2>
+    </div>
   )
   // console.log(betObjects,'betObjects')
   // console.log(betObjectsTemp,'betObjectsTemp')

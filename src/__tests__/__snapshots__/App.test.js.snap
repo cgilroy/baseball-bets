@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BettingSummary table renders correct data 1`] = `
+<table>
+  <tbody>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Winning
+      </td>
+    </tr>
+    <tr>
+      <td>
+        2
+      </td>
+      <td>
+        Not Started
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Losing
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Won
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Lost
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`BettingSummary table renders correct data 2`] = `
+<table>
+  <tbody>
+    <tr>
+      <td>
+        3
+      </td>
+      <td>
+        Won
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`BettingSummary table renders correct data 3`] = `
+<table>
+  <tbody>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Winning
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Not Started
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        Losing
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
