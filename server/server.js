@@ -71,6 +71,9 @@ server.listen(port, () => {
                 response.send(result.result);
             });
         });
+        server.get('*', (req, res) => {
+          res.sendFile(path.join(__dirname+'/client/build/index.html'));
+        });
 
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
