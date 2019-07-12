@@ -77,7 +77,7 @@ server.listen(port, () => {
 
         if (process.env.NODE_ENV === 'production') {
             // Exprees will serve up production assets
-            server.use(express.static('build'));
+            server.use(Express.static('build'));
             
             // Express serve up index.html file if it doesn't recognize route
             const path = require('path');
