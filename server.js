@@ -75,9 +75,9 @@ server.listen(port, () => {
             });
         });
 
-        server.get('*', function (req, res) {
-          res.sendFile(path.join(__dirname, 'build', 'index.html'));
-         });
+        // server.get('*', function (req, res) {
+        //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+        //  });
       
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
