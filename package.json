@@ -2,7 +2,7 @@
   "name": "baseball-bets",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://baseball-bets.herokuapp.com/",
   "dependencies": {
     "@date-io/moment": "^1.3.6",
     "@material-ui/core": "^4.0.0-rc.0",
