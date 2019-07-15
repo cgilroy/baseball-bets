@@ -16,7 +16,7 @@ server.use(BodyParser.urlencoded({ extended: true }));
 
 var database, collection;
 
-server.use(express.static(path.join(__dirname, 'build')));
+server.use(Express.static(path.join(__dirname, 'build')));
 
 server.get('*', function (req, res) {
  res.sendFile(path.join(__dirname, 'build', 'index.html'));
