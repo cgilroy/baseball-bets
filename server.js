@@ -18,10 +18,6 @@ var database, collection;
 
 server.use(Express.static(path.join(__dirname, '/build')));
 
-server.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/build/index.html'));
-});
-
 server.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
         if(error) {
@@ -80,7 +76,9 @@ server.listen(port, () => {
         });
             
         // Handle React routing, return all requests to React app
-
+        server.get('*', (req, res) => {
+          res.sendFile(path.join(__dirname+'/build/index.html'));
+        });
       
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
