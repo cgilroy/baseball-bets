@@ -76,7 +76,7 @@ server.listen(port, () => {
         });
             
         // Handle React routing, return all requests to React app
-        server.get('/', (req, res) => {
+        server.get('/*', (req, res) => {
           res.sendFile(path.join(__dirname+'/build/index.html'));
         });
       
