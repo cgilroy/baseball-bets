@@ -16,7 +16,7 @@ server.use(BodyParser.urlencoded({ extended: true }));
 
 var database, collection;
 
-// server.use(Express.static(path.join(__dirname, 'build')));
+server.use(Express.static(path.join(__dirname, 'build')));
 
 server.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
