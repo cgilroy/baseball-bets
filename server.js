@@ -16,7 +16,11 @@ server.use(BodyParser.urlencoded({ extended: true }));
 
 var database, collection;
 
-// server.use(Express.static(path.join(__dirname, '/build')));
+server.use(express.static(path.join(__dirname, 'build')));
+
+server.get('*', function (req, res) {
+ res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 server.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
@@ -73,11 +77,6 @@ server.listen(port, () => {
                 }
                 response.send(result.result);
             });
-        });
-            
-        // Handle React routing, return all requests to React app
-        server.get('/*', (req, res) => {
-          res.sendFile(path.join(__dirname+'/build/index.html'));
         });
       
         // server.post("/api/prices", (request, response) => {
