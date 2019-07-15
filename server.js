@@ -18,6 +18,10 @@ var database, collection;
 
 server.use('/static',Express.static(path.join(__dirname, '/build')));
 
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/build/index.html'));
+});
+
 server.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
         if(error) {
