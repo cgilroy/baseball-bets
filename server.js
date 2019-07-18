@@ -5,6 +5,7 @@ const MongoClient = require("mongodb").MongoClient;
 require('dotenv').config()
 // const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 4000;
+const path = require('path');
 
 const CONNECTION_URL = process.env.CONNECTION_URL
 const DATABASE_NAME = "betsDB";
@@ -14,6 +15,8 @@ server.use(BodyParser.json());
 server.use(BodyParser.urlencoded({ extended: true }));
 
 var database, collection;
+
+server.use(Express.static(path.join(__dirname, 'build')));
 
 server.listen(port, () => {
     MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
@@ -72,6 +75,10 @@ server.listen(port, () => {
             });
         });
 
+        // server.get('*', function (req, res) {
+        //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+        //  });
+      
         // server.post("/api/prices", (request, response) => {
         //     pricesCollection.insert(request.body, (error, result) => {
         //         if(error) {

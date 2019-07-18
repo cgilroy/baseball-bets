@@ -51,13 +51,16 @@ function App() {
       let pitchingData = []
       let recordData = []
       if (allData.hasOwnProperty("teamStats")) {
-        // if stored data is available
-        startingPitcher = allData.pitcherData.data
+        // if stored team data is available
+        // startingPitcher = allData.pitcherData.data
         hittingData = allData.teamStats.find(obj => obj.dataType === "hitting").data
         fieldingData = allData.teamStats.find(obj => obj.dataType === "fielding").data
         pitchingData = allData.teamStats.find(obj => obj.dataType === "pitching").data
         recordData = allData.teamStats.find(obj => obj.dataType === "records").data
       }
+      
+      // if the stored pitcherData is available
+      if (allData.hasOwnProperty("pitcherData")) { startingPitcher = allData.pitcherData.data }
 
       const addBetObject = (obj) => {
         betObjectsTemp.push(obj)
