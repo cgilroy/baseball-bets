@@ -27,7 +27,12 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
           try {
             collection.findOneAndUpdate(
                 { date: dayData.date },
-                { $setOnInsert: dayData },
+                { $setOnInsert: {
+                    "date": currentDate,
+                    "allData.teamStats": data,
+                    "created": moment().format('lll')
+                  }
+                },
                 { upsert: true }
                 ).then(result => {
                   // console.log(result,'result')
