@@ -44,76 +44,7 @@ server.listen(port, () => {
             response.send(result);
           });
         });
-
-        // server.delete("/api/transaction/:id", (request, response) => {
-        //   collection.remove({ "id": request.params.id }, (error, result) => {
-        //       if(error) {
-        //           return response.status(500).send(error);
-        //       }
-        //       response.send(result);
-        //   });
-        // });
-        server.put("/api/games/:id", (request, response) => {
-          collection.findOneAndUpdate(
-            { id: request.params.id },
-            { $set: request.body },
-            (err, transaction) => {
-              if (err) {
-                response.status(500).send(err);
-              }
-              response.status(200).json(transaction);
-            }
-          );
-        });
-
-        server.post("/api/games", (request, response) => {
-            collection.insert(request.body, (error, result) => {
-                if(error) {
-                    return response.status(500).send(error);
-                }
-                response.send(result.result);
-            });
-        });
-
-        // server.get('*', function (req, res) {
-        //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-        //  });
-      
-        // server.post("/api/prices", (request, response) => {
-        //     pricesCollection.insert(request.body, (error, result) => {
-        //         if(error) {
-        //             // return response.status(500).send(error);
-        //         }
-        //         response.send(result.result);
-        //     });
-        // });
-
-        // server.put("/api/prices/:stock", (request, response) => {
-
-        //   pricesCollection.findOneAndUpdate(
-        //     { stock: request.params.stock },
-        //     { $set: request.body },
-        //     { upsert: true },
-        //     (err, stock) => {
-        //       if (err) {
-        //         response.status(500).send(err);
-        //       }
-        //       response.status(200).json(stock);
-        //     }
-        //   );
-        // });
-
-        // server.get("/api/prices", (request, response) => {
-        //   pricesCollection.find({}).toArray((error, result) => {
-        //       if(error) {
-        //           return response.status(500).send(error);
-        //       }
-        //       response.send(result);
-        //   });
-        // });
-        // server.get('*', (req,res) => {
-        //     return handle(req,res) // for all the react stuff
-        // })
+        
         console.log("Connected to `" + DATABASE_NAME + "`!");
     });
 });
