@@ -102,7 +102,7 @@ function FetchTeamData(date,callback) {
               return pitcherStats
             })
           ).then(data => {
-            // console.log('findingIndex',typeof(outputData))
+            // console.log('findingIndex',data)
             if (typeof(outputData) === 'object') {
               // console.log('differentData')
               // console.log(outputData,'addingsome')
@@ -137,31 +137,30 @@ function FetchTeamData(date,callback) {
     // Create arrays of property names
     var aProps = Object.getOwnPropertyNames(a);
     var bProps = Object.getOwnPropertyNames(b);
-    let result
     // console.log(aProps,'ap')
     // console.log(bProps, 'bp')
 
     // If number of properties is different,
     // objects are not equivalent
     if (aProps.length != bProps.length) {
-        result = false;
+        return false;
     }
 
     for (var i = 0; i < aProps.length; i++) {
         var propName = aProps[i];
+        // console.log([a[propName].id,b[propName].id],'val test')
 
-        // If values of same property are not equal,
+        // If pitcher id properties are not equal,
         // objects are not equivalent
-        if (a[propName] !== b[propName]) {
-            result = false;
+        if (a[propName].id !== b[propName].id) {
+            return false;
         }
     }
 
     // If we made it this far, objects
     // are considered equivalent
-    result = true;
-    // console.log(result,'result')
-    return result
+
+    return true;
 }
 
   module.exports = {
