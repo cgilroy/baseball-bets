@@ -22,7 +22,7 @@ function App() {
   }
 
   const handleDateChange = (date) => {
-    console.log('schedChange',date)
+    // console.log('schedChange',date)
     setBetObjects([])
     setScheduleDate(date)
     FetchStoredData(moment(date).format('YYYY-MM-DD'),doneFetch)
@@ -35,7 +35,7 @@ function App() {
   useInterval(() => {
     FetchStoredData(moment(scheduleDate).format('YYYY-MM-DD'),doneFetch);
   }, 15000);
-  console.log(allData)
+  // console.log(allData)
   var liveGames = []
   var scheduledGames = []
   var finalGames = []

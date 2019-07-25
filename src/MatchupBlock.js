@@ -44,7 +44,7 @@ const MatchupBlock = (props) => {
 
   useEffect(() => {
     if (comparisonResult.winner) {
-      console.log(comparisonResult.winner,'addBetObject')
+      // console.log(comparisonResult.winner,'addBetObject')
       let winningGame = homeScore > awayScore ? 'HOME' : awayScore > homeScore ? 'AWAY' : ''
       let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
       props.addBetObject({type: gameState, state: betState})
