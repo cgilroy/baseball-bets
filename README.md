@@ -1,21 +1,22 @@
 # baseball-bets: Baseball Betting Tool
 
-[Check it out](http://cgilroy.github.io/baseball-bets)
+[Check it out](https://baseball-bets.herokuapp.com/)
 
-This is a small project currently in progress I deployed for a friend of mine to use for sports betting.
+This is a project I created for a friend of mine to use for baseball betting.
 
 It takes data from the MLB API and compares certain key matchup statistics (as indicated by my friend) to decide which games he should bet on.  When one team has won at least 13 more categories than the other, they are deemed a good bet (highlighted green on the web app).
 
+The app also includes a scheduled backend worker function which loads and stores historical stats data so that daily results can be viewed or downloaded for analysis.
+
 ## Skills Developed
 * React.js - another create-react-app project
+* Express.js - used to create the API server communicating with the cloud based MongoDB stats database
+* Heroku - developed skills in deployment as well as how to run/design scheduled functions
 * Material-UI - tried my first React UI framework
-
-## Known Issues
-* Currently not able to look at past betting days.  This is because the team stats change as the season goes on, and there is not a way to query the API to get data as it would have been retrieved on a given day.
 
 ## Future Work
 * A more comprehensive live game view showing stats, outs/strikes/balls/pitcher/batter/base runners etc.
-* Storing bets results and the associated stats in a cloud database to be analyzed for betting strategies
+* Visualization of betting history; data analysis (data trends leading to wins possibly)
 
 ## Project Conclusions
 * The MLB API definitely seems related to the NHL API; I'd bet they use a similar statistics service.  The Promise chaining was complicated, but I am getting more and more confident with it.
