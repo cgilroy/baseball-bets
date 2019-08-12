@@ -12,13 +12,22 @@ import SummarySection from './SummarySection.js'
 import Checkmark from './resources/checkmark.svg'
 import Xmark from './resources/x-mark.svg'
 import ExpandMoreIcon from './resources/expand-more.svg'
+import BasesMap from './BasesMap.js'
 import Moment from 'react-moment'
 
 const FetchLiveData = (gamePk,callback) => {
   let gameUrl = 'https://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
   fetch(gameUrl).then(resp => resp.json()).then(data => {
-    // console.log(data,'FetchLiveData');
-    let inningData = data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal
+    console.log(data,'FetchLiveData');
+    let bases = {
+      first: data.liveData.linescore.hasOwnProperty("first") ? 1 : 0,
+      second: data.liveData.linescore.hasOwnProperty("second") ? 1 : 0,
+      third: data.liveData.linescore.hasOwnProperty("third") ? 1 : 0
+    };
+    let inningData = {
+      inningState: data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal,
+      basesWithRunner: bases
+    }
     callback(inningData)
   })
 }
@@ -133,6 +142,7 @@ const MatchupBlock = (props) => {
 
 const TimeData = (props) => {
   let markup = ''
+  console.log(props,'timedataprops')
   switch (props.gameState) {
     case 'F':
     case 'O':
@@ -145,10 +155,11 @@ const TimeData = (props) => {
       markup = (
         <React.Fragment>
           <div>
-            <span style={{color:'#259b24'}}>{props.inningData}</span>
+            <span style={{color:'#259b24'}}>{props.inningData.inningState}</span>
             <div className="liveIndicator">
               <div className="liveIndicator__bar"></div>
             </div>
+            {/* {props.basesWithRunner && <BasesMap basesWithRunner={props.basesWithRunner} /> } */}
           </div>
         </React.Fragment>
       );
