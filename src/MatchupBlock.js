@@ -155,11 +155,11 @@ const TimeData = (props) => {
       markup = (
         <React.Fragment>
           <div>
-            <span style={{color:'#259b24'}}>{props.inningData.inningState}</span>
+            <span style={{color:'#259b24'}}>{props.inningData ? props.inningData.inningState : ''}</span>
             <div className="liveIndicator">
               <div className="liveIndicator__bar"></div>
             </div>
-            {/* {props.basesWithRunner && <BasesMap basesWithRunner={props.basesWithRunner} /> } */}
+            { props.inningData && <BasesMap basesWithRunner={props.inningData.basesWithRunner} /> }
           </div>
         </React.Fragment>
       );
