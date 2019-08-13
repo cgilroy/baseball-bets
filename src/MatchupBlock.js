@@ -18,7 +18,7 @@ import Moment from 'react-moment'
 const FetchLiveData = (gamePk,callback) => {
   let gameUrl = 'https://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
   fetch(gameUrl).then(resp => resp.json()).then(data => {
-    console.log('FetchLiveData',data);
+    // console.log('FetchLiveData',data);
     let bases = {
       first: data.liveData.linescore.offense.hasOwnProperty("first") ? 1 : 0,
       second: data.liveData.linescore.offense.hasOwnProperty("second") ? 1 : 0,
@@ -159,7 +159,7 @@ const TimeData = (props) => {
       markup = <span>DELAYED</span>
       break;
     case 'I':
-      console.log(props,'timedataprops');
+      // console.log(props,'timedataprops');
       markup = (
         <React.Fragment>
           <div>
