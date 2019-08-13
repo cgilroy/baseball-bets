@@ -67,6 +67,7 @@
   justify-content: space-around;
 }
 .inningData {
+  display: flex;
   padding-left: 10px;
 }
 .basesMap {
@@ -88,6 +89,25 @@
 }
 .outs.light {
   background: #fff;
+}
+.chart {
+  display: flex;
+  padding: 3px 0 0 5px;
+  align-items: center;
+}
+.chart .abbrev {
+  font-size: 10px;
+  width: 10px;
+}
+.chart__circle {
+  width: 8px;
+  height: 8px;
+  background: #cbccce;
+  border-radius: 50%;
+  margin-right: 1px;
+}
+.chart__circle.dark {
+  background: #282c34;
 }
 .liveIcon {
   padding-right: 4px;

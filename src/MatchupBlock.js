@@ -25,6 +25,10 @@ const FetchLiveData = (gamePk,callback) => {
       third: data.liveData.linescore.offense.hasOwnProperty("third") ? 1 : 0
     };
     let outs = data.liveData.linescore.outs;
+    let ballsAndStrikes = {
+      balls: data.liveData.linescore.balls,
+      strikes: data.liveData.linescore.strikes
+    }
     // let bases = {
     //   first: 1,
     //   second: 0,
@@ -33,7 +37,8 @@ const FetchLiveData = (gamePk,callback) => {
     let inningData = {
       inningState: data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal,
       basesWithRunner: bases,
-      outs: outs
+      outs: outs,
+      ballsAndStrikes: ballsAndStrikes
     }
     callback(inningData)
   })
@@ -175,6 +180,7 @@ const TimeData = (props) => {
               basesWithRunner={props.inningData.basesWithRunner}
               outs={props.inningData.outs}
               inningState={props.inningData.inningState}
+              ballsAndStrikes={props.inningData.ballsAndStrikes}
             />
           )}
         </React.Fragment>
