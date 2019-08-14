@@ -6,6 +6,8 @@ This is a project I created for a friend of mine to use for baseball betting.
 
 It takes data from the MLB API and compares certain key matchup statistics (as indicated by my friend) to decide which games he should bet on.  When one team has won at least 13 more categories than the other, they are deemed a good bet (highlighted green on the web app).
 
+Live games display the up-to-date score as well as inning data such as base runners, outs, strikes and balls.
+
 The app also includes a scheduled backend worker function which loads and stores historical stats data so that daily results can be viewed or downloaded for analysis.
 
 ## Skills Developed
@@ -15,7 +17,6 @@ The app also includes a scheduled backend worker function which loads and stores
 * Material-UI - tried my first React UI framework
 
 ## Future Work
-* A more comprehensive live game view showing stats, outs/strikes/balls/pitcher/batter/base runners etc.
 * Visualization of betting history; data analysis (data trends leading to wins possibly)
 
 ## Project Conclusions
