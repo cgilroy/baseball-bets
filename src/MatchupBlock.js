@@ -12,13 +12,29 @@ import SummarySection from './SummarySection.js'
 import Checkmark from './resources/checkmark.svg'
 import Xmark from './resources/x-mark.svg'
 import ExpandMoreIcon from './resources/expand-more.svg'
+import InningData from './InningData.js'
 import Moment from 'react-moment'
 
 const FetchLiveData = (gamePk,callback) => {
   let gameUrl = 'https://statsapi.mlb.com/api/v1.1/game/'+gamePk+'/feed/live'
   fetch(gameUrl).then(resp => resp.json()).then(data => {
-    // console.log(data,'FetchLiveData');
-    let inningData = data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal
+    // console.log('FetchLiveData',data);
+    let bases = {
+      first: data.liveData.linescore.offense.hasOwnProperty("first") ? 1 : 0,
+      second: data.liveData.linescore.offense.hasOwnProperty("second") ? 1 : 0,
+      third: data.liveData.linescore.offense.hasOwnProperty("third") ? 1 : 0
+    };
+    let outs = data.liveData.linescore.outs;
+    let ballsAndStrikes = {
+      balls: data.liveData.linescore.balls,
+      strikes: data.liveData.linescore.strikes
+    }
+    let inningData = {
+      inningState: data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal,
+      basesWithRunner: bases,
+      outs: outs,
+      ballsAndStrikes: ballsAndStrikes
+    }
     callback(inningData)
   })
 }
@@ -36,11 +52,11 @@ const MatchupBlock = (props) => {
   let awayScore = props.gameData.teams.away.score
 
   const doneFetch = (data) => {
+    // console.log('FetchInningData',data)
     setInningData(data)
   }
 
   const gameUrl = props.gameData.gamePk
-  if (gameState === 'I') FetchLiveData(gameUrl,doneFetch);
 
   useEffect(() => {
     if (comparisonResult.winner) {
@@ -49,6 +65,7 @@ const MatchupBlock = (props) => {
       let betState = winningGame === comparisonResult.winner ? 'WIN' : winningGame !== '' ? 'LOSE' : 'TIE'
       props.addBetObject({type: gameState, state: betState})
     }
+    if (gameState === 'I') FetchLiveData(gameUrl,doneFetch);
   },[props.gameData])
 
   if (gameState === 'F' || gameState === 'O') {
@@ -142,14 +159,25 @@ const TimeData = (props) => {
       markup = <span>DELAYED</span>
       break;
     case 'I':
+      // console.log(props,'timedataprops');
       markup = (
         <React.Fragment>
           <div>
-            <span style={{color:'#259b24'}}>{props.inningData}</span>
+            <span style={{ color: "#259b24" }}>
+              {props.inningData ? props.inningData.inningState : ""}
+            </span>
             <div className="liveIndicator">
-              <div className="liveIndicator__bar"></div>
+              <div className="liveIndicator__bar" />
             </div>
           </div>
+          {props.inningData && (
+            <InningData
+              basesWithRunner={props.inningData.basesWithRunner}
+              outs={props.inningData.outs}
+              inningState={props.inningData.inningState}
+              ballsAndStrikes={props.inningData.ballsAndStrikes}
+            />
+          )}
         </React.Fragment>
       );
       break;
