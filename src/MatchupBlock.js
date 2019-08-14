@@ -29,11 +29,6 @@ const FetchLiveData = (gamePk,callback) => {
       balls: data.liveData.linescore.balls,
       strikes: data.liveData.linescore.strikes
     }
-    // let bases = {
-    //   first: 1,
-    //   second: 0,
-    //   third: 1
-    // };
     let inningData = {
       inningState: data.liveData.linescore.inningState + ' ' + data.liveData.linescore.currentInningOrdinal,
       basesWithRunner: bases,
