@@ -54,7 +54,7 @@ import DateFnsUtils from "@date-io/moment";
 
 function BasicDatePicker(props) {
   var moment = require("moment");
-  const [selectedDate, handleDateChange] = useState(moment());
+  const [selectedDate, handleDateChange] = useState("2019-08-18");
 
   const dateChange = val => {
     handleDateChange(val);
