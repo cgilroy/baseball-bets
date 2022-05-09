@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [betObjects, setBetObjects] = useState([])
   var moment = require('moment')
-  const [scheduleDate, setScheduleDate] = useState("2019-08-18")
+  const [scheduleDate, setScheduleDate] = useState(new Date())
 
   const doneFetch = (data) => {
     // console.log(data,'donefetch')
